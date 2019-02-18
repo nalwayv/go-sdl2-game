@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 
+	"github.com/veandco/go-sdl2/img"
+
 	"./gologger"
 	"github.com/veandco/go-sdl2/sdl"
 )
@@ -37,7 +39,7 @@ func checkError(err error) {
 
 // InitSDL ...
 func InitSDL() (*sdl.Window, error) {
-	if err := sdl.Init(sdl.INIT_VIDEO); err != nil {
+	if err := sdl.Init(sdl.INIT_EVERYTHING); err != nil {
 		sdl.GetError()
 		return nil, err
 	}
@@ -51,17 +53,40 @@ func InitSDL() (*sdl.Window, error) {
 }
 
 func loadMedia(fname string, format *sdl.PixelFormat) (*sdl.Surface, error) {
+	var err error
+
 	surface, err := sdl.LoadBMP(fname)
 	if err != nil {
 		return nil, err
 	}
 
 	optimizedSurface, err := surface.Convert(format, 0)
+	surface.Free()
+
 	if err != nil {
 		return nil, err
 	}
 
 	return optimizedSurface, nil
+}
+
+func loadMediaPng(fname string, format *sdl.PixelFormat) (*sdl.Surface, error) {
+	var err error
+
+	load, err := img.Load(fname)
+	if err != nil {
+		return nil, err
+	}
+
+	// optimize
+	op, err := load.Convert(format, 0)
+	load.Free()
+
+	if err != nil {
+		return nil, err
+	}
+
+	return op, nil
 }
 
 func setUpKeyPressSurface(face *sdl.Surface) ([]*sdl.Surface, error) {
@@ -115,11 +140,14 @@ func close() {
 	golog.Println("cleanup")
 
 	Window.Destroy()
+	Surface.Free()
 
 	sdl.Quit()
 }
 
-func main() {
+func v1() {
+	// switch between different surfaces
+
 	// SETUP --
 	var err error
 
@@ -183,4 +211,42 @@ func main() {
 		nextSurface.BlitScaled(nil, Surface, &rect)
 		Window.UpdateSurface()
 	}
+}
+
+func v2() {
+	// load png img
+	var err error
+
+	Window, err := InitSDL()
+	checkError(err)
+
+	Surface, err := Window.GetSurface()
+	checkError(err)
+
+	img, err := loadMediaPng("assets/loaded.png", Surface.Format)
+	checkError(err)
+
+	defer img.Free()
+	defer close()
+
+	var event sdl.Event
+	quit := false
+	for !quit {
+		for event = sdl.PollEvent(); event != nil; event = sdl.PollEvent() {
+			switch event.(type) {
+			case *sdl.QuitEvent:
+				quit = true
+			}
+		}
+
+		rect := sdl.Rect{X: 0, Y: 0, W: WINDOW_WIDTH, H: WINDOW_HEIGHT}
+		img.BlitScaled(nil, Surface, &rect)
+		Window.UpdateSurface()
+		sdl.Delay(16)
+	}
+
+}
+
+func main() {
+	v2()
 }
