@@ -1,0 +1,74 @@
+#+STARTUP: ...
+#+TITLE: Sdl2 Book
+#+CREATOR: N
+
+---
+
+* Current Pages
+  : Book currenly reading 
+** DONE page 64
+   CLOSED: [2019-02-22 Fri 23:21]
+** DONE page 70
+   CLOSED: [2019-02-26 Tue 21:26]
+** DONE page 78
+   CLOSED: [2019-02-23 Sat 23:20]
+** DONE page 79
+   CLOSED: [2019-02-23 Sat 23:48]
+** DONE page 93
+   CLOSED: [2019-02-25 Mon 23:48]
+** DONE page 100
+   CLOSED: [2019-02-25 Mon 23:48]
+** DONE page 105
+   CLOSED: [2019-02-26 Tue 23:51]
+** DONE page 107
+   CLOSED: [2019-02-27 Wed 17:33]
+** page 111   
+
+
+* Agenda
+  : Currenly working on these parts of the book
+** DONE added 'vector2d' class 
+   CLOSED: [2019-02-23 Sat 22:49]
+** TODO input handler
+     - sticks
+     - buttons
+     - mouse
+     - keyboard
+
+
+* Errors
+  : oh no's! within the code
+** DONE error with player
+    CLOSED: [2019-02-22 Sat 21:02]
+** DONE invalid memory address and img not showing
+    CLOSED: [2019-02-22 Sat 21:02]
+** DONE texture manager   
+    CLOSED: [2019-02-22 Sat 21:02]
+** DONE fixed enemy load issue
+    CLOSED: [2019-02-23 Sat 21:32]
+** DONE input handler xbox axis sticks not working 
+    CLOSED: [2019-02-25 Sat 21:32]
+    
+    - input seems to work for now though one crash caused the 
+    mouse to stop working
+    
+    - golang sdl2 does not have 'event.jaxis
+    so insted have to use a switch statment on event.(type)
+    switch v := event.(type){ ... }
+    and catch '*sdl.JoyAxisEvent to get access to joysticks
+    'which and 'value variables
+
+
+* Interesting  
+** Web sites
+   - Spacemacs cheat sheet. just to get better at using spacemacs ? 
+     - <https://gist.github.com/robphoenix/9e4db767ab5c912fb558>
+
+   - Lazy Foo. for learing sdl2
+     - <http://lazyfoo.net/tutorials/SDL/index.php>
+
+   - Games with go. tutorials/learing material for sdl2 framework within golang
+     - <https://www.gameswithgo.org>
+
+
+
