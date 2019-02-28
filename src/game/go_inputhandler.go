@@ -33,6 +33,7 @@ type InHandler struct {
 	inButtons       [][]bool
 	inMouseButtons  []bool
 	inMousePos      *vec2d.Vector2D
+	inKeyState      []uint8
 }
 
 // Singelton ... turn inputHandler into a singleton
@@ -44,6 +45,7 @@ var (
 // SInputHandler ... singleton init and means of communicating with input functions
 var SInputHandler = newInputHandler()
 
+// create new InputHandler ...
 func newInputHandler() *InHandler {
 	ionce.Do(func() {
 		ih = &InHandler{}
@@ -56,6 +58,8 @@ func newInputHandler() *InHandler {
 		ih.inMouseButtons = make([]bool, 3, 3)
 
 		ih.inMousePos = vec2d.NewVector2d(0, 0)
+
+		ih.inKeyState = make([]uint8, 0)
 	})
 
 	return ih
@@ -76,132 +80,40 @@ func (input *InHandler) Update() {
 
 		// mouse buttons
 		case *sdl.MouseButtonEvent:
-
-			if v.GetType() == sdl.MOUSEBUTTONDOWN {
-				if v.Button == sdl.BUTTON_LEFT {
-					fmt.Println("Mouse Left Down")
-					input.inMouseButtons[MouseLeft] = true
-				}
-
-				if v.Button == sdl.BUTTON_MIDDLE {
-					fmt.Println("Mouse Middle Down")
-					input.inMouseButtons[MouseMiddle] = true
-				}
-
-				if v.Button == sdl.BUTTON_RIGHT {
-					fmt.Println("Mouse Right Down")
-					input.inMouseButtons[MouseRight] = true
-				}
-			}
-
 			if v.GetType() == sdl.MOUSEBUTTONUP {
-				if v.Button == sdl.BUTTON_LEFT {
-					fmt.Println("Mouse Left Up")
-					input.inMouseButtons[MouseLeft] = false
-				}
-
-				if v.Button == sdl.BUTTON_MIDDLE {
-					fmt.Println("Mouse Middle Up")
-					input.inMouseButtons[MouseMiddle] = false
-				}
-
-				if v.Button == sdl.BUTTON_RIGHT {
-					fmt.Println("Mouse Right Up")
-					input.inMouseButtons[MouseRight] = false
-				}
+				input.OnMouseButtonUp(v)
+			}
+			if v.GetType() == sdl.MOUSEBUTTONDOWN {
+				input.OnMouseButtonDown(v)
 			}
 
 		// mouse move
 		case *sdl.MouseMotionEvent:
 			if v.GetType() == sdl.MOUSEMOTION {
-				input.inMousePos.SetX(float64(v.X))
-				input.inMousePos.SetY(float64(v.Y))
+				input.OnMouseMove(v)
 			}
 
 		// joypad button
 		case *sdl.JoyButtonEvent:
-			// activate
-			if v.GetType() == sdl.JOYBUTTONDOWN {
-				whichOne := v.Which
-				input.inButtons[whichOne][v.Button] = true
-			}
-
-			// de-activate
 			if v.GetType() == sdl.JOYBUTTONUP {
-				whichOne := v.Which
-				input.inButtons[whichOne][v.Button] = false
+				input.OnJoyButtonUp(v)
+			}
+			if v.GetType() == sdl.JOYBUTTONDOWN {
+				input.OnJoyButtonDown(v)
 			}
 
 		// joypad sticks
 		case *sdl.JoyAxisEvent:
-			whichOne := v.Which
+			input.OnJoyAxisMove(v)
 
-			// left analog stick moved --
-			// right
-			// left
-			// down
-			// up
-			if v.Axis == 0 {
-				if v.Value > DeadZone {
-					fmt.Println("left stick 'X' right")
-					input.inStickVal[whichOne].first.SetX(1)
-
-				} else if v.Value < -DeadZone {
-					fmt.Println("left stick 'X' left")
-					input.inStickVal[whichOne].first.SetX(-1)
-
-				} else {
-					fmt.Println("left stick 'X' default")
-					input.inStickVal[whichOne].first.SetX(0)
-				}
-			}
-			if v.Axis == 1 {
-				if v.Value > DeadZone {
-					fmt.Println("left stick 'Y' down")
-					input.inStickVal[whichOne].first.SetY(1)
-
-				} else if v.Value < -DeadZone {
-					fmt.Println("left stick 'Y' up")
-					input.inStickVal[whichOne].first.SetY(-1)
-
-				} else {
-					fmt.Println("left stick 'Y' default")
-					input.inStickVal[whichOne].first.SetY(0)
-				}
+			// keyboard
+		case *sdl.KeyboardEvent:
+			if v.State == sdl.PRESSED {
+				input.OnKeyDown()
 			}
 
-			// right analog stick moved --
-			// right
-			// left
-			// down
-			// up
-			if v.Axis == 3 {
-				if v.Value > DeadZone {
-					fmt.Println("right stick 'X' right")
-					input.inStickVal[whichOne].second.SetX(1)
-
-				} else if v.Value < -DeadZone {
-					fmt.Println("right stick 'X' left")
-					input.inStickVal[whichOne].second.SetX(-1)
-
-				} else {
-					fmt.Println("right stick 'X' default")
-					input.inStickVal[whichOne].second.SetX(0)
-				}
-			}
-			if v.Axis == 4 {
-				if v.Value > DeadZone {
-					fmt.Println("right stick 'Y' down")
-					input.inStickVal[whichOne].second.SetY(1)
-
-				} else if v.Value < -DeadZone {
-					fmt.Println("right stick 'Y' up")
-					input.inStickVal[whichOne].second.SetY(-1)
-
-				} else {
-					fmt.Println("right stick 'Y' default")
-					input.inStickVal[whichOne].second.SetY(0)
-				}
+			if v.State == sdl.RELEASED {
+				input.OnKeyUp()
 			}
 		}
 	}
@@ -209,8 +121,10 @@ func (input *InHandler) Update() {
 
 // Clean ... close all joysticks within the slice *inSticks
 func (input *InHandler) Clean() {
-	for _, v := range input.inSticks {
-		v.Close()
+	if input.JoySticksInitialised() {
+		for _, v := range input.inSticks {
+			v.Close()
+		}
 	}
 }
 
@@ -273,15 +187,17 @@ func (input *InHandler) InitialiseJoySticks() {
 
 }
 
+// GET --
+
 // JoySticksInitialised ... return has joy stick been initialised
 func (input InHandler) JoySticksInitialised() bool {
 	return input.isJSInitialised
 }
 
 // Xvalue ... get current X value
-// joy   - id of joypad for example 0 == joypad 1
-// stick - current stick on controller most have 2 left and a right
 func (input InHandler) Xvalue(joy, stick int) int {
+	// joy   - id of joypad for example 0 == joypad 1
+	// stick - current stick on controller most have 2 left and a right
 	if len(input.inStickVal) > 0 {
 		if stick == 1 {
 			v := input.inStickVal[joy].first.GetX()
@@ -296,9 +212,9 @@ func (input InHandler) Xvalue(joy, stick int) int {
 }
 
 // Yvalue ... get current Y value
-// joy   - id of joypad for example 0 == joypad 1
-// stick - current stick on controller most have 2 left and a right
 func (input InHandler) Yvalue(joy, stick int) int {
+	// joy   - id of joypad for example 0 == joypad 1
+	// stick - current stick on controller most have 2 left and a right
 	if len(input.inStickVal) > 0 {
 		if stick == 1 {
 			v := input.inStickVal[joy].first.GetY()
@@ -313,31 +229,31 @@ func (input InHandler) Yvalue(joy, stick int) int {
 }
 
 // GetButtonState ... return if current button state is active or not
-//   * Xbox Buttons
-//   -----------------
-//  | Button | Number |
-//  | ------ + ------ |
-//	| A      |      0 |
-//	| B      |      1 |
-//	| X      |      2 |
-//	| Y      |      3 |
-//	| L      |      4 |
-//	| R      |      5 |
-//    -----------------
 func (input InHandler) GetButtonState(joy, buttonNum int) bool {
+	//   * Xbox Buttons
+	//   -----------------
+	//  | Button | Number |
+	//  | ------ + ------ |
+	//	| A      |      0 |
+	//	| B      |      1 |
+	//	| X      |      2 |
+	//	| Y      |      3 |
+	//	| L      |      4 |
+	//	| R      |      5 |
+	//    -----------------
 	return input.inButtons[joy][buttonNum]
 }
 
 // GetMouseButtonState ... returns current state of mouse button click
-//   * Mouse Buttons
-//   -----------------
-//  | Button | Number |
-//  | ------ + ------ |
-//	| Left   |      0 |
-//	| Middle |      1 |
-//	| Right  |      3 |
-//   -----------------
 func (input InHandler) GetMouseButtonState(button int) bool {
+	//   * Mouse Buttons
+	//   -----------------
+	//  | Button | Number |
+	//  | ------ + ------ |
+	//	| Left   |      0 |
+	//	| Middle |      1 |
+	//	| Right  |      3 |
+	//   -----------------
 	return input.inMouseButtons[button]
 }
 
@@ -345,3 +261,158 @@ func (input InHandler) GetMouseButtonState(button int) bool {
 func (input InHandler) GetMousePosition() *vec2d.Vector2D {
 	return input.inMousePos
 }
+
+// KEYBOARD EVENTS ---
+
+// OnKeyUp ...
+func (input InHandler) OnKeyUp() {
+	input.inKeyState = sdl.GetKeyboardState()
+}
+
+// OnKeyDown ...
+func (input InHandler) OnKeyDown() {
+	input.inKeyState = sdl.GetKeyboardState()
+}
+
+// IsKeyDown ...
+func (input *InHandler) IsKeyDown(key sdl.Scancode) bool {
+	if len(input.inKeyState) == 0 {
+		return false
+	}
+
+	// is key active
+	if input.inKeyState[key] == 1 {
+		return true
+	}
+
+	return false
+}
+
+//---
+
+// MOUSE EVENTS ---
+
+// OnMouseMove ...
+func (input *InHandler) OnMouseMove(v *sdl.MouseMotionEvent) {
+	input.inMousePos.SetX(float64(v.X))
+	input.inMousePos.SetY(float64(v.Y))
+}
+
+// OnMouseButtonUp ...
+func (input *InHandler) OnMouseButtonUp(v *sdl.MouseButtonEvent) {
+	if v.Button == sdl.BUTTON_LEFT {
+		input.inMouseButtons[MouseLeft] = false
+	}
+
+	if v.Button == sdl.BUTTON_MIDDLE {
+		input.inMouseButtons[MouseMiddle] = false
+	}
+
+	if v.Button == sdl.BUTTON_RIGHT {
+		input.inMouseButtons[MouseRight] = false
+	}
+}
+
+// OnMouseButtonDown ...
+func (input *InHandler) OnMouseButtonDown(v *sdl.MouseButtonEvent) {
+	if v.Button == sdl.BUTTON_LEFT {
+		input.inMouseButtons[MouseLeft] = true
+	}
+
+	if v.Button == sdl.BUTTON_MIDDLE {
+		input.inMouseButtons[MouseMiddle] = true
+	}
+
+	if v.Button == sdl.BUTTON_RIGHT {
+		input.inMouseButtons[MouseRight] = true
+	}
+}
+
+//---
+
+// JOYSTICK EVENTS ---
+
+// OnJoyAxisMove ...
+func (input *InHandler) OnJoyAxisMove(v *sdl.JoyAxisEvent) {
+	whichOne := v.Which
+
+	// left analog stick moved --
+	// right
+	// left
+	// down
+	// up
+	if v.Axis == 0 {
+		if v.Value > DeadZone {
+			fmt.Println("left stick 'X' right")
+			input.inStickVal[whichOne].first.SetX(1)
+
+		} else if v.Value < -DeadZone {
+			fmt.Println("left stick 'X' left")
+			input.inStickVal[whichOne].first.SetX(-1)
+
+		} else {
+			fmt.Println("left stick 'X' default")
+			input.inStickVal[whichOne].first.SetX(0)
+		}
+	}
+	if v.Axis == 1 {
+		if v.Value > DeadZone {
+			fmt.Println("left stick 'Y' down")
+			input.inStickVal[whichOne].first.SetY(1)
+
+		} else if v.Value < -DeadZone {
+			fmt.Println("left stick 'Y' up")
+			input.inStickVal[whichOne].first.SetY(-1)
+
+		} else {
+			fmt.Println("left stick 'Y' default")
+			input.inStickVal[whichOne].first.SetY(0)
+		}
+	}
+
+	// right analog stick moved --
+	// right
+	// left
+	// down
+	// up
+	if v.Axis == 3 {
+		if v.Value > DeadZone {
+			fmt.Println("right stick 'X' right")
+			input.inStickVal[whichOne].second.SetX(1)
+
+		} else if v.Value < -DeadZone {
+			fmt.Println("right stick 'X' left")
+			input.inStickVal[whichOne].second.SetX(-1)
+
+		} else {
+			fmt.Println("right stick 'X' default")
+			input.inStickVal[whichOne].second.SetX(0)
+		}
+	}
+	if v.Axis == 4 {
+		if v.Value > DeadZone {
+			fmt.Println("right stick 'Y' down")
+			input.inStickVal[whichOne].second.SetY(1)
+
+		} else if v.Value < -DeadZone {
+			fmt.Println("right stick 'Y' up")
+			input.inStickVal[whichOne].second.SetY(-1)
+
+		} else {
+			fmt.Println("right stick 'Y' default")
+			input.inStickVal[whichOne].second.SetY(0)
+		}
+	}
+}
+
+// OnJoyButtonUp ...
+func (input *InHandler) OnJoyButtonUp(v *sdl.JoyButtonEvent) {
+	input.inButtons[v.Which][v.Button] = false
+}
+
+// OnJoyButtonDown ...
+func (input *InHandler) OnJoyButtonDown(v *sdl.JoyButtonEvent) {
+	input.inButtons[v.Which][v.Button] = true
+}
+
+// ---

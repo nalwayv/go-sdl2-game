@@ -28,11 +28,11 @@ func run() {
 	for game.STheGame.Running {
 
 		framesStart := sdl.GetTicks()
-		// -
+
 		game.STheGame.HandleEvents()
 		game.STheGame.Update()
 		game.STheGame.Render()
-		// -
+
 		framesEnd := sdl.GetTicks() - framesStart
 
 		if framesEnd < DELAY_TIME {

@@ -1,7 +1,9 @@
 package game
 
 import (
-	"../vec2d"
+	"fmt"
+
+	"github.com/veandco/go-sdl2/sdl"
 )
 
 /*
@@ -42,11 +44,11 @@ func (p *Player) Update() {
 	p.obj.Velocity.SetY(0)
 
 	// mouse to mouse pinter on screen
-	vec := SInputHandler.GetMousePosition()
-	p.obj.Velocity = vec2d.Divide(
-		*vec2d.Sub(*vec, *p.obj.Position), // mouse pos - player pos
-		100,                               // dampener  - slow down
-	)
+	// vec := SInputHandler.GetMousePosition()
+	// p.obj.Velocity = vec2d.Divide(
+	// 	*vec2d.Sub(*vec, *p.obj.Position), // mouse pos - player pos
+	// 	100,                               // dampener  - slow down
+	// )
 
 	p.HandleInput()
 
@@ -60,7 +62,8 @@ func (p *Player) Clean() {
 // HandleInput ...
 func (p *Player) HandleInput() {
 
-	// if joystick was found update players movements based on its inputs
+	// if joystick was found
+	// else use keyboard
 	if SInputHandler.JoySticksInitialised() {
 		// Xvalue(0,1) -> 0 = main joystick, 1 = left analog stick
 		// Yvalue(0,2) -> 0 = main joystick, 2 = right analog stick
@@ -93,10 +96,32 @@ func (p *Player) HandleInput() {
 		if SInputHandler.GetButtonState(0, 3) {
 			p.obj.Velocity.SetX(1)
 		}
-
-		// mouse left
-		if SInputHandler.GetMouseButtonState(0) {
-			p.obj.Velocity.SetX(1)
-		}
 	}
+
+	// mouse left
+	if SInputHandler.GetMouseButtonState(0) {
+		p.obj.Velocity.SetX(1)
+	}
+
+	// keyboard
+	if SInputHandler.IsKeyDown(sdl.SCANCODE_UP) {
+		fmt.Println("player up pressed")
+		p.obj.Velocity.SetY(-2)
+	}
+
+	if SInputHandler.IsKeyDown(sdl.SCANCODE_DOWN) {
+		fmt.Println("player down pressed")
+		p.obj.Velocity.SetY(2)
+	}
+
+	if SInputHandler.IsKeyDown(sdl.SCANCODE_LEFT) {
+		fmt.Println("player left pressed")
+		p.obj.Velocity.SetX(-2)
+	}
+
+	if SInputHandler.IsKeyDown(sdl.SCANCODE_RIGHT) {
+		fmt.Println("player right pressed")
+		p.obj.Velocity.SetX(2)
+	}
+
 }
