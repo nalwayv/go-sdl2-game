@@ -1,62 +1,71 @@
-#+STARTUP: ...
-#+TITLE: Sdl2 Book
-#+CREATOR: N
-
+#+TITLE: Reading sdl2-book
+#+AUTHOR: Nav
+#+TAGS: bug web emacs go work
 ---
+[[Agenda][Agenda]]
+[[Errors][Errors]]
+[[Interesting][Interesting]]
 
-* Current Page
-    : show current page reading
-** page 112   
-
-
-* Agenda
-  : Currenly working on these parts of the book
+* Emacs                                                     :emacs:spacemacs:
+  - ctrl-C-Q :: add tag to heading
+  - ctrl C-C :: activate a check list 
+                - [ / ] : number of tasks
+                - [ ]   : empty check box
+                - [ % ] : print percentage done
+      [2/3] [66%]
+    - [X] A
+    - [ ] B
+    - [X] C
+  - space_g_s :: magit spacemacs git control
+    -  s :: stage file
+    -  c :: commit stage
+    - ,c :: commit to git
+    -  q :: quit magit
+* Agenda                                                               :work:
+  : Currently working on these parts of the book
 ** DONE added 'vector2d' class 
-   CLOSED: [2019-02-23 Sat 22:49]
-** TODO input handler
-     - sticks
-     - buttons
-     - mouse
-     - keyboard
+   CLOSED: [2019-02-23 Sat]
+** DONE Done input handler
+   CLOSED: [2019-02-28 Thu]
+    - [4/4]
+    - [X] sticks
+    - [X] buttons
+    - [X] mouse
+    - [X] keyboard
 
-
-* Errors
-  : oh no's! within the code
+* Errors                                                                :bug:
+  : problems yet to be solved
 ** DONE error with player
-    CLOSED: [2019-02-22 Sat 21:02]
+    CLOSED: [2019-02-23 Sat]
 ** DONE invalid memory address and img not showing
-    CLOSED: [2019-02-22 Sat 21:02]
+    CLOSED: [2019-02-22 Sat]
 ** DONE texture manager   
-    CLOSED: [2019-02-22 Sat 21:02]
+    CLOSED: [2019-02-22 Sat]
 ** DONE fixed enemy load issue
-    CLOSED: [2019-02-23 Sat 21:32]
+    CLOSED: [2019-02-23 Sat]
 ** DONE input handler xbox axis sticks not working 
-    CLOSED: [2019-02-25 Sat 21:32]
+    CLOSED: [2019-02-25 Sat]
     
     - input seems to work for now though one crash caused the 
     mouse to stop working
     
     - golang sdl2 does not have 'event.jaxis
-    so insted have to use a switch statment on event.(type)
-    switch v := event.(type){ ... }
-    and catch '*sdl.JoyAxisEvent to get access to joysticks
-    'which and 'value variables
+    so instead have to use a 'switch statement on event.(type)
+    #+BEGIN_SRC go
+    switch v := event.(type){ 
+        case *sdl.JoyAxisEvent:  
+        // code here
+    }    
+    #+END_SRC
 ** DONE input keyboard not working
-    - method to get key press was inside 'if JoySticksInitialised'
-    and so was not being called because no joystick was active.
-    So just moved it outside if statment within player.HandleInput
+    CLOSED: [2019-02-28 Thu]
 
+    - method to get key press was inside 'if JoySticksInitialised block
+    and so was not being called if joy as not active.
 
-* Interesting  
-** Web sites
-   - Spacemacs cheat sheet. just to get better at using spacemacs ? 
-     - <https://gist.github.com/robphoenix/9e4db767ab5c912fb558>
-
-   - Lazy Foo. for learing sdl2
-     - <http://lazyfoo.net/tutorials/SDL/index.php>
-
-   - Games with go. tutorials/learing material for sdl2 framework within golang
-     - <https://www.gameswithgo.org>
-
-
+* Interesting                                                           :web:
+  [[https://gist.github.com/robphoenix/9e4db767ab5c912fb558][Spacemacs cheat sheet]]
+  [[http://lazyfoo.net/tutorials/SDL/index.php][Lazy foo sdl2 tutorials]]
+  [[http://lazyfoo.net/tutorials/SDL/index.php][Games with golang tutorials]]
+  [[https://github.com/Shashank9830/SDL-Game-Project][Sdl2 code of this book in ccp format]]
 
