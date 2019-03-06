@@ -17,26 +17,26 @@ type Logger struct {
 }
 
 var (
-	logit *Logger
+	logIt *Logger
 	once  sync.Once
 )
 
 // GetInstance ...
-func GetInstance(fname string) *Logger {
+func GetInstance(fileName string) *Logger {
 	once.Do(func() {
-		logit = createLogger(fname)
+		logIt = createLogger(fileName)
 	})
-	return logit
+	return logIt
 }
 
 // SLogger ...
 var SLogger = GetInstance("src/gologger/golog.log")
 
-func createLogger(fname string) *Logger {
-	file, _ := os.OpenFile(fname, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0777)
+func createLogger(fileName string) *Logger {
+	file, _ := os.OpenFile(fileName, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0777)
 
 	return &Logger{
-		filename: fname,
+		filename: fileName,
 		Logger:   log.New(file, "SDL >> ", log.Lshortfile|log.Ltime),
 	}
 }

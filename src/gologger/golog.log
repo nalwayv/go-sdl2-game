@@ -1,1 +1,2 @@
-SDL >> 16:57:56 go_inputhandler.go:278: no joysticks were initialised
+SDL >> 21:13:13 go_inputhandler_singleton.go:187: No joysticks were activated
+SDL >> 21:13:16 go_game.go:176: Quit App

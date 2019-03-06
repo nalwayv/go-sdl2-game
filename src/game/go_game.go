@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"sync"
 
+	"../gologger"
 	"github.com/veandco/go-sdl2/sdl"
 )
 
@@ -12,20 +13,21 @@ type Game struct {
 	Running  bool
 	Window   *sdl.Window
 	Renderer *sdl.Renderer
-	P1       *Player
-	E1       *Enemy
-	Gobjs    []IGameObject
+	// P1           *Player
+	// E1           *Enemy
+	GameObject   []IGameObject
+	StateMachine *StateMachine
 }
 
 var gm *Game
-var gonce sync.Once
+var gOnce sync.Once
 
 // STheGame ... interact with singleton
 var STheGame = newGame()
 
 // New ...
 func newGame() *Game {
-	gonce.Do(func() {
+	gOnce.Do(func() {
 		gm = &Game{}
 	})
 	return gm
@@ -37,7 +39,7 @@ func (g *Game) GetRenderer() *sdl.Renderer {
 }
 
 // Init ...
-func (g *Game) Init(title string, xpos, ypos, width, height int32, fullscreen bool) {
+func (g *Game) Init(title string, xPos, yPos, width, height int32, fullscreen bool) {
 	/*
 		FLAGS INIT
 		----------
@@ -83,7 +85,7 @@ func (g *Game) Init(title string, xpos, ypos, width, height int32, fullscreen bo
 	err = sdl.Init(sdl.INIT_EVERYTHING)
 	checkError(err)
 
-	g.Window, err = sdl.CreateWindow(title, xpos, ypos, width, height, flag)
+	g.Window, err = sdl.CreateWindow(title, xPos, yPos, width, height, flag)
 	checkError(err)
 
 	g.Renderer, err = sdl.CreateRenderer(g.Window, -1, 0)
@@ -100,52 +102,64 @@ func (g *Game) Init(title string, xpos, ypos, width, height int32, fullscreen bo
 	// input singleton
 	SInputHandler.InitialiseJoySticks()
 
-	// player
-	g.P1 = NewPlayer(NewParams(0, 0, 96, 96, "animate"))
+	// // player
+	// g.P1 = NewPlayer(NewParams(0, 0, 96, 96, "animate"))
 
-	// enemy
-	g.E1 = NewEnemy(NewParams(100, 100, 96, 96, "animate"))
+	// // enemy
+	// g.E1 = NewEnemy(NewParams(100, 100, 96, 96, "animate"))
 
-	// add gameobjects
-	g.Gobjs = make([]IGameObject, 2)
-	g.Gobjs = append(g.Gobjs, g.P1)
-	g.Gobjs = append(g.Gobjs, g.E1)
+	// // add gameobjects
+	// g.GameObject = make([]IGameObject, 2)
+	// g.GameObject = append(g.GameObject, g.P1)
+	// g.GameObject = append(g.GameObject, g.E1)
+
+	// statemachine
+	g.StateMachine = NewStateMachine()
+	g.StateMachine.ChangeState(NewMenuState())
 }
 
 // Render ...
 func (g *Game) Render() {
 	g.Renderer.Clear()
 
-	for _, v := range g.Gobjs {
-		switch v.(type) {
-		case *Player:
-			v.(*Player).Draw()
+	// for _, v := range g.Gobjs {
+	// 	switch v.(type) {
+	// 	case *Player:
+	// 		v.(*Player).Draw()
 
-		case *Enemy:
-			v.(*Enemy).Draw()
-		}
-	}
+	// 	case *Enemy:
+	// 		v.(*Enemy).Draw()
+	// 	}
+	// }
+
+	g.StateMachine.Render()
 
 	g.Renderer.Present()
 }
 
 // Update ...
 func (g *Game) Update() {
-	for _, v := range g.Gobjs {
-		switch v.(type) {
+	// for _, v := range g.Gobjs {
+	// 	switch v.(type) {
 
-		case *Player:
-			v.(*Player).Update()
+	// 	case *Player:
+	// 		v.(*Player).Update()
 
-		case *Enemy:
-			v.(*Enemy).Update()
-		}
-	}
+	// 	case *Enemy:
+	// 		v.(*Enemy).Update()
+	// 	}
+	// }
+
+	g.StateMachine.Update()
 }
 
 // HandleEvents ...
 func (g *Game) HandleEvents() {
 	SInputHandler.Update()
+
+	if SInputHandler.IsKeyDown(sdl.SCANCODE_RETURN) {
+		g.StateMachine.ChangeState(NewPlayState())
+	}
 }
 
 // Clean ...
@@ -158,6 +172,7 @@ func (g *Game) Clean() {
 
 // Quit ...
 func (g *Game) Quit() {
-	fmt.Println("quit game")
+	fmt.Println("Quit")
+	gologger.SLogger.Println("Quit App")
 	g.Running = false
 }

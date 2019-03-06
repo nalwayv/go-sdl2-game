@@ -2,36 +2,57 @@
 #+AUTHOR: Nav
 #+TAGS: bug web emacs go work
 ---
+
+*Current Page* = 132
+
+[[Emacs][Emacs]]
 [[Agenda][Agenda]]
 [[Errors][Errors]]
 [[Interesting][Interesting]]
 
 * Emacs                                                     :emacs:spacemacs:
   - ctrl-C-Q :: add tag to heading
+
   - ctrl C-C :: activate a check list 
-                - [ / ] : number of tasks
-                - [ ]   : empty check box
-                - [ % ] : print percentage done
-      [2/3] [66%]
-    - [X] A
-    - [ ] B
-    - [X] C
-  - space_g_s :: magit spacemacs git control
-    -  s :: stage file
-    -  c :: commit stage
-    - ,c :: commit to git
-    -  q :: quit magit
+    : Examples
+    [ / ] :: number of tasks
+    [   ] :: empty check box
+    [ % ] :: print percentage done
+    
+  - ctrl_c_' :: on a #+BEGIN_SRC to open in a new buffer window 
+                to write the code down save auto paste it with in 
+                the block.
+
+  - space_g_s :: magit spacemacs git control.
+    : Commands
+    - s :: stage file
+    - c :: commit stage
+    -,c :: add comment and then final commit to git
+    - q :: quit magit
+
 * Agenda                                                               :work:
   : Currently working on these parts of the book
-** DONE added 'vector2d' class 
+** DONE vector2d class 
    CLOSED: [2019-02-23 Sat]
-** DONE Done input handler
+
+** DONE input handler
    CLOSED: [2019-02-28 Thu]
     - [4/4]
     - [X] sticks
     - [X] buttons
     - [X] mouse
     - [X] keyboard
+
+** TODO state machine 
+    implement a finite state machine
+    states
+        - [0/0]
+        - [ ] play
+        - [ ] menu 
+
+** DONE menu buttons
+   CLOSED: [2019-03-06 Wed 21:08]
+   a simple menu button that switched from menu to play state
 
 * Errors                                                                :bug:
   : problems yet to be solved
@@ -46,26 +67,39 @@
 ** DONE input handler xbox axis sticks not working 
     CLOSED: [2019-02-25 Sat]
     
-    - input seems to work for now though one crash caused the 
+    input seems to work for now though one crash caused the 
     mouse to stop working
     
-    - golang sdl2 does not have 'event.jaxis
+    golang sdl2 does not have 'event.jaxis
     so instead have to use a 'switch statement on event.(type)
     #+BEGIN_SRC go
-    switch v := event.(type){ 
-        case *sdl.JoyAxisEvent:  
-        // code here
-    }    
+      switch event.(type){
+      case *sdl.JoyAxisEvent:
+        // ...
+      }
     #+END_SRC
 ** DONE input keyboard not working
     CLOSED: [2019-02-28 Thu]
 
-    - method to get key press was inside 'if JoySticksInitialised block
+    method to get key press was inside 'if JoySticksInitialised block
     and so was not being called if joy as not active.
-
+    #+BEGIN_SRC go
+      if JoySticksInitialised(){
+        // was here
+      }
+      // now here
+    #+END_SRC
+** DONE StateMachine index out of range on change
+    CLOSED: [2019-03-04]
+    had len(...)-1 to get the last elements in the wrong 
+    position. 
+    it was added before adding a new elements to the slice
+ 
 * Interesting                                                           :web:
   [[https://gist.github.com/robphoenix/9e4db767ab5c912fb558][Spacemacs cheat sheet]]
   [[http://lazyfoo.net/tutorials/SDL/index.php][Lazy foo sdl2 tutorials]]
   [[http://lazyfoo.net/tutorials/SDL/index.php][Games with golang tutorials]]
   [[https://github.com/Shashank9830/SDL-Game-Project][Sdl2 code of this book in ccp format]]
+  [[http://ergoemacs.org/emacs/emacs_magit-mode_tutorial.html][Emacs magit cheat sheet]]
+
 

@@ -7,24 +7,29 @@ import (
 
 //------------------------------------
 
-const WINDOW_WIDTH int32 = 640
-const WINDOW_HEIGHT int32 = 480
-const FPS uint32 = 60
-const DELAY_TIME uint32 = 1000.0 / FPS
+// Information ...
+const (
+	WindowWidth  int32  = 640
+	WindowHeight int32  = 480
+	Fps          uint32 = 60
+	DelayTime    uint32 = 1000.0 / Fps
+	AccTime      uint32 = 0.0
+)
 
 //------------------------------------
 
 func run() {
 	// singleton init game obj
 	game.STheGame.Init(
-		"sdl",
-		sdl.WINDOWPOS_UNDEFINED,
-		sdl.WINDOWPOS_UNDEFINED,
-		WINDOW_WIDTH,
-		WINDOW_HEIGHT,
-		false,
+		"sdl",                   // name
+		sdl.WINDOWPOS_UNDEFINED, // window position
+		sdl.WINDOWPOS_UNDEFINED, // window position
+		WindowWidth,             // width
+		WindowHeight,            // height
+		false,                   // full screen
 	)
 
+	// main loop
 	for game.STheGame.Running {
 
 		framesStart := sdl.GetTicks()
@@ -35,11 +40,12 @@ func run() {
 
 		framesEnd := sdl.GetTicks() - framesStart
 
-		if framesEnd < DELAY_TIME {
-			sdl.Delay(DELAY_TIME - framesEnd)
+		if framesEnd < DelayTime {
+			sdl.Delay(DelayTime - framesEnd)
 		}
 	}
 
+	// clean up
 	game.STheGame.Clean()
 }
 
