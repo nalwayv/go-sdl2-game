@@ -1,15 +1,17 @@
 package game
 
 /*
-	*IGameObject*
-	- Draw()
- 	- Update()
- 	- Clean()
+Implements IGameObject interface
+
+- Draw()
+- Update()
+- Clean()
 */
 
 import (
-	"./vec2d"
 	"fmt"
+
+	"./vec2d"
 	"github.com/veandco/go-sdl2/sdl"
 )
 
@@ -27,10 +29,6 @@ func NewPlayer(params *LoadParams) *Player {
 
 	return player
 }
-
-// Load ...
-// func (p *Player) Load() {
-// }
 
 // Draw ...
 func (p *Player) Draw() {

@@ -1,15 +1,20 @@
 package game
 
-import "fmt"
-
 /*
-	*IGameState*
-	- Update()
-	- Render()
-	- OnEnter() bool
-	- OnExit() bool
-	- GetStateID() string
+Implements IGameState interface.
+
+- Update()
+- Render()
+- OnEnter() bool
+- OnExit() bool
+- GetStateID() string
 */
+
+import (
+	"fmt"
+
+	"github.com/veandco/go-sdl2/sdl"
+)
 
 // PlayState ...
 type PlayState struct {
@@ -26,6 +31,16 @@ func NewPlayState() *PlayState {
 
 // Update ...
 func (ps *PlayState) Update() {
+
+	// push temp pause state onto fsm stack
+	if SInputHandler.IsKeyDown(sdl.SCANCODE_ESCAPE) {
+		STheGame.GetStateMachine().PushState(NewPauseState())
+	}
+
+	if SInputHandler.IsKeyDown(sdl.SCANCODE_Q) {
+		STheGame.GetStateMachine().PushState(NewGameOverState())
+	}
+
 	for _, v := range ps.gameObjects {
 		v.Update()
 	}
@@ -42,10 +57,13 @@ func (ps *PlayState) Render() {
 func (ps *PlayState) OnEnter() bool {
 	fmt.Println("enter play state")
 
+	// load textures
 	STextureManager.Load("assets/handheld.png", "player", STheGame.GetRenderer())
 
-	player := NewPlayer(NewParams(0, 0, 96, 96, "animate"))
+	// new player
+	player := NewPlayer(NewParams(0, 0, 96, 96, "animate", 0))
 
+	// add to game objects slice
 	ps.gameObjects = append(ps.gameObjects, player)
 
 	return true
@@ -66,7 +84,7 @@ func (ps *PlayState) OnExit() bool {
 	return true
 }
 
-// GetStateID ...
+// GetStateID ... get player id
 func (ps PlayState) GetStateID() string {
 	return ps.playID
 }

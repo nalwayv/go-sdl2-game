@@ -1,11 +1,13 @@
 package game
 
 /*
-	*IGameObject*
-	- Draw()
- 	- Update()
- 	- Clean()
+Implements IGameObject interface
+
+- Draw()
+- Update()
+- Clean()
 */
+
 
 // Enemy ...
 type Enemy struct {
@@ -20,10 +22,6 @@ func NewEnemy(params *LoadParams) *Enemy {
 
 	return enemy
 }
-
-// Load ...
-// func (e *Enemy) Load() {
-// }
 
 // Draw ...
 func (e *Enemy) Draw() {

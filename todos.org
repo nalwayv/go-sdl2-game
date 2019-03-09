@@ -3,7 +3,7 @@
 #+TAGS: bug web emacs go work
 ---
 
-*Current Page* = 132
+*Current Page* = 141
 
 [[Emacs][Emacs]]
 [[Agenda][Agenda]]
@@ -49,6 +49,8 @@
         - [0/0]
         - [ ] play
         - [ ] menu 
+        - [ ] gameover
+        - [ ] pause
 
 ** DONE menu buttons
    CLOSED: [2019-03-06 Wed 21:08]
@@ -94,7 +96,9 @@
     had len(...)-1 to get the last elements in the wrong 
     position. 
     it was added before adding a new elements to the slice
- 
+** Zero Error Animation Graphic.go
+    zero division error causing a go panic()
+
 * Interesting                                                           :web:
   [[https://gist.github.com/robphoenix/9e4db767ab5c912fb558][Spacemacs cheat sheet]]
   [[http://lazyfoo.net/tutorials/SDL/index.php][Lazy foo sdl2 tutorials]]

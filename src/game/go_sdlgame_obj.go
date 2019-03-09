@@ -1,15 +1,16 @@
 package game
 
-import "./vec2d"
-
 /*
-	*IGameObject*
-	Draw()
-	Update()
-	Clean()
+Implements IGameObject interface
+
+- Draw()
+- Update()
+- Clean()
 */
 
+
 import (
+	"./vec2d"
 	"github.com/veandco/go-sdl2/sdl"
 )
 
@@ -22,6 +23,7 @@ type SdlGameObject struct {
 	Height       int32
 	CurrentFrame int32
 	CurrentRow   int32
+	NumFrames    int
 
 	Position     *vec2d.Vector2D
 	Velocity     *vec2d.Vector2D
@@ -43,13 +45,14 @@ func NewSdlGObj(params *LoadParams) *SdlGameObject {
 
 	obj.CurrentRow = 1
 	obj.CurrentFrame = 1
+	obj.NumFrames = params.NumFrames()
 
 	return obj
 }
 
 // Draw ...
 func (g *SdlGameObject) Draw() {
-	// flipped or not
+	// flipped or not based on velocity
 	if g.Velocity.GetX() > 0 {
 		STextureManager.DrawFrame(
 			g.ID,
@@ -63,17 +66,16 @@ func (g *SdlGameObject) Draw() {
 			sdl.FLIP_HORIZONTAL,
 		)
 	} else {
-
 		STextureManager.DrawFrame(
-			g.ID,                     // texture id
-			int32(g.Position.GetX()), // X pos
-			int32(g.Position.GetY()), // Y pos
-			g.Width,                  // width of img
-			g.Height,                 // height of img
-			g.CurrentRow,             // current frame row
-			g.CurrentFrame,           // current frame
-			STheGame.GetRenderer(),   // renderer
-			0,                        // flipped
+			g.ID,
+			int32(g.Position.GetX()),
+			int32(g.Position.GetY()),
+			g.Width,
+			g.Height,
+			g.CurrentRow,
+			g.CurrentFrame,
+			STheGame.GetRenderer(),
+			0,
 		)
 	}
 }

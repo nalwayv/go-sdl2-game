@@ -21,15 +21,13 @@ func (sm *StateMachine) PushState(state IGameState) {
 
 // PopState ...
 func (sm *StateMachine) PopState() {
-	// exit if empty
-	if len(sm.gameState) == 0 {
-		return
-	}
+	if len(sm.gameState) != 0 {
 
-	n := len(sm.gameState) - 1
-	if sm.gameState[n].OnExit() {
-		// remove last element
-		sm.gameState = append(sm.gameState[n:], sm.gameState[n+1:]...)
+		// last element
+		n := len(sm.gameState) - 1
+		if sm.gameState[n].OnEnter() {
+			sm.gameState = sm.gameState[:n]
+		}
 	}
 }
 
@@ -47,7 +45,7 @@ func (sm *StateMachine) ChangeState(state IGameState) {
 
 		if sm.gameState[n].OnExit() {
 			// pop last
-			sm.gameState = append(sm.gameState[n:], sm.gameState[n+1:]...)
+			sm.gameState = sm.gameState[:n]
 		}
 	}
 

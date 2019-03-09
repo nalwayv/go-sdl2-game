@@ -46,15 +46,11 @@ func (mb *MenuButton) Update() {
 	// get current mouse pos
 	mousePos := SInputHandler.GetMousePosition()
 
-	mouseX := mousePos.GetX()
-	mouseY := mousePos.GetY()
-	posX := mb.obj.Position.GetX()
-	posY := mb.obj.Position.GetY()
-	width := float64(mb.obj.Width)
-	height := float64(mb.obj.Height)
-
 	// AABB collision check
-	if mouseX < (posX+width) && mouseX > posX && mouseY < (posY+height) && mouseY > posY {
+	if mousePos.GetX() < mb.obj.Position.GetX()+float64(mb.obj.Width) &&
+		mousePos.GetX() > mb.obj.Position.GetX() &&
+		mousePos.GetY() < mb.obj.Position.GetY()+float64(mb.obj.Height) &&
+		mousePos.GetY() > mb.obj.Position.GetY() {
 
 		mb.obj.CurrentFrame = MouseOver
 
@@ -63,14 +59,15 @@ func (mb *MenuButton) Update() {
 			fmt.Println("button clicked")
 
 			mb.obj.CurrentFrame = Clicked
-			mb.callback()
+
+			mb.callback() // run callback function
+
 			mb.buttonReleased = false
 
 		} else if !SInputHandler.GetMouseButtonState(MouseLeft) {
-
+			fmt.Println("button over")
 			mb.buttonReleased = true
 			mb.obj.CurrentFrame = MouseOver
-
 		}
 	} else {
 		mb.obj.CurrentFrame = MouseOut

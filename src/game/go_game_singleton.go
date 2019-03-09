@@ -1,7 +1,8 @@
 package game
 
+// SINGLETON
+
 import (
-	"fmt"
 	"sync"
 
 	"../gologger"
@@ -10,22 +11,22 @@ import (
 
 // Game ...
 type Game struct {
-	Running  bool
-	Window   *sdl.Window
-	Renderer *sdl.Renderer
-	// P1           *Player
-	// E1           *Enemy
+	Running      bool
+	Window       *sdl.Window
+	Renderer     *sdl.Renderer
 	GameObject   []IGameObject
 	StateMachine *StateMachine
 }
 
-var gm *Game
-var gOnce sync.Once
+var (
+	gm    *Game
+	gOnce sync.Once
+)
 
 // STheGame ... interact with singleton
 var STheGame = newGame()
 
-// New ...
+// New ... create singleton
 func newGame() *Game {
 	gOnce.Do(func() {
 		gm = &Game{}
@@ -36,6 +37,11 @@ func newGame() *Game {
 // GetRenderer ...
 func (g *Game) GetRenderer() *sdl.Renderer {
 	return g.Renderer
+}
+
+// GetStateMachine
+func (g *Game) GetStateMachine() *StateMachine {
+	return g.StateMachine
 }
 
 // Init ...
@@ -76,81 +82,51 @@ func (g *Game) Init(title string, xPos, yPos, width, height int32, fullscreen bo
 	var err error
 	var flag uint32
 
+	// set fullscreen or not
 	if fullscreen {
 		flag = sdl.WINDOW_FULLSCREEN
 	} else {
 		flag = sdl.WINDOW_SHOWN
 	}
 
+	// initialize sdl2
 	err = sdl.Init(sdl.INIT_EVERYTHING)
 	checkError(err)
 
+	// create window
 	g.Window, err = sdl.CreateWindow(title, xPos, yPos, width, height, flag)
 	checkError(err)
 
+	// create renderer
 	g.Renderer, err = sdl.CreateRenderer(g.Window, -1, 0)
 	checkError(err)
 
+	// set bg color
 	err = g.Renderer.SetDrawColor(255, 255, 255, 255)
 	checkError(err)
 
 	g.Running = true
 
-	// texture singleton
-	STextureManager.Load("assets/handheld.png", "animate", g.Renderer)
-
 	// input singleton
 	SInputHandler.InitialiseJoySticks()
 
-	// // player
-	// g.P1 = NewPlayer(NewParams(0, 0, 96, 96, "animate"))
-
-	// // enemy
-	// g.E1 = NewEnemy(NewParams(100, 100, 96, 96, "animate"))
-
-	// // add gameobjects
-	// g.GameObject = make([]IGameObject, 2)
-	// g.GameObject = append(g.GameObject, g.P1)
-	// g.GameObject = append(g.GameObject, g.E1)
-
-	// statemachine
+	// statemachine / set to menu state
 	g.StateMachine = NewStateMachine()
-	g.StateMachine.ChangeState(NewMenuState())
+	g.GetStateMachine().ChangeState(NewMenuState())
 }
 
 // Render ...
 func (g *Game) Render() {
 	g.Renderer.Clear()
 
-	// for _, v := range g.Gobjs {
-	// 	switch v.(type) {
-	// 	case *Player:
-	// 		v.(*Player).Draw()
-
-	// 	case *Enemy:
-	// 		v.(*Enemy).Draw()
-	// 	}
-	// }
-
-	g.StateMachine.Render()
+	g.GetStateMachine().Render()
 
 	g.Renderer.Present()
 }
 
 // Update ...
 func (g *Game) Update() {
-	// for _, v := range g.Gobjs {
-	// 	switch v.(type) {
-
-	// 	case *Player:
-	// 		v.(*Player).Update()
-
-	// 	case *Enemy:
-	// 		v.(*Enemy).Update()
-	// 	}
-	// }
-
-	g.StateMachine.Update()
+	g.GetStateMachine().Update()
 }
 
 // HandleEvents ...
@@ -158,7 +134,7 @@ func (g *Game) HandleEvents() {
 	SInputHandler.Update()
 
 	if SInputHandler.IsKeyDown(sdl.SCANCODE_RETURN) {
-		g.StateMachine.ChangeState(NewPlayState())
+		g.GetStateMachine().ChangeState(NewPlayState())
 	}
 }
 
@@ -172,7 +148,6 @@ func (g *Game) Clean() {
 
 // Quit ...
 func (g *Game) Quit() {
-	fmt.Println("Quit")
 	gologger.SLogger.Println("Quit App")
 	g.Running = false
 }

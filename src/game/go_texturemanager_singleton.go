@@ -15,8 +15,10 @@ type TextureManager struct {
 	textureMap map[string]*sdl.Texture
 }
 
-var tm *TextureManager
-var tOnce sync.Once
+var (
+	tm    *TextureManager
+	tOnce sync.Once
+)
 
 // STextureManager ...
 var STextureManager = newTManager()
@@ -96,10 +98,10 @@ func (t *TextureManager) DrawFrame(id string, x, y, width, height, currentRow, c
 // ClearFromTextureMap ... remove texture from 'texture map' via its id if found
 func (t *TextureManager) ClearFromTextureMap(id string) error {
 	_, ok := t.textureMap[id]
-	if !ok {
-		return errors.New("texture id not found within texture map")
+	if ok {
+		delete(t.textureMap, id)
+	} else {
+		return errors.New("texture id not found in texture map")
 	}
-
-	delete(t.textureMap, id)
 	return nil
 }

@@ -107,7 +107,7 @@ func (input *InHandler) Update() {
 		case *sdl.JoyAxisEvent:
 			input.OnJoyAxisMove(v)
 
-			// keyboard
+		// keyboard
 		case *sdl.KeyboardEvent:
 			if v.State == sdl.PRESSED {
 				input.OnKeyDown()
@@ -152,24 +152,18 @@ func (input *InHandler) InitialiseJoySticks() {
 				input.inSticks = append(input.inSticks, joy)
 
 				// add to sticksval slice
-				input.inStickVal = append(input.inStickVal,
-					&sticks{
-						first:  vec2d.NewVector2d(0, 0),
-						second: vec2d.NewVector2d(0, 0),
-					})
+				input.inStickVal = append(input.inStickVal, &sticks{vec2d.NewVector2d(0, 0), vec2d.NewVector2d(0, 0)})
 
 				// add number of button found on joypad to inButtons
 				tmpButton := make([]bool, 0)
-
 				for j := 0; j < joy.NumButtons(); j++ {
 					tmpButton = append(tmpButton, false)
 				}
-
 				input.inButtons = append(input.inButtons, tmpButton)
 
 				// log added buttons
-				for _, bval := range input.inButtons {
-					gologger.SLogger.Println("Buttons added", bval)
+				for _, buttonValue := range input.inButtons {
+					gologger.SLogger.Println("Buttons added", buttonValue)
 				}
 			}
 		}
@@ -190,8 +184,6 @@ func (input *InHandler) InitialiseJoySticks() {
 	}
 
 }
-
-// GET --
 
 // JoySticksInitialised ... return has joy stick been initialised
 func (input *InHandler) JoySticksInitialised() bool {
@@ -294,8 +286,6 @@ func (input *InHandler) IsKeyDown(key sdl.Scancode) bool {
 	return false
 }
 
-//---
-
 // MOUSE EVENTS ---
 
 // OnMouseMove ...
@@ -334,7 +324,12 @@ func (input *InHandler) OnMouseButtonDown(v *sdl.MouseButtonEvent) {
 	}
 }
 
-//---
+// Reset ... reset mouse states to false
+func (input *InHandler) Reset() {
+	input.inMouseButtons[MouseLeft] = false
+	input.inMouseButtons[MouseMiddle] = false
+	input.inMouseButtons[MouseRight] = false
+}
 
 // JOYSTICK EVENTS ---
 
@@ -342,11 +337,7 @@ func (input *InHandler) OnMouseButtonDown(v *sdl.MouseButtonEvent) {
 func (input *InHandler) OnJoyAxisMove(v *sdl.JoyAxisEvent) {
 	whichOne := v.Which
 
-	// left analog stick moved --
-	// right
-	// left
-	// down
-	// up
+	// left analogue stick moved --
 	if v.Axis == 0 {
 		if v.Value > DeadZone {
 			input.inStickVal[whichOne].first.SetX(1)
@@ -370,11 +361,7 @@ func (input *InHandler) OnJoyAxisMove(v *sdl.JoyAxisEvent) {
 		}
 	}
 
-	// right analog stick moved --
-	// right
-	// left
-	// down
-	// up
+	// right analogue stick moved --
 	if v.Axis == 3 {
 		if v.Value > DeadZone {
 			input.inStickVal[whichOne].second.SetX(1)
@@ -408,5 +395,3 @@ func (input *InHandler) OnJoyButtonUp(v *sdl.JoyButtonEvent) {
 func (input *InHandler) OnJoyButtonDown(v *sdl.JoyButtonEvent) {
 	input.inButtons[v.Which][v.Button] = true
 }
-
-// ---

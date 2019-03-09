@@ -1,17 +1,18 @@
 package game
 
+/*
+Implements IGameState interface.
+
+- Update()
+- Render()
+- OnEnter() bool
+- OnExit() bool
+- GetStateID() string
+*/
+
 import (
 	"fmt"
 )
-
-/*
-	*IGameState*
-	- Update()
-	- Render()
-	- OnEnter() bool
-	- OnExit() bool
-	- GetStateID() string
-*/
 
 // MenuState ...
 type MenuState struct {
@@ -45,20 +46,22 @@ func (ms MenuState) Render() {
 func (ms *MenuState) OnEnter() bool {
 	fmt.Println("enter menu state")
 
+	// load textures
 	STextureManager.Load("assets/button.png", "playbutton", STheGame.GetRenderer())
 	STextureManager.Load("assets/exit.png", "exitbutton", STheGame.GetRenderer())
 
-	// change states on click
-	playbutton := NewMenuButton(NewParams(100, 100, 400, 100, "playbutton"), func() {
+	// set buttons / functions
+	playbutton := NewMenuButton(NewParams(100, 100, 400, 100, "playbutton", 0), func() {
 		fmt.Println("PLAY BUTTON CLICKED")
-		STheGame.StateMachine.ChangeState(NewPlayState())
+		STheGame.GetStateMachine().ChangeState(NewPlayState())
 	})
 
-	exitbutton := NewMenuButton(NewParams(100, 300, 400, 100, "exitbutton"), func() {
+	exitbutton := NewMenuButton(NewParams(100, 300, 400, 100, "exitbutton", 0), func() {
 		fmt.Println("EXIT BUTTON CLICKED")
 		STheGame.Quit()
 	})
 
+	// add to gameobjects slice
 	ms.gameObjects = append(ms.gameObjects, playbutton)
 	ms.gameObjects = append(ms.gameObjects, exitbutton)
 
@@ -79,6 +82,7 @@ func (ms MenuState) OnExit() bool {
 
 	err = STextureManager.ClearFromTextureMap("playbutton")
 	checkError(err)
+
 	err = STextureManager.ClearFromTextureMap("exitbutton")
 	checkError(err)
 

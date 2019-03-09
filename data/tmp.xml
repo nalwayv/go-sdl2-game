@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<States>
+    <!-- MENU STATE -->
+    <Menu>
+        <Textures>
+            <tex>
+                <ID>playbutton</ID>
+                <filename>assets/playbutton.png</filename>
+            </tex>
+            <tex>
+                <ID>exitbutton</ID>
+                <filename>assets/exitbutton.png</filename>
+            </tex>
+        </Textures>
+
+        <Objects>
+            <obj>
+                <height>100</height>
+                <objtype>PlayButton</objtype>
+                <textureID>playbutton</textureID>
+                <width>400</width>
+                <x>100</x>
+                <y>100</y>
+            </obj>
+            <obj>
+                <height>100</height>
+                <objtype>ExitButton</objtype>
+                <textureID>exitbutton</textureID>
+                <width>400</width>
+                <x>100</x>
+                <y>300</y>
+            </obj>
+        </Objects>
+    </Menu>
+
+    <!-- PLAY STATE -->
+    <Play>
+    </Play>
+
+    <!-- GAMEOVER STATE -->
+    <GameOver>
+    </GameOver>
+</States>

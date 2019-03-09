@@ -1,0 +1,38 @@
+{
+    "States":{
+        "Menu": {
+            "Textures": [
+                {
+                    "filename": "assets/playbutton.png",
+                    "ID": "playbutton"
+                },
+                {
+                    "filename": "assets/exitbutton.png",
+                    "ID": "exitbutton"
+                }
+            ],
+            "Objects": [
+                {
+                    "objtype": "PlayButton",
+                    "x": 100,
+                    "y": 100,
+                    "width": 400,
+                    "height": 100,
+                    "textureID": "playbutton"
+                },
+                {
+                    "objtype": "ExitButton",
+                    "x": 100,
+                    "y": 300,
+                    "width": 400,
+                    "height": 100,
+                    "textureID": "exitbutton"
+                }
+            ]
+        },
+
+        "Play":{},
+        
+        "GameOver":{}
+    }
+}
