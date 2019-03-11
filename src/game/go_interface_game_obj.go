@@ -5,4 +5,5 @@ type IGameObject interface {
 	Draw()
 	Update()
 	Clean()
+	Load(*LoadParams)
 }

@@ -6,8 +6,8 @@ Implements IGameObject interface
 - Draw()
 - Update()
 - Clean()
+- Load()
 */
-
 
 // Enemy ...
 type Enemy struct {
@@ -18,9 +18,14 @@ type Enemy struct {
 func NewEnemy(params *LoadParams) *Enemy {
 	enemy := &Enemy{}
 
-	enemy.obj = NewSdlGObj(params)
+	//enemy.obj = NewSdlGObj(params)
 
 	return enemy
+}
+
+// Load ...
+func (e *Enemy) Load(params *LoadParams) {
+	e.obj.Load(params)
 }
 
 // Draw ...

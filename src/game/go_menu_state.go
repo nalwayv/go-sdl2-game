@@ -51,12 +51,12 @@ func (ms *MenuState) OnEnter() bool {
 	STextureManager.Load("assets/exit.png", "exitbutton", STheGame.GetRenderer())
 
 	// set buttons / functions
-	playbutton := NewMenuButton(NewParams(100, 100, 400, 100, "playbutton", 0), func() {
+	playbutton := NewMenuButton(NewParams(100, 100, 400, 100, "playbutton", 0, 0, 0), func() {
 		fmt.Println("PLAY BUTTON CLICKED")
 		STheGame.GetStateMachine().ChangeState(NewPlayState())
 	})
 
-	exitbutton := NewMenuButton(NewParams(100, 300, 400, 100, "exitbutton", 0), func() {
+	exitbutton := NewMenuButton(NewParams(100, 300, 400, 100, "exitbutton", 0, 0, 0), func() {
 		fmt.Println("EXIT BUTTON CLICKED")
 		STheGame.Quit()
 	})

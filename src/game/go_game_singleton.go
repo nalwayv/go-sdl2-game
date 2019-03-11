@@ -39,7 +39,7 @@ func (g *Game) GetRenderer() *sdl.Renderer {
 	return g.Renderer
 }
 
-// GetStateMachine
+// GetStateMachine ...
 func (g *Game) GetStateMachine() *StateMachine {
 	return g.StateMachine
 }

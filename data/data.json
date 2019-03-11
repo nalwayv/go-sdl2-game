@@ -1,38 +1,38 @@
 {
-    "States":{
-        "Menu": {
-            "Textures": [
+    "states":{
+        "menu": {
+            "textures": [
                 {
-                    "filename": "assets/playbutton.png",
-                    "ID": "playbutton"
+                    "filename": "assets/button.png",
+                    "id": "playbutton"
                 },
                 {
-                    "filename": "assets/exitbutton.png",
-                    "ID": "exitbutton"
+                    "filename": "assets/exit.png",
+                    "id": "exitbutton"
                 }
             ],
-            "Objects": [
+            "objects": [
                 {
-                    "objtype": "PlayButton",
+                    "type": "PlayButton",
                     "x": 100,
                     "y": 100,
                     "width": 400,
                     "height": 100,
-                    "textureID": "playbutton"
+                    "id": "playbutton"
                 },
                 {
-                    "objtype": "ExitButton",
+                    "type": "ExitButton",
                     "x": 100,
                     "y": 300,
                     "width": 400,
                     "height": 100,
-                    "textureID": "exitbutton"
+                    "id": "exitbutton"
                 }
             ]
         },
 
-        "Play":{},
+        "play":{},
         
-        "GameOver":{}
+        "gameOver":{}
     }
 }

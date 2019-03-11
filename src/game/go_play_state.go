@@ -58,10 +58,10 @@ func (ps *PlayState) OnEnter() bool {
 	fmt.Println("enter play state")
 
 	// load textures
-	STextureManager.Load("assets/handheld.png", "player", STheGame.GetRenderer())
+	STextureManager.Load("assets/helicopter.png", "player", STheGame.GetRenderer())
 
 	// new player
-	player := NewPlayer(NewParams(0, 0, 96, 96, "animate", 0))
+	player := NewPlayer(NewParams(0, 0, 128, 55, "player", 0, 0, 0))
 
 	// add to game objects slice
 	ps.gameObjects = append(ps.gameObjects, player)

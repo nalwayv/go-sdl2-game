@@ -25,9 +25,14 @@ func NewPlayer(params *LoadParams) *Player {
 
 	player := &Player{}
 
-	player.obj = NewSdlGObj(params) // init
+	//player.obj = NewSdlGObj(params) // init
 
 	return player
+}
+
+// Load ...
+func (p *Player) Load(params *LoadParams) {
+	p.obj.Load(params)
 }
 
 // Draw ...

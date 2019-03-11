@@ -49,13 +49,13 @@ func (ps *PauseState) OnEnter() bool {
 	// buttons
 	// main - go back to main state
 	// resume - go back to previous state
-	mainbutton := NewMenuButton(NewParams(200, 300, 200, 100, "mainbutton", 0), func() {
+	mainbutton := NewMenuButton(NewParams(200, 300, 200, 100, "mainbutton", 0, 0, 0), func() {
 		fmt.Println("MENU BUTTON CLICKED")
 		// go to menu state if clicked
 		STheGame.GetStateMachine().ChangeState(NewMenuState())
 	})
 
-	resumebutton := NewMenuButton(NewParams(200, 100, 200, 100, "resumebutton", 0), func() {
+	resumebutton := NewMenuButton(NewParams(200, 100, 200, 100, "resumebutton", 0, 0, 0), func() {
 		fmt.Println("RESUME BUTTON CLICKED")
 		// pop this state and go to previous
 		STheGame.GetStateMachine().PopState()

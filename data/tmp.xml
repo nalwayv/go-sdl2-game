@@ -1,43 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<States>
+<states>
     <!-- MENU STATE -->
-    <Menu>
-        <Textures>
-            <tex>
-                <ID>playbutton</ID>
-                <filename>assets/playbutton.png</filename>
-            </tex>
-            <tex>
-                <ID>exitbutton</ID>
-                <filename>assets/exitbutton.png</filename>
-            </tex>
-        </Textures>
-
-        <Objects>
-            <obj>
-                <height>100</height>
-                <objtype>PlayButton</objtype>
-                <textureID>playbutton</textureID>
-                <width>400</width>
+    <menu>
+        <!-- array textures -->
+        <textures>
+          <texture>
+            <filename>assets/button.png</filename>
+            <id>playbutton</id>
+          </texture>
+          <texture>
+            <filename>assets/exit.png</filename>
+            <id>exitbutton</id>
+          </texture>
+        </textures>
+        <!-- array objects -->
+        <objects>
+            <object type="MenuButton">
                 <x>100</x>
                 <y>100</y>
-            </obj>
-            <obj>
-                <height>100</height>
-                <objtype>ExitButton</objtype>
-                <textureID>exitbutton</textureID>
                 <width>400</width>
+                <height>100</height>
+                <id>playbutton</id>
+                <numframes>0</numframes>
+                <callbackid>1</callbackid>
+                <animspeed>0</animspeed>
+            </object>
+            <object type="MenuButton">
                 <x>100</x>
                 <y>300</y>
-            </obj>
-        </Objects>
-    </Menu>
+                <width>400</width>
+                <height>100</height>
+                <id>exitbutton</id>
+                <numframes>0</numframes>
+                <callbackid>2</callbackid>
+                <animspeed>0</animspeed>
+            </object>
+        </objects>
+    </menu>
 
     <!-- PLAY STATE -->
-    <Play>
-    </Play>
+    <play></play>
 
     <!-- GAMEOVER STATE -->
-    <GameOver>
-    </GameOver>
-</States>
+    <gameover></gameover>
+</states>

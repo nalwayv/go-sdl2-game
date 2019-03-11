@@ -6,8 +6,8 @@ Implements IGameObject interface
 - Draw()
 - Update()
 - Clean()
+- Load()
 */
-
 
 import (
 	"./vec2d"
@@ -88,4 +88,22 @@ func (g *SdlGameObject) Update() {
 
 // Clean ...
 func (g *SdlGameObject) Clean() {
+}
+
+// Load ...
+func (g *SdlGameObject) Load(params *LoadParams) {
+	obj := &SdlGameObject{}
+
+	obj.Position = vec2d.NewVector2d(float64(params.X()), float64(params.Y()))
+	obj.Velocity = vec2d.NewVector2d(0.0, 0.0)
+	obj.Acceleration = vec2d.NewVector2d(0.0, 0.0)
+
+	obj.Width = params.Width()
+	obj.Height = params.Height()
+
+	obj.ID = params.ID()
+
+	obj.CurrentRow = 1
+	obj.CurrentFrame = 1
+	obj.NumFrames = params.NumFrames()
 }

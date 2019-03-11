@@ -1,9 +1,9 @@
 #+TITLE: Reading sdl2-book
 #+AUTHOR: Nav
-#+TAGS: bug web emacs go work
+#+TAGS: bug web emacs go working
 ---
 
-*Current Page* = 141
+*Current Page* = 160
 
 [[Emacs][Emacs]]
 [[Agenda][Agenda]]
@@ -30,7 +30,7 @@
     -,c :: add comment and then final commit to git
     - q :: quit magit
 
-* Agenda                                                               :work:
+* Agenda                                                               :working:
   : Currently working on these parts of the book
 ** DONE vector2d class 
    CLOSED: [2019-02-23 Sat]
@@ -43,18 +43,26 @@
     - [X] mouse
     - [X] keyboard
 
+** DONE menu buttons
+   CLOSED: [2019-03-06 Wed 21:08]
+   a simple menu button that switched from menu to play state
+
 ** TODO state machine 
     implement a finite state machine
     states
         - [0/0]
         - [ ] play
         - [ ] menu 
-        - [ ] gameover
+        - [ ] gameOver
         - [ ] pause
 
-** DONE menu buttons
-   CLOSED: [2019-03-06 Wed 21:08]
-   a simple menu button that switched from menu to play state
+** TODO loading with xml data
+    have the game load data from xml file
+        - [0/0]
+        - [ ] made xml file with data
+        - [ ] parse xml data
+        - [ ] load data
+
 
 * Errors                                                                :bug:
   : problems yet to be solved
@@ -96,7 +104,7 @@
     had len(...)-1 to get the last elements in the wrong 
     position. 
     it was added before adding a new elements to the slice
-** Zero Error Animation Graphic.go
+** TODO Zero Error Animation Graphic.go
     zero division error causing a go panic()
 
 * Interesting                                                           :web:

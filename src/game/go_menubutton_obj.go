@@ -3,10 +3,12 @@ package game
 import "fmt"
 
 /*
-	*IGameObject*
-	- Draw()
- 	- Update()
- 	- Clean()
+*IGameObject*
+
+- Draw()
+- Update()
+- Clean()
+- Load()
 */
 
 // enum mouse states
@@ -21,19 +23,29 @@ type MenuButton struct {
 	obj            *SdlGameObject
 	buttonReleased bool
 	callback       func()
+	callbackID     int
 }
 
 // NewMenuButton ...
 func NewMenuButton(params *LoadParams, callback func()) *MenuButton {
 	mb := &MenuButton{}
 
-	mb.obj = NewSdlGObj(params)
+	//mb.obj = NewSdlGObj(params)
 
 	mb.obj.CurrentFrame = MouseOut
 
 	mb.callback = callback
 
 	return mb
+}
+
+// Load ...
+func (mb *MenuButton) Load(params *LoadParams) {
+	mb.obj.Load(params)
+
+	mb.obj.CurrentFrame = MouseOut
+
+	mb.callbackID = params.CallBackID()
 }
 
 // Draw ...
@@ -78,4 +90,14 @@ func (mb *MenuButton) Update() {
 // Clean ...
 func (mb *MenuButton) Clean() {
 	mb.obj.Clean()
+}
+
+// SetCallBackID ...
+func (mb *MenuButton) SetCallBackID(val int) {
+	mb.callbackID = val
+}
+
+// GetCallBackID ...
+func (mb MenuButton) GetCallBackID() int {
+	return mb.callbackID
 }
