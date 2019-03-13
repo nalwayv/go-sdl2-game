@@ -3,6 +3,7 @@ package game
 // SINGLETON
 
 import (
+	"fmt"
 	"sync"
 
 	"../gologger"
@@ -48,6 +49,7 @@ var SInputHandler = newInputHandler()
 
 // create new InputHandler ...
 func newInputHandler() *InHandler {
+	fmt.Println("init input")
 	iOnce.Do(func() {
 		ih = &InHandler{}
 		ih.inSticks = make([]*sdl.Joystick, 0)

@@ -59,7 +59,7 @@ func (ps *GameOver) OnEnter() bool {
 	// })
 
 	// set text
-	gameovertext := NewAnimatedGraphic(NewParams(200, 100, 190, 30, "gameovertext", 2, 0, 2))
+	gameovertext := NewAnimatedGraphic()
 
 	// add to gameobjects slice
 	// ps.gameObjects = append(ps.gameObjects, mainbutton)

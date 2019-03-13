@@ -15,6 +15,6 @@ func NewMenuButtonCreator() *MenuButtonCreator {
 }
 
 // CreateObj ...
-func (mb *MenuButtonCreator) CreateObj() IGameObject {
+func (mc *MenuButtonCreator) CreateObj() IGameObject {
 	return NewMenuButton()
 }

@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="54db256b-fb5f-469a-a8d3-eb8d64c3cf0a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_animatedgraphic_obj.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_checkerror.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_enemy_obj.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_game_obj_factory_singleton.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_game_singleton.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_gameover_state.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_inputhandler_singleton.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_interface_creator.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_interface_game_obj.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_interface_game_state.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_interface_menu_state.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_loadparams.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_mainmenu_state.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_menbutton_creator.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_menubutton_obj.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_pause_state.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_play_state.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_player_creator.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_player_obj.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_sdlgame_obj.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_statemachine.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_texturemanager_singleton.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/go_xmlparser.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/test/xmlparse_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/game/vec2d/vector2d.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/gologger/golog.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/gologger/golog.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todos.org" beforeDir="false" afterPath="$PROJECT_DIR$/todos.org" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="GOROOT" path="C:\Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="31" />
+    <option name="width" value="1400" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="go_sdl2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="go_sdl2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="go_sdl2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="go_sdl2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="go_sdl2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="go_sdl2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="go_sdl2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="go_sdl2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gologger" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bin" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rune-\OneDrive\Desktop\code\go\go_sdl2\src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="go_sdl2" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/src/main.go" />
+      <directory value="$PROJECT_DIR$/" />
+      <output_directory value="C:\Users\rune-\OneDrive\Desktop\code\go\go_sdl2\bin" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="31" y="0" width="1400" height="1047" extended-state="0" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27462685" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32932165" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32932165" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3522976" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/game/go_game_obj_factory_singleton.go</url>
+          <line>53</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>objects</expression-string>
+        <language-id>go</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>STextureManager</expression-string>
+        <language-id>go</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>STheGameObjFactory</expression-string>
+        <language-id>go</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/game/go_animatedgraphic_obj.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://C:/Go/src/runtime/panic.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="710" selection-start-line="710" selection-end-line="710" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/go/src/github.com/veandco/go-sdl2/sdl/sdl.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="116" selection-start-line="116" selection-end-line="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/go/src/github.com/veandco/go-sdl2/sdl/video.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="354" selection-start-line="354" selection-end-line="354" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/go/src/github.com/veandco/go-sdl2/sdl/sysrender.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/go/src/github.com/veandco/go-sdl2/sdl/render.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="456" selection-start-line="456" selection-end-line="456" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/runtime/asm_amd64.s">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="1332" selection-start-line="1332" selection-end-line="1332" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/fmt/format.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gologger/golog.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/errors/errors.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/go_menbutton_creator.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/go_game_obj_factory_singleton.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/runtime/proc.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="5031" selection-start-line="5031" selection-end-line="5031" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/sync/pool.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="127" selection-start-line="127" selection-end-line="127" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/go_checkerror.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/vec2d/vector2d.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/go_sdlgame_obj.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/go_loadparams.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/log/log.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="187" selection-start-line="187" selection-end-line="187" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/go/src/github.com/veandco/go-sdl2/img/sdl_image.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/go_texturemanager_singleton.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/go_xmlparser.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/fmt/print.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="263" selection-start-line="263" selection-end-line="263" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/go_menubutton_obj.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/go_mainmenu_state.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/go_statemachine.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/go_game_singleton.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="122" selection-start-line="122" selection-end-line="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/go/src/github.com/veandco/go-sdl2/sdl/timer.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -33,6 +33,5 @@
         "Xbox",
         "ctrl",
         "magit"
-    ],
-    "go.inferGopath": true
+    ]
 }

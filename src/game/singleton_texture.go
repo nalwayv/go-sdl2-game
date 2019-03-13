@@ -4,6 +4,7 @@ package game
 
 import (
 	"errors"
+	"fmt"
 	"sync"
 
 	"github.com/veandco/go-sdl2/img"
@@ -25,6 +26,8 @@ var STextureManager = newTManager()
 
 // newTManager ... convert into a singleton
 func newTManager() *TextureManager {
+	fmt.Println("init texture")
+
 	tOnce.Do(func() {
 		tm = &TextureManager{
 			textureMap: make(map[string]*sdl.Texture),

@@ -2,7 +2,6 @@ package game
 
 import (
 	"encoding/xml"
-	"fmt"
 	"io/ioutil"
 	"os"
 
@@ -42,18 +41,13 @@ type XMLObjects struct {
 // XML PARSE DATA ---
 
 // StateParser ...
-type StateParser struct {
-	textureID []string
-	objects   []IGameObject
-}
+type StateParser struct{}
 
 // NewStateParser ...
 func NewStateParser() *StateParser {
+	gologger.SLogger.Println("Init State Parser")
+
 	sp := &StateParser{}
-
-	sp.textureID = make([]string, 0)
-	sp.objects = make([]IGameObject, 0)
-
 	return sp
 }
 
@@ -75,60 +69,42 @@ func (sp *StateParser) loadData(fileName string) XMLStates {
 }
 
 // ParseState ...
-func (sp *StateParser) ParseState(fileName, stateID string) {
+// o - *[] IGameObject :: 'game objects' :: pointing back to slice with data that will be appended to it from parser
+// t - *[] string :: 'texture ids' :: pointing back to slice with data that will be appended to it from parser
+func (sp *StateParser) ParseState(fileName, stateID string, o *[]IGameObject, t *[]string) {
 	data := sp.loadData(fileName)
 
 	if stateID == "menu" {
-		sp.parseTextures(data.Menu.XMLTextures)
-		sp.parseObjects(data.Menu.XMLObjects)
-	}
+		gologger.SLogger.Println("Parsing Menu State")
 
+		sp.parseObjects(data.Menu.XMLObjects, o)
+		sp.parseTextures(data.Menu.XMLTextures, t)
+	}
 }
 
 // ParseTextures ...
-func (sp *StateParser) parseTextures(textures []XMLTextures) {
+func (sp *StateParser) parseTextures(textures []XMLTextures, t *[]string) {
 	for _, v := range textures {
 		STextureManager.Load(v.Filename, v.ID, STheGame.GetRenderer())
-		sp.textureID = append(sp.textureID, v.ID)
-	}
 
+		*t = append(*t, v.ID)
+
+		gologger.SLogger.Println("Pushed onto textureid slice", v.ID)
+	}
 }
 
 // ParseObjects ...
-func (sp *StateParser) parseObjects(objects []XMLObjects) {
+func (sp *StateParser) parseObjects(objects []XMLObjects, o *[]IGameObject) {
 	for _, v := range objects {
-		// create object of type
-		gologger.SLogger.Println("Creating", v.Type)
-
 		// create obj of type and set its params
 		obj, err := STheGameObjFactory.Create(v.Type)
-		gologger.SLogger.Println("Created", v.Type)
 
 		checkError(err)
-		obj.Load(NewParams(
-			v.X,
-			v.Y,
-			v.Width,
-			v.Height,
-			v.ID,
-			v.NumFrames,
-			v.CallBackID,
-			v.AnimSpeed))
 
-		gologger.SLogger.Println("Added params for", v.Type)
+		obj.Load(NewParams(v.X, v.Y, v.Width, v.Height, v.ID, v.NumFrames, v.CallBackID, v.AnimSpeed))
 
-		sp.objects = append(sp.objects, obj)
-		fmt.Println("added")
+		*o = append(*o, obj)
 
+		gologger.SLogger.Println("Created", v.Type)
 	}
-}
-
-// GetParsedObjects ...
-func (sp *StateParser) GetParsedObjects() []IGameObject {
-	return sp.objects
-}
-
-// GetParsedTextureIDs ...
-func (sp *StateParser) GetParsedTextureIDs() []string {
-	return sp.textureID
 }

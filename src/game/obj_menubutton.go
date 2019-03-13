@@ -29,9 +29,7 @@ type MenuButton struct {
 // NewMenuButton ...
 func NewMenuButton() *MenuButton {
 	mb := &MenuButton{}
-
-	mb.obj.CurrentFrame = MouseOut
-
+	mb.obj = NewSdlGObj()
 	return mb
 }
 
@@ -39,7 +37,7 @@ func NewMenuButton() *MenuButton {
 func (mb *MenuButton) Load(params *LoadParams) {
 	mb.obj.Load(params)
 
-	mb.callbackID = params.CallBackID()
+	mb.callbackID = params.GetCallBackID()
 
 	mb.obj.CurrentFrame = MouseOut
 }

@@ -6,7 +6,7 @@ type LoadParams struct {
 	y              int32
 	width          int32
 	height         int32
-	id             string
+	textureID      string
 	numframes      int
 	callbackID     int
 	animationSpeed int
@@ -20,7 +20,7 @@ func NewParams(x, y, w, h int32, id string, numframes, callbackID, animationSpee
 	param.y = y
 	param.width = w
 	param.height = h
-	param.id = id
+	param.textureID = id
 	param.numframes = numframes
 	param.callbackID = callbackID
 	param.animationSpeed = animationSpeed
@@ -29,41 +29,41 @@ func NewParams(x, y, w, h int32, id string, numframes, callbackID, animationSpee
 }
 
 // X ... get x
-func (p LoadParams) X() int32 {
+func (p LoadParams) GetX() int32 {
 	return p.x
 }
 
 // Y ... get y
-func (p LoadParams) Y() int32 {
+func (p LoadParams) GetY() int32 {
 	return p.y
 }
 
 // Width ... get width
-func (p LoadParams) Width() int32 {
+func (p LoadParams) GetWidth() int32 {
 	return p.width
 }
 
 // Height ... get height
-func (p LoadParams) Height() int32 {
+func (p LoadParams) GetHeight() int32 {
 	return p.height
 }
 
 // ID ... get id
-func (p LoadParams) ID() string {
-	return p.id
+func (p LoadParams) GetTextureID() string {
+	return p.textureID
 }
 
 // NumFrames ... get number of frames
-func (p LoadParams) NumFrames() int {
+func (p LoadParams) GetNumFrames() int {
 	return p.numframes
 }
 
 // CallBackID ... get callback ID
-func (p LoadParams) CallBackID() int {
+func (p LoadParams) GetCallBackID() int {
 	return p.callbackID
 }
 
 // AnimationSpeed ... get animation speed
-func (p LoadParams) AnimationSpeed() int {
+func (p LoadParams) GetAnimationSpeed() int {
 	return p.animationSpeed
 }

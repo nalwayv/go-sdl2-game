@@ -61,7 +61,7 @@ func (ps *PlayState) OnEnter() bool {
 	STextureManager.Load("assets/helicopter.png", "player", STheGame.GetRenderer())
 
 	// new player
-	player := NewPlayer(NewParams(0, 0, 128, 55, "player", 0, 0, 0))
+	player := NewPlayer()
 
 	// add to game objects slice
 	ps.gameObjects = append(ps.gameObjects, player)

@@ -1,0 +1,7 @@
+SDL >> 17:26:23 go_inputhandler_singleton.go:183: No joysticks were activated
+SDL >> 17:26:23 go_xmlparser.go:102: Creating MenuButton
+SDL >> 17:27:35 go_xmlparser.go:106: Created MenuButton
+SDL >> 17:29:00 go_xmlparser.go:119: Added params for MenuButton
+SDL >> 17:29:42 go_xmlparser.go:102: Creating MenuButton
+SDL >> 17:30:22 go_xmlparser.go:106: Created MenuButton
+SDL >> 17:30:53 go_xmlparser.go:119: Added params for MenuButton

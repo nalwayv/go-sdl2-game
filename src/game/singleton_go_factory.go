@@ -7,36 +7,39 @@ import (
 	"errors"
 	"fmt"
 	"sync"
-)
 
-var (
-	factory *GOFactory
-	fOnce   sync.Once
+	"../gologger"
 )
-
-// STheGameObjFactory ...
-var STheGameObjFactory = newGoFactory()
 
 // GOFactory ...
 type GOFactory struct {
 	GoCreator map[string]ICreator
 }
 
-// NewGoFactory ...
-func newGoFactory() *GOFactory {
+var (
+	gofactory *GOFactory
+	fOnce     sync.Once
+)
 
+// STheGameObjFactory ...
+var STheGameObjFactory = newGoFactory()
+
+// NewGoFactory ... convert into a singleton
+func newGoFactory() *GOFactory {
+	gologger.SLogger.Println("Init Game Object Factory Singleton")
 	fOnce.Do(func() {
-		factory := &GOFactory{}
-		factory.GoCreator = make(map[string]ICreator)
+		gofactory = &GOFactory{
+			GoCreator: make(map[string]ICreator),
+		}
 	})
-	return factory
+	return gofactory
 }
 
 // Register ...
 func (gf *GOFactory) Register(typeID string, creator ICreator) bool {
+	fmt.Println("registering", typeID)
+
 	// check if already registered
-	// else add
-	fmt.Println("registering obj")
 	_, ok := gf.GoCreator[typeID]
 	if ok {
 		fmt.Println("already registered obj")
@@ -44,8 +47,10 @@ func (gf *GOFactory) Register(typeID string, creator ICreator) bool {
 		return false
 	}
 
-	fmt.Println("Registered obj of type", typeID)
 	gf.GoCreator[typeID] = creator
+
+	gologger.SLogger.Println("Added To Factory Obj Of Type", typeID)
+
 	return true
 }
 
@@ -58,7 +63,10 @@ func (gf *GOFactory) Create(typeID string) (IGameObject, error) {
 		return nil, errors.New("factory object not found")
 	}
 
-	fmt.Println("Created obj of type", typeID)
+	bc := v.(ICreator)
 
-	return v.CreateObj(), nil
+	gologger.SLogger.Println("Factory Created Obj Of Type", typeID)
+
+	// call its create function
+	return bc.CreateObj(), nil
 }

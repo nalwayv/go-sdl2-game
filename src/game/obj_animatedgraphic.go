@@ -15,11 +15,14 @@ type AnimatedGraphic struct {
 }
 
 // NewAnimatedGraphic ...
-func NewAnimatedGraphic(params *LoadParams) *AnimatedGraphic {
+func NewAnimatedGraphic() *AnimatedGraphic {
 	ag := &AnimatedGraphic{}
-
-	ag.obj = NewSdlGObj(params)
+	ag.obj = NewSdlGObj()
 	return ag
+}
+// Load ...
+func (ag *AnimatedGraphic) Load(param *LoadParams) {
+
 }
 
 // Draw ...
@@ -42,7 +45,3 @@ func (ag *AnimatedGraphic) Clean() {
 	ag.obj.Clean()
 }
 
-// Load ...
-func (ag *AnimatedGraphic) Load(param *LoadParams) {
-
-}

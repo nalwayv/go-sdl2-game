@@ -18,7 +18,7 @@ import (
 type SdlGameObject struct {
 	//*GObject
 
-	ID           string
+	TextureID    string
 	Width        int32
 	Height       int32
 	CurrentFrame int32
@@ -31,41 +31,26 @@ type SdlGameObject struct {
 }
 
 // NewSdlGObj ...
-func NewSdlGObj(params *LoadParams) *SdlGameObject {
+func NewSdlGObj() *SdlGameObject {
 	obj := &SdlGameObject{}
-
-	obj.Position = vec2d.NewVector2d(float64(params.X()), float64(params.Y()))
-	obj.Velocity = vec2d.NewVector2d(0.0, 0.0)
-	obj.Acceleration = vec2d.NewVector2d(0.0, 0.0)
-
-	obj.Width = params.Width()
-	obj.Height = params.Height()
-
-	obj.ID = params.ID()
-
-	obj.CurrentRow = 1
-	obj.CurrentFrame = 1
-	obj.NumFrames = params.NumFrames()
-
 	return obj
 }
 
-// Load ...
+// Load ... set up variables
 func (g *SdlGameObject) Load(params *LoadParams) {
-	obj := &SdlGameObject{}
 
-	obj.Position = vec2d.NewVector2d(float64(params.X()), float64(params.Y()))
-	obj.Velocity = vec2d.NewVector2d(0.0, 0.0)
-	obj.Acceleration = vec2d.NewVector2d(0.0, 0.0)
+	g.Position = vec2d.NewVector2d(float64(params.GetX()), float64(params.GetY()))
+	g.Velocity = vec2d.NewVector2d(0.0, 0.0)
+	g.Acceleration = vec2d.NewVector2d(0.0, 0.0)
 
-	obj.Width = params.Width()
-	obj.Height = params.Height()
+	g.Width = params.GetWidth()
+	g.Height = params.GetHeight()
 
-	obj.ID = params.ID()
+	g.TextureID = params.GetTextureID()
 
-	obj.CurrentRow = 1
-	obj.CurrentFrame = 1
-	obj.NumFrames = params.NumFrames()
+	g.CurrentRow = 1
+	g.CurrentFrame = 1
+	g.NumFrames = params.GetNumFrames()
 }
 
 // Draw ...
@@ -73,7 +58,7 @@ func (g *SdlGameObject) Draw() {
 	// flipped or not based on velocity
 	if g.Velocity.GetX() > 0 {
 		STextureManager.DrawFrame(
-			g.ID,
+			g.TextureID,
 			int32(g.Position.GetX()),
 			int32(g.Position.GetY()),
 			g.Width,
@@ -85,7 +70,7 @@ func (g *SdlGameObject) Draw() {
 		)
 	} else {
 		STextureManager.DrawFrame(
-			g.ID,
+			g.TextureID,
 			int32(g.Position.GetX()),
 			int32(g.Position.GetY()),
 			g.Width,

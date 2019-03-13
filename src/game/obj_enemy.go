@@ -15,11 +15,9 @@ type Enemy struct {
 }
 
 // NewEnemy .. constructor
-func NewEnemy(params *LoadParams) *Enemy {
+func NewEnemy() *Enemy {
 	enemy := &Enemy{}
-
-	//enemy.obj = NewSdlGObj(params)
-
+	enemy.obj = NewSdlGObj()
 	return enemy
 }
 

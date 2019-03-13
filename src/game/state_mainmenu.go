@@ -10,6 +10,7 @@ Implements IMenuState interface.
 	- OnEnter() bool
 	- OnExit() bool
 	- GetStateID() string
+
 *IMenuState
 	- SetCallBacks([]Callback)
 */
@@ -58,9 +59,7 @@ func (ms *MainMenuState) OnEnter() bool {
 	fmt.Println("enter main menu state")
 
 	sp := NewStateParser()
-	sp.ParseState("data/tmp.xml", MenuID)
-	ms.objects = sp.GetParsedObjects()
-	ms.textureIDs = sp.GetParsedTextureIDs()
+	sp.ParseState("data/tmp.xml", MenuID, &ms.objects, &ms.textureIDs)
 
 	// button callback function
 	// starts from 1 so 0 is nil
@@ -102,15 +101,14 @@ func (ms *MainMenuState) SetCallBacks(cb []Callback) {
 			button := v.(*MenuButton)
 
 			// set callback based on button loaded id
-			// 1 - menuToPlay
-			// 2 - exitToMenu
+			// 1 - menuToPlay 2 - exitToMenu
 			cb := ms.callbacks[button.GetCallBackID()]
 			button.SetCallBack(cb)
 		}
 	}
 }
 
-// Callbacks
+// --- Callbacks
 func menuToPlay() {
 	fmt.Println("PLAY BUTTON CLICKED")
 	STheGame.GetStateMachine().ChangeState(NewPlayState())

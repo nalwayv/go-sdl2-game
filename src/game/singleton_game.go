@@ -3,6 +3,7 @@ package game
 // SINGLETON
 
 import (
+	"fmt"
 	"sync"
 
 	"../gologger"
@@ -28,6 +29,8 @@ var STheGame = newGame()
 
 // New ... create singleton
 func newGame() *Game {
+	fmt.Println("init game")
+
 	gOnce.Do(func() {
 		gm = &Game{}
 	})
@@ -115,7 +118,6 @@ func (g *Game) Init(title string, xPos, yPos, width, height int32, fullscreen bo
 
 	// statemachine / set to menu state
 	g.StateMachine = NewStateMachine()
-
 	g.GetStateMachine().ChangeState(NewMenuState())
 
 }

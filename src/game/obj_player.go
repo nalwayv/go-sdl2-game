@@ -21,19 +21,14 @@ type Player struct {
 }
 
 // NewPlayer .. constructor initialise a new player object
-func NewPlayer(params *LoadParams) *Player {
-
+func NewPlayer() *Player {
 	player := &Player{}
-
-	//player.obj = NewSdlGObj(params) // init
-
+	player.obj = NewSdlGObj()
 	return player
 }
 
 // Load ...
 func (p *Player) Load(params *LoadParams) {
-	// new version that will replace newPlayer()
-	// via factory creator
 	p.obj.Load(params)
 }
 

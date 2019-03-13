@@ -123,7 +123,9 @@
     - setCallBackID = int
     - setCallBack = func
 
-** TODO nil pointer when registering menu button
+** DONE nil pointer when registering menu button
+    CLOSED: [2019-03-12]
+    got the button registered within game init before game state changes to main menu
 
 
 * Interesting                                                           :web:
