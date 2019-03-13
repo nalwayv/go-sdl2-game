@@ -20,7 +20,7 @@ const (
 	MouseRight
 )
 
-// sticks ... analog sticks
+// sticks ... analogue sticks
 type sticks struct {
 	first  *vec2d.Vector2D
 	second *vec2d.Vector2D

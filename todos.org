@@ -1,16 +1,16 @@
 #+TITLE: Reading sdl2-book
 #+AUTHOR: Nav
-#+TAGS: bug web emacs go working
+#+TAGS: bug web emacs go workingOn
 ---
 
-*Current Page* = 160
+*Current Page* = 165
 
 [[Emacs][Emacs]]
 [[Agenda][Agenda]]
 [[Errors][Errors]]
 [[Interesting][Interesting]]
 
-* Emacs                                                     :emacs:spacemacs:
+* Emacs                                                               :emacs:
   - ctrl-C-Q :: add tag to heading
 
   - ctrl C-C :: activate a check list 
@@ -30,14 +30,13 @@
     -,c :: add comment and then final commit to git
     - q :: quit magit
 
-* Agenda                                                               :working:
+* Agenda                                                          :workingOn:
   : Currently working on these parts of the book
 ** DONE vector2d class 
    CLOSED: [2019-02-23 Sat]
 
 ** DONE input handler
    CLOSED: [2019-02-28 Thu]
-    - [4/4]
     - [X] sticks
     - [X] buttons
     - [X] mouse
@@ -50,7 +49,6 @@
 ** TODO state machine 
     implement a finite state machine
     states
-        - [0/0]
         - [ ] play
         - [ ] menu 
         - [ ] gameOver
@@ -58,22 +56,26 @@
 
 ** TODO loading with xml data
     have the game load data from xml file
-        - [0/0]
-        - [ ] made xml file with data
-        - [ ] parse xml data
-        - [ ] load data
+        - [X] made xml file with data
+        - [X] parse xml data
+        - [ ] ...
+        - [ ] ...
 
 
 * Errors                                                                :bug:
   : problems yet to be solved
 ** DONE error with player
     CLOSED: [2019-02-23 Sat]
+    
 ** DONE invalid memory address and img not showing
     CLOSED: [2019-02-22 Sat]
+
 ** DONE texture manager   
     CLOSED: [2019-02-22 Sat]
+
 ** DONE fixed enemy load issue
     CLOSED: [2019-02-23 Sat]
+
 ** DONE input handler xbox axis sticks not working 
     CLOSED: [2019-02-25 Sat]
     
@@ -88,6 +90,7 @@
         // ...
       }
     #+END_SRC
+
 ** DONE input keyboard not working
     CLOSED: [2019-02-28 Thu]
 
@@ -99,13 +102,29 @@
       }
       // now here
     #+END_SRC
+
 ** DONE StateMachine index out of range on change
     CLOSED: [2019-03-04]
     had len(...)-1 to get the last elements in the wrong 
     position. 
     it was added before adding a new elements to the slice
+
 ** TODO Zero Error Animation Graphic.go
     zero division error causing a go panic()
+
+** TODO Not working because xml data has yet to be fully implemented
+    xml data is not done and some classes have been changed to get that data
+    that is not there, so game wont load.
+
+** DONE callback set error within mainmenu
+    CLOSED: [2019-03-12]
+    used the wrong method 
+    was using setCallBackID instead of setCallBack oops!
+    - setCallBackID = int
+    - setCallBack = func
+
+** TODO nil pointer when registering menu button
+
 
 * Interesting                                                           :web:
   [[https://gist.github.com/robphoenix/9e4db767ab5c912fb558][Spacemacs cheat sheet]]

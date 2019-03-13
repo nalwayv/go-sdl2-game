@@ -50,20 +50,20 @@ func (ps *GameOver) OnEnter() bool {
 	STextureManager.Load("assets/restart.png", "restartbutton", STheGame.GetRenderer())
 
 	// set buttons / functions
-	mainbutton := NewMenuButton(NewParams(200, 200, 200, 80, "mainbutton", 0, 0, 0), func() {
-		STheGame.GetStateMachine().ChangeState(NewMenuState())
-	})
+	// mainbutton := NewMenuButton(NewParams(200, 200, 200, 80, "mainbutton", 0, 0, 0), func() {
+	// 	STheGame.GetStateMachine().ChangeState(NewMenuState())
+	// })
 
-	restartbutton := NewMenuButton(NewParams(200, 300, 200, 80, "restartbutton", 0, 0, 0), func() {
-		STheGame.GetStateMachine().ChangeState(NewPlayState())
-	})
+	// restartbutton := NewMenuButton(NewParams(200, 300, 200, 80, "restartbutton", 0, 0, 0), func() {
+	// 	STheGame.GetStateMachine().ChangeState(NewPlayState())
+	// })
 
 	// set text
 	gameovertext := NewAnimatedGraphic(NewParams(200, 100, 190, 30, "gameovertext", 2, 0, 2))
 
 	// add to gameobjects slice
-	ps.gameObjects = append(ps.gameObjects, mainbutton)
-	ps.gameObjects = append(ps.gameObjects, restartbutton)
+	// ps.gameObjects = append(ps.gameObjects, mainbutton)
+	// ps.gameObjects = append(ps.gameObjects, restartbutton)
 	ps.gameObjects = append(ps.gameObjects, gameovertext)
 
 	return true

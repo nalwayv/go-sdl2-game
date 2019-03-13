@@ -5,6 +5,7 @@ package game
 
 import (
 	"errors"
+	"fmt"
 	"sync"
 )
 
@@ -35,11 +36,15 @@ func newGoFactory() *GOFactory {
 func (gf *GOFactory) Register(typeID string, creator ICreator) bool {
 	// check if already registered
 	// else add
+	fmt.Println("registering obj")
 	_, ok := gf.GoCreator[typeID]
 	if ok {
+		fmt.Println("already registered obj")
+
 		return false
 	}
 
+	fmt.Println("Registered obj of type", typeID)
 	gf.GoCreator[typeID] = creator
 	return true
 }
@@ -47,10 +52,13 @@ func (gf *GOFactory) Register(typeID string, creator ICreator) bool {
 // Create ...
 func (gf *GOFactory) Create(typeID string) (IGameObject, error) {
 	v, ok := gf.GoCreator[typeID]
+
 	// not found
 	if !ok {
 		return nil, errors.New("factory object not found")
 	}
-	// found create that type
+
+	fmt.Println("Created obj of type", typeID)
+
 	return v.CreateObj(), nil
 }

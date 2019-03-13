@@ -32,6 +32,8 @@ func NewPlayer(params *LoadParams) *Player {
 
 // Load ...
 func (p *Player) Load(params *LoadParams) {
+	// new version that will replace newPlayer()
+	// via factory creator
 	p.obj.Load(params)
 }
 

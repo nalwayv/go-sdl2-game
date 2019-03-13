@@ -1,6 +1,8 @@
 package game
 
-import "../gologger"
+import (
+	"../gologger"
+)
 
 func checkError(err error) {
 	if err != nil {

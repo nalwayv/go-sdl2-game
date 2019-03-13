@@ -110,9 +110,14 @@ func (g *Game) Init(title string, xPos, yPos, width, height int32, fullscreen bo
 	// input singleton
 	SInputHandler.InitialiseJoySticks()
 
+	// TODO :: init game factory
+	STheGameObjFactory.Register("MenuButton", NewMenuButtonCreator())
+
 	// statemachine / set to menu state
 	g.StateMachine = NewStateMachine()
+
 	g.GetStateMachine().ChangeState(NewMenuState())
+
 }
 
 // Render ...

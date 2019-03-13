@@ -27,14 +27,10 @@ type MenuButton struct {
 }
 
 // NewMenuButton ...
-func NewMenuButton(params *LoadParams, callback func()) *MenuButton {
+func NewMenuButton() *MenuButton {
 	mb := &MenuButton{}
 
-	//mb.obj = NewSdlGObj(params)
-
 	mb.obj.CurrentFrame = MouseOut
-
-	mb.callback = callback
 
 	return mb
 }
@@ -43,9 +39,9 @@ func NewMenuButton(params *LoadParams, callback func()) *MenuButton {
 func (mb *MenuButton) Load(params *LoadParams) {
 	mb.obj.Load(params)
 
-	mb.obj.CurrentFrame = MouseOut
-
 	mb.callbackID = params.CallBackID()
+
+	mb.obj.CurrentFrame = MouseOut
 }
 
 // Draw ...
@@ -92,12 +88,12 @@ func (mb *MenuButton) Clean() {
 	mb.obj.Clean()
 }
 
-// SetCallBackID ...
-func (mb *MenuButton) SetCallBackID(val int) {
-	mb.callbackID = val
+// SetCallBack ... function called when clicked
+func (mb *MenuButton) SetCallBack(callback Callback) {
+	mb.callback = callback
 }
 
-// GetCallBackID ...
+// GetCallBackID ... id of the function to call
 func (mb MenuButton) GetCallBackID() int {
 	return mb.callbackID
 }
