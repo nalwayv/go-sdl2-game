@@ -1,97 +1,115 @@
 package game
 
 /*
-Implements IGameState interface.
+*IGameState
+---
+	- Update()
+	- Render()
+	- OnEnter() bool
+	- OnExit() bool
+	- GetStateID() string
 
-- Update()
-- Render()
-- OnEnter() bool
-- OnExit() bool
-- GetStateID() string
+*IMenuState
+---
+
+	- SetCallBacks([]Callback)
 */
+
 import "fmt"
 
-// GameOver ...
-type GameOver struct {
-	gameObjects []IGameObject
+// GameOverID ...
+const GameOverID string = "gameover"
 
-	playID string
+// GameOverState ...
+type GameOverState struct {
+	objects    []IGameObject
+	textureIDs []string
+	callbacks  MCallbacks
 }
 
 // NewGameOverState ...
-func NewGameOverState() *GameOver {
-	ps := &GameOver{}
-	ps.gameObjects = make([]IGameObject, 0)
-	ps.playID = "GAMEOVER"
-	return ps
+func NewGameOverState() *GameOverState {
+	gs := &GameOverState{}
+
+	gs.objects = make([]IGameObject, 0)
+	gs.textureIDs = make([]string, 0)
+	gs.callbacks = make(MCallbacks, 0)
+
+	return gs
 }
 
 // Update ...
-func (ps *GameOver) Update() {
-	for _, v := range ps.gameObjects {
+func (gs *GameOverState) Update() {
+	for _, v := range gs.objects {
 		v.Update()
 	}
 }
 
 // Render ...
-func (ps *GameOver) Render() {
-	for _, v := range ps.gameObjects {
+func (gs *GameOverState) Render() {
+	for _, v := range gs.objects {
 		v.Draw()
 	}
 }
 
 // OnEnter ...
-func (ps *GameOver) OnEnter() bool {
+func (gs *GameOverState) OnEnter() bool {
 	fmt.Println("enter gameover state")
 
-	// load textures
-	STextureManager.Load("assets/gameover.png", "gameovertext", STheGame.GetRenderer())
-	STextureManager.Load("assets/main.png", "mainbutton", STheGame.GetRenderer())
-	STextureManager.Load("assets/restart.png", "restartbutton", STheGame.GetRenderer())
+	sp := NewStateParser()
+	sp.ParseState("data/tmp.xml", GameOverID, &gs.objects, &gs.textureIDs)
 
-	// set buttons / functions
-	// mainbutton := NewMenuButton(NewParams(200, 200, 200, 80, "mainbutton", 0, 0, 0), func() {
-	// 	STheGame.GetStateMachine().ChangeState(NewMenuState())
-	// })
-
-	// restartbutton := NewMenuButton(NewParams(200, 300, 200, 80, "restartbutton", 0, 0, 0), func() {
-	// 	STheGame.GetStateMachine().ChangeState(NewPlayState())
-	// })
-
-	// set text
-	gameovertext := NewAnimatedGraphic()
-
-	// add to gameobjects slice
-	// ps.gameObjects = append(ps.gameObjects, mainbutton)
-	// ps.gameObjects = append(ps.gameObjects, restartbutton)
-	ps.gameObjects = append(ps.gameObjects, gameovertext)
+	gs.callbacks = append(gs.callbacks, nil)
+	gs.callbacks = append(gs.callbacks, gameoverToMenu)
+	gs.callbacks = append(gs.callbacks, restart)
+	gs.SetCallBacks(gs.callbacks)
 
 	return true
 }
 
 // OnExit ...
-func (ps *GameOver) OnExit() bool {
-	var err error
+func (gs *GameOverState) OnExit() bool {
 
 	fmt.Println("exit gameover state")
 
-	for _, v := range ps.gameObjects {
-		v.Clean()
+	for _, v := range gs.textureIDs {
+		STextureManager.ClearFromTextureMap(v)
 	}
-
-	ps.gameObjects = nil
-
-	err = STextureManager.ClearFromTextureMap("mainbutton")
-	checkError(err)
-	err = STextureManager.ClearFromTextureMap("restartbutton")
-	checkError(err)
-	err = STextureManager.ClearFromTextureMap("gameovertext")
-	checkError(err)
 
 	return true
 }
 
 // GetStateID ... get state id
-func (ps GameOver) GetStateID() string {
-	return ps.playID
+func (gs *GameOverState) GetStateID() string {
+	return GameOverID
+}
+
+// SetCallBacks ...
+func (gs *GameOverState) SetCallBacks(cb []Callback) {
+	// are of type IGameObject
+	for _, v := range gs.objects {
+		switch v.(type) {
+		// if type menubutton
+		case *MenuButton:
+			button := v.(*MenuButton)
+
+			// set callback based on button loaded id
+			// - 1:: gameoverToMenu
+			// - 2:: restart
+			cb := gs.callbacks[button.GetCallBackID()]
+			button.SetCallBack(cb)
+		}
+	}
+}
+
+// --- Callbacks
+
+// go to main menu
+func gameoverToMenu() {
+	STheGame.GetStateMachine().ChangeState(NewMenuState())
+}
+
+// go to new play state
+func restart() {
+	STheGame.GetStateMachine().ChangeState(NewPlayState())
 }

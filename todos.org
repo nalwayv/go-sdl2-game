@@ -3,7 +3,7 @@
 #+TAGS: bug web emacs go workingOn
 ---
 
-*Current Page* = 165
+*Current Page* = 170
 
 [[Emacs][Emacs]]
 [[Agenda][Agenda]]
@@ -50,12 +50,12 @@
     implement a finite state machine
 
 
-** TODO loading with xml data
+** DONE loading with xml data
     have the game load data from xml file
         - [X] made xml file with data
         - [X] parse xml data
         - [X] loaded objects using xml data
-        - [ ] ...
+        - [X] have states load with correct data
 
 * Errors                                                                :bug:
   : problems yet to be solved

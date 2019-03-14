@@ -11,8 +11,6 @@ IGameObject interface
 */
 
 import (
-	"fmt"
-
 	"./vec2d"
 	"github.com/veandco/go-sdl2/sdl"
 )
@@ -100,22 +98,18 @@ func (p *Player) HandleInput() {
 
 	// keyboard
 	if SInputHandler.IsKeyDown(sdl.SCANCODE_UP) {
-		fmt.Println("player UP pressed")
 		p.obj.Velocity.SetY(-2)
 	}
 
 	if SInputHandler.IsKeyDown(sdl.SCANCODE_DOWN) {
-		fmt.Println("player DOWN pressed")
 		p.obj.Velocity.SetY(2)
 	}
 
 	if SInputHandler.IsKeyDown(sdl.SCANCODE_LEFT) {
-		fmt.Println("player LEFT pressed")
 		p.obj.Velocity.SetX(-2)
 	}
 
 	if SInputHandler.IsKeyDown(sdl.SCANCODE_RIGHT) {
-		fmt.Println("player RIGHT pressed")
 		p.obj.Velocity.SetX(2)
 	}
 

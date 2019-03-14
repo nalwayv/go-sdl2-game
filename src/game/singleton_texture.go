@@ -4,9 +4,9 @@ package game
 
 import (
 	"errors"
-	"fmt"
 	"sync"
 
+	"../gologger"
 	"github.com/veandco/go-sdl2/img"
 	"github.com/veandco/go-sdl2/sdl"
 )
@@ -26,7 +26,7 @@ var STextureManager = newTManager()
 
 // newTManager ... convert into a singleton
 func newTManager() *TextureManager {
-	fmt.Println("init texture")
+	gologger.SLogger.Println("Init New Texture Manager")
 
 	tOnce.Do(func() {
 		tm = &TextureManager{

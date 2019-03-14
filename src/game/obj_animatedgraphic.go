@@ -20,9 +20,10 @@ func NewAnimatedGraphic() *AnimatedGraphic {
 	ag.obj = NewSdlGObj()
 	return ag
 }
+
 // Load ...
 func (ag *AnimatedGraphic) Load(param *LoadParams) {
-
+	ag.obj.Load(param)
 }
 
 // Draw ...
@@ -44,4 +45,3 @@ func (ag *AnimatedGraphic) Update() {
 func (ag *AnimatedGraphic) Clean() {
 	ag.obj.Clean()
 }
-

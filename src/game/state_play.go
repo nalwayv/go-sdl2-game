@@ -17,7 +17,7 @@ import (
 	"github.com/veandco/go-sdl2/sdl"
 )
 
-// PlayerID ...  id for this object used for parsing state info
+// PlayID ...  id for this object used for parsing state info
 const PlayID string = "play"
 
 // PlayState ...

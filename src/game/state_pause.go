@@ -3,37 +3,51 @@ package game
 import "fmt"
 
 /*
-	*IGameState*
+Implements IMenuState interface.
+---
+
+*IGameState
 	- Update()
 	- Render()
 	- OnEnter() bool
 	- OnExit() bool
 	- GetStateID() string
+
+*IMenuState
+	- SetCallBacks([]Callback)
 */
+
+// PauseID ... id for this object used for parsing state info
+const PauseID string = "pause"
 
 // PauseState ...
 type PauseState struct {
-	pauseID     string
-	gameObjects []IGameObject
+	objects    []IGameObject
+	textureIDs []string
+	callbacks  MCallbacks
 }
 
 // NewPauseState ...
 func NewPauseState() *PauseState {
 	ps := &PauseState{}
-	ps.pauseID = "PAUSE"
+
+	ps.objects = make([]IGameObject, 0)
+	ps.textureIDs = make([]string, 0)
+	ps.callbacks = make(MCallbacks, 0)
+
 	return ps
 }
 
 // Update ...
 func (ps *PauseState) Update() {
-	for _, v := range ps.gameObjects {
+	for _, v := range ps.objects {
 		v.Update()
 	}
 }
 
 // Render ...
 func (ps *PauseState) Render() {
-	for _, v := range ps.gameObjects {
+	for _, v := range ps.objects {
 		v.Draw()
 	}
 }
@@ -42,28 +56,15 @@ func (ps *PauseState) Render() {
 func (ps *PauseState) OnEnter() bool {
 	fmt.Println("enter pause state")
 
-	// load textures
-	STextureManager.Load("assets/main.png", "mainbutton", STheGame.GetRenderer())
-	STextureManager.Load("assets/resume.png", "resumebutton", STheGame.GetRenderer())
+	sp := NewStateParser()
+	sp.ParseState("data/tmp.xml", PauseID, &ps.objects, &ps.textureIDs)
 
-	// buttons
-	// main - go back to main state
-	// resume - go back to previous state
-	// mainbutton := NewMenuButton(NewParams(200, 300, 200, 100, "mainbutton", 0, 0, 0), func() {
-	// 	fmt.Println("MENU BUTTON CLICKED")
-	// 	// go to menu state if clicked
-	// 	STheGame.GetStateMachine().ChangeState(NewMenuState())
-	// })
-
-	// resumebutton := NewMenuButton(NewParams(200, 100, 200, 100, "resumebutton", 0, 0, 0), func() {
-	// 	fmt.Println("RESUME BUTTON CLICKED")
-	// 	// pop this state and go to previous
-	// 	STheGame.GetStateMachine().PopState()
-	// })
-
-	// add to gameobjects
-	// ps.gameObjects = append(ps.gameObjects, resumebutton)
-	// ps.gameObjects = append(ps.gameObjects, mainbutton)
+	// button callback functions
+	// starts from 1 so 0 is nil
+	ps.callbacks = append(ps.callbacks, nil)
+	ps.callbacks = append(ps.callbacks, pauseToMain)
+	ps.callbacks = append(ps.callbacks, resume)
+	ps.SetCallBacks(ps.callbacks)
 
 	return true
 }
@@ -72,21 +73,46 @@ func (ps *PauseState) OnEnter() bool {
 func (ps *PauseState) OnExit() bool {
 	fmt.Println("exit pause state")
 
-	for _, v := range ps.gameObjects {
-		v.Clean()
+	for _, v := range ps.textureIDs {
+		STextureManager.ClearFromTextureMap(v)
 	}
-
-	ps.gameObjects = nil
-
-	STextureManager.ClearFromTextureMap("resumebutton")
-	STextureManager.ClearFromTextureMap("mainbutton")
 
 	SInputHandler.Reset()
 
 	return true
 }
 
+// SetCallBacks ...
+func (ps *PauseState) SetCallBacks(cb []Callback) {
+	// are of type IGameObject
+	for _, v := range ps.objects {
+		switch v.(type) {
+		// if type menubutton
+		case *MenuButton:
+			button := v.(*MenuButton)
+
+			// set callback based on button loaded id
+			// - 1:: pauseToMenu
+			// - 2:: resume
+			cb := ps.callbacks[button.GetCallBackID()]
+			button.SetCallBack(cb)
+		}
+	}
+}
+
 // GetStateID ...
 func (ps PauseState) GetStateID() string {
-	return ps.pauseID
+	return PauseID
+}
+
+// --- CallBacks
+
+// go back to main menu
+func pauseToMain() {
+	STheGame.GetStateMachine().ChangeState(NewMenuState())
+}
+
+// resume previous state
+func resume() {
+	STheGame.GetStateMachine().PopState()
 }

@@ -5,7 +5,6 @@ package game
 
 import (
 	"errors"
-	"fmt"
 	"sync"
 
 	"../gologger"
@@ -37,12 +36,12 @@ func newGoFactory() *GOFactory {
 
 // Register ...
 func (gf *GOFactory) Register(typeID string, creator ICreator) bool {
-	fmt.Println("registering", typeID)
+	gologger.SLogger.Println("registering", typeID)
 
 	// check if already registered
 	_, ok := gf.GoCreator[typeID]
 	if ok {
-		fmt.Println("already registered obj")
+		gologger.SLogger.Println("Already Registered Object ", typeID)
 
 		return false
 	}

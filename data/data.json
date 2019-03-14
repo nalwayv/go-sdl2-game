@@ -1,5 +1,5 @@
 {
-    "states":{
+    "states": {
         "menu": {
             "textures": [
                 {
@@ -13,26 +13,64 @@
             ],
             "objects": [
                 {
-                    "type": "PlayButton",
+                    "type": "MenuButton",
                     "x": 100,
                     "y": 100,
                     "width": 400,
                     "height": 100,
-                    "id": "playbutton"
+                    "id": "playbutton",
+                    "numframes": 0,
+                    "callbackid": 1,
+                    "animspeed": 0
                 },
                 {
-                    "type": "ExitButton",
+                    "type": "MenuButton",
                     "x": 100,
                     "y": 300,
                     "width": 400,
                     "height": 100,
-                    "id": "exitbutton"
+                    "id": "exitbutton",
+                    "numframes": 0,
+                    "callbackid": 2,
+                    "animspeed": 0
                 }
             ]
         },
-
-        "play":{},
-        
-        "gameOver":{}
+        "play": {
+            "textures": [
+                {
+                    "filename": "assets/helicopter1.png",
+                    "id": "helicopter1"
+                },
+                {
+                    "filename": "assets/helicopter2.png",
+                    "id": "helicopter2"
+                }
+            ],
+            "objects": [
+                {
+                    "type": "Player",
+                    "x": 500,
+                    "y": 100,
+                    "width": 128,
+                    "height": 55,
+                    "id": "helicopter1",
+                    "numframes": 4,
+                    "callbackid": 0,
+                    "animspeed": 0
+                },
+                {
+                    "type": "Enemy",
+                    "x": 100,
+                    "y": 100,
+                    "width": 128,
+                    "height": 55,
+                    "id": "helicopter2",
+                    "numframes": 4,
+                    "callbackid": 0,
+                    "animspeed": 0
+                }
+            ]
+        }
     }
 }

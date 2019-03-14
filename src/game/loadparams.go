@@ -28,42 +28,42 @@ func NewParams(x, y, w, h int32, id string, numframes, callbackID, animationSpee
 	return param
 }
 
-// X ... get x
+// GetX ... get x
 func (p LoadParams) GetX() int32 {
 	return p.x
 }
 
-// Y ... get y
+// GetY ... get y
 func (p LoadParams) GetY() int32 {
 	return p.y
 }
 
-// Width ... get width
+// GetWidth ... get width
 func (p LoadParams) GetWidth() int32 {
 	return p.width
 }
 
-// Height ... get height
+// GetHeight ... get height
 func (p LoadParams) GetHeight() int32 {
 	return p.height
 }
 
-// ID ... get id
+// GetTextureID ... get id
 func (p LoadParams) GetTextureID() string {
 	return p.textureID
 }
 
-// NumFrames ... get number of frames
+// GetNumFrames ... get number of frames
 func (p LoadParams) GetNumFrames() int {
 	return p.numframes
 }
 
-// CallBackID ... get callback ID
+// GetCallBackID ... get callback ID
 func (p LoadParams) GetCallBackID() int {
 	return p.callbackID
 }
 
-// AnimationSpeed ... get animation speed
+// GetAnimationSpeed ... get animation speed
 func (p LoadParams) GetAnimationSpeed() int {
 	return p.animationSpeed
 }

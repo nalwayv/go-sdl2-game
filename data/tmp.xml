@@ -28,6 +28,33 @@
     </objects>
   </play>
 
+  <!-- PAUSE -->
+  <pause>
+      <!-- array textures -->
+    <textures>
+      <texture filename="assets/main.png" id="mainbutton"/>
+      <texture filename="assets/resume.png" id="resumebutton"/>
+    </textures>
+    <!-- array objects -->
+    <objects>
+      <object type="MenuButton" x="200" y="100" width="200" height="80" id="mainbutton" numframes="0" callbackid="1" animspeed="0"/>
+      <object type="MenuButton" x="200" y="300" width="200" height="80" id="resumebutton" numframes="0" callbackid="2" animspeed="0"/>
+    </objects>
+  </pause>
+  
   <!-- GAMEOVER STATE -->
-  <gameover></gameover>
+  <gameover>
+    <!-- array textures -->
+    <textures>
+      <texture filename="assets/gameover.png" id="gameovertext"/>
+      <texture filename="assets/main.png" id="mainbutton"/>
+      <texture filename="assets/resume.png" id="resumebutton"/>
+    </textures>
+    <!-- array objects -->
+    <objects>
+      <object type="AnimatedGraphic" x="200" y="100" width="190" height="30" id="gameovertext" numframes="0" callbackid="0" animspeed="0"/>
+      <object type="MenuButton" x="200" y="200" width="200" height="80" id="mainbutton" numframes="0" callbackid="1" animspeed="0"/>
+      <object type="MenuButton" x="200" y="300" width="200" height="80" id="resumebutton" numframes="0" callbackid="2" animspeed="0"/>
+    </objects>
+  </gameover>
 </states>

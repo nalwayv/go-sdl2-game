@@ -12,3 +12,11 @@
 *.out
 
 *.txt
+
+*.log
+*.org
+
+.idea
+.vscode
+
+

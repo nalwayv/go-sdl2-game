@@ -8,7 +8,7 @@ import (
 	"../gologger"
 )
 
-// XML PARSE DATA ---
+// --- XML Data
 
 // XMLStates ...
 type XMLStates struct {
@@ -22,6 +22,16 @@ type XMLStates struct {
 		XMLTextures []XMLTextures `xml:"textures>texture"`
 		XMLObjects  []XMLObjects  `xml:"objects>object"`
 	} `xml:"play"`
+
+	Pause struct {
+		XMLTextures []XMLTextures `xml:"textures>texture"`
+		XMLObjects  []XMLObjects  `xml:"objects>object"`
+	} `xml:"pause"`
+
+	GameOver struct {
+		XMLTextures []XMLTextures `xml:"textures>texture"`
+		XMLObjects  []XMLObjects  `xml:"objects>object"`
+	} `xml:"gameover"`
 }
 
 // XMLTextures ...
@@ -43,7 +53,7 @@ type XMLObjects struct {
 	AnimSpeed  int    `xml:"animspeed,attr"`
 }
 
-// XML PARSE DATA ---
+// --- XML Parser
 
 // StateParser ...
 type StateParser struct{}
@@ -76,21 +86,36 @@ func (sp *StateParser) loadData(fileName string) XMLStates {
 }
 
 // ParseState ...
-// o - *[] IGameObject :: 'game objects' :: pointing back to slice with data that will be appended to it from parser
-// t - *[] string :: 'texture ids' :: pointing back to slice with data that will be appended to it from parser
+// filename - string
+// stateID - string - id for the state so its textures/objects are parsed
+// o - *[] IGameObject - 'game objects' :: pointing back to slice with data that will be appended to it from parser
+// t - *[] string - 'texture ids' :: pointing back to slice with data that will be appended to it from parser
 func (sp *StateParser) ParseState(fileName, stateID string, o *[]IGameObject, t *[]string) {
 	data := sp.loadData(fileName)
 
-	if stateID == "menu" {
+	switch stateID {
+	case "menu":
 		gologger.SLogger.Println("Parsing Menu State")
 		sp.parseTextures(data.Menu.XMLTextures, t)
 		sp.parseObjects(data.Menu.XMLObjects, o)
-	}
 
-	if stateID == "play" {
+	case "play":
 		gologger.SLogger.Println("Parsing Play State")
 		sp.parseTextures(data.Play.XMLTextures, t)
 		sp.parseObjects(data.Play.XMLObjects, o)
+
+	case "pause":
+		gologger.SLogger.Println("Parsing Pause State")
+		sp.parseTextures(data.Pause.XMLTextures, t)
+		sp.parseObjects(data.Pause.XMLObjects, o)
+
+	case "gameover":
+		gologger.SLogger.Println("Parsing GameOver State")
+		sp.parseTextures(data.GameOver.XMLTextures, t)
+		sp.parseObjects(data.GameOver.XMLObjects, o)
+
+	default:
+		gologger.SLogger.Println("StateID not found")
 	}
 }
 
@@ -99,6 +124,7 @@ func (sp *StateParser) parseTextures(textures []XMLTextures, t *[]string) {
 	for _, v := range textures {
 		STextureManager.Load(v.Filename, v.ID, STheGame.GetRenderer())
 
+		// append to states texture id list
 		*t = append(*t, v.ID)
 
 		gologger.SLogger.Println("Pushed onto textureID slice", v.ID)
@@ -115,6 +141,7 @@ func (sp *StateParser) parseObjects(objects []XMLObjects, o *[]IGameObject) {
 
 		obj.Load(NewParams(v.X, v.Y, v.Width, v.Height, v.ID, v.NumFrames, v.CallBackID, v.AnimSpeed))
 
+		// append to states object list
 		*o = append(*o, obj)
 
 		gologger.SLogger.Println("Created", v.Type)

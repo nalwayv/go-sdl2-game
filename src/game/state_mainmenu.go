@@ -1,10 +1,9 @@
 package game
 
 /*
-Implements IMenuState interface.
+*IGameState
 ---
 
-*IGameState
 	- Update()
 	- Render()
 	- OnEnter() bool
@@ -12,6 +11,8 @@ Implements IMenuState interface.
 	- GetStateID() string
 
 *IMenuState
+---
+
 	- SetCallBacks([]Callback)
 */
 
@@ -24,7 +25,6 @@ const MenuID string = "menu"
 
 // MainMenuState ...
 type MainMenuState struct {
-	//menuID     string
 	objects    []IGameObject
 	textureIDs []string
 	callbacks  MCallbacks
@@ -33,24 +33,25 @@ type MainMenuState struct {
 // NewMenuState ...
 func NewMenuState() *MainMenuState {
 	ms := &MainMenuState{}
-	//ms.menuID = "menu"
+
 	ms.objects = make([]IGameObject, 0)
 	ms.textureIDs = make([]string, 0)
 	ms.callbacks = make(MCallbacks, 0)
+
 	return ms
 }
 
 // Update ...
 func (ms MainMenuState) Update() {
-	for i := range ms.objects {
-		ms.objects[i].Update()
+	for _, v := range ms.objects {
+		v.Update()
 	}
 }
 
 // Render ...
 func (ms MainMenuState) Render() {
-	for i := range ms.objects {
-		ms.objects[i].Draw()
+	for _, v := range ms.objects {
+		v.Draw()
 	}
 }
 
@@ -94,11 +95,11 @@ func (ms *MainMenuState) SetCallBacks(cb []Callback) {
 		switch v.(type) {
 		// if type menubutton
 		case *MenuButton:
-			fmt.Println("menu button")
 			button := v.(*MenuButton)
 
 			// set callback based on button loaded id
-			// 1 - menuToPlay 2 - exitToMenu
+			// - 1:: menuToPlay
+			// - 2:: exitToMenu
 			cb := ms.callbacks[button.GetCallBackID()]
 			button.SetCallBack(cb)
 		}
@@ -106,12 +107,13 @@ func (ms *MainMenuState) SetCallBacks(cb []Callback) {
 }
 
 // --- Callbacks
+
+// go to play state
 func menuToPlay() {
-	fmt.Println("PLAY BUTTON CLICKED")
 	STheGame.GetStateMachine().ChangeState(NewPlayState())
 }
 
+// exit
 func exitToMenu() {
-	fmt.Println("EXIT BUTTON CLICKED")
 	STheGame.Quit()
 }
