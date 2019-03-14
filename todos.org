@@ -46,21 +46,16 @@
    CLOSED: [2019-03-06 Wed 21:08]
    a simple menu button that switched from menu to play state
 
-** TODO state machine 
+** DONE state machine 
     implement a finite state machine
-    states
-        - [ ] play
-        - [ ] menu 
-        - [ ] gameOver
-        - [ ] pause
+
 
 ** TODO loading with xml data
     have the game load data from xml file
         - [X] made xml file with data
         - [X] parse xml data
+        - [X] loaded objects using xml data
         - [ ] ...
-        - [ ] ...
-
 
 * Errors                                                                :bug:
   : problems yet to be solved
@@ -112,7 +107,8 @@
 ** TODO Zero Error Animation Graphic.go
     zero division error causing a go panic()
 
-** TODO Not working because xml data has yet to be fully implemented
+** DONE Not working because xml data has yet to be fully implemented
+    CLOSED: [2019-03-13]
     xml data is not done and some classes have been changed to get that data
     that is not there, so game wont load.
 

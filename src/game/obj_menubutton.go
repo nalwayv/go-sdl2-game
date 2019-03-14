@@ -1,14 +1,13 @@
 package game
 
-import "fmt"
-
 /*
-*IGameObject*
+IGameObject interface
+---
 
 - Draw()
 - Update()
 - Clean()
-- Load()
+- Load(*params)
 */
 
 // enum mouse states
@@ -62,8 +61,6 @@ func (mb *MenuButton) Update() {
 
 		// change state on mouse click / mouse over
 		if SInputHandler.GetMouseButtonState(MouseLeft) && mb.buttonReleased {
-			fmt.Println("button clicked")
-
 			mb.obj.CurrentFrame = Clicked
 
 			mb.callback() // run callback function
@@ -71,7 +68,6 @@ func (mb *MenuButton) Update() {
 			mb.buttonReleased = false
 
 		} else if !SInputHandler.GetMouseButtonState(MouseLeft) {
-			fmt.Println("button over")
 			mb.buttonReleased = true
 			mb.obj.CurrentFrame = MouseOver
 		}

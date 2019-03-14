@@ -1,7 +1,8 @@
 package game
 
 /*
-Implements IGameState interface.
+*IGameState
+---
 
 - Update()
 - Render()
@@ -16,16 +17,20 @@ import (
 	"github.com/veandco/go-sdl2/sdl"
 )
 
+// PlayerID ...  id for this object used for parsing state info
+const PlayID string = "play"
+
 // PlayState ...
 type PlayState struct {
-	playID      string
-	gameObjects []IGameObject
+	objects    []IGameObject
+	textureIDs []string
 }
 
 // NewPlayState ...
 func NewPlayState() *PlayState {
 	ps := &PlayState{}
-	ps.playID = "PLAY"
+	ps.objects = make([]IGameObject, 0)
+	ps.textureIDs = make([]string, 0)
 	return ps
 }
 
@@ -41,14 +46,14 @@ func (ps *PlayState) Update() {
 		STheGame.GetStateMachine().PushState(NewGameOverState())
 	}
 
-	for _, v := range ps.gameObjects {
+	for _, v := range ps.objects {
 		v.Update()
 	}
 }
 
 // Render ...
 func (ps *PlayState) Render() {
-	for _, v := range ps.gameObjects {
+	for _, v := range ps.objects {
 		v.Draw()
 	}
 }
@@ -57,14 +62,8 @@ func (ps *PlayState) Render() {
 func (ps *PlayState) OnEnter() bool {
 	fmt.Println("enter play state")
 
-	// load textures
-	STextureManager.Load("assets/helicopter.png", "player", STheGame.GetRenderer())
-
-	// new player
-	player := NewPlayer()
-
-	// add to game objects slice
-	ps.gameObjects = append(ps.gameObjects, player)
+	sp := NewStateParser()
+	sp.ParseState("data/tmp.xml", PlayID, &ps.objects, &ps.textureIDs)
 
 	return true
 }
@@ -73,18 +72,14 @@ func (ps *PlayState) OnEnter() bool {
 func (ps *PlayState) OnExit() bool {
 	fmt.Println("exit play state")
 
-	for _, v := range ps.gameObjects {
-		v.Clean()
+	for _, v := range ps.textureIDs {
+		STextureManager.ClearFromTextureMap(v)
 	}
-
-	ps.gameObjects = nil
-
-	STextureManager.ClearFromTextureMap("player")
 
 	return true
 }
 
 // GetStateID ... get player id
-func (ps PlayState) GetStateID() string {
-	return ps.playID
+func (ps *PlayState) GetStateID() string {
+	return PlayID
 }

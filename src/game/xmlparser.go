@@ -17,25 +17,30 @@ type XMLStates struct {
 		XMLTextures []XMLTextures `xml:"textures>texture"`
 		XMLObjects  []XMLObjects  `xml:"objects>object"`
 	} `xml:"menu"`
+
+	Play struct {
+		XMLTextures []XMLTextures `xml:"textures>texture"`
+		XMLObjects  []XMLObjects  `xml:"objects>object"`
+	} `xml:"play"`
 }
 
 // XMLTextures ...
 type XMLTextures struct {
-	Filename string `xml:"filename"`
-	ID       string `xml:"id"`
+	Filename string `xml:"filename,attr"`
+	ID       string `xml:"id,attr"`
 }
 
 // XMLObjects ...
 type XMLObjects struct {
-	Width      int32  `xml:"width"`
-	Height     int32  `xml:"height"`
-	X          int32  `xml:"x"`
-	Y          int32  `xml:"y"`
-	ID         string `xml:"id"`
-	NumFrames  int    `xml:"numframes"`
-	CallBackID int    `xml:"callbackid"`
-	AnimSpeed  int    `xml:"animspeed"`
 	Type       string `xml:"type,attr"`
+	X          int32  `xml:"x,attr"`
+	Y          int32  `xml:"y,attr"`
+	Width      int32  `xml:"width,attr"`
+	Height     int32  `xml:"height,attr"`
+	ID         string `xml:"id,attr"`
+	NumFrames  int    `xml:"numframes,attr"`
+	CallBackID int    `xml:"callbackid,attr"`
+	AnimSpeed  int    `xml:"animspeed,attr"`
 }
 
 // XML PARSE DATA ---
@@ -51,6 +56,8 @@ func NewStateParser() *StateParser {
 	return sp
 }
 
+// golang .xml file parser
+// creates an object that stores data
 func (sp *StateParser) loadData(fileName string) XMLStates {
 	var err error
 
@@ -76,9 +83,14 @@ func (sp *StateParser) ParseState(fileName, stateID string, o *[]IGameObject, t 
 
 	if stateID == "menu" {
 		gologger.SLogger.Println("Parsing Menu State")
-
-		sp.parseObjects(data.Menu.XMLObjects, o)
 		sp.parseTextures(data.Menu.XMLTextures, t)
+		sp.parseObjects(data.Menu.XMLObjects, o)
+	}
+
+	if stateID == "play" {
+		gologger.SLogger.Println("Parsing Play State")
+		sp.parseTextures(data.Play.XMLTextures, t)
+		sp.parseObjects(data.Play.XMLObjects, o)
 	}
 }
 
@@ -89,7 +101,7 @@ func (sp *StateParser) parseTextures(textures []XMLTextures, t *[]string) {
 
 		*t = append(*t, v.ID)
 
-		gologger.SLogger.Println("Pushed onto textureid slice", v.ID)
+		gologger.SLogger.Println("Pushed onto textureID slice", v.ID)
 	}
 }
 

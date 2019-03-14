@@ -1,7 +1,22 @@
-SDL >> 17:26:23 go_inputhandler_singleton.go:183: No joysticks were activated
-SDL >> 17:26:23 go_xmlparser.go:102: Creating MenuButton
-SDL >> 17:27:35 go_xmlparser.go:106: Created MenuButton
-SDL >> 17:29:00 go_xmlparser.go:119: Added params for MenuButton
-SDL >> 17:29:42 go_xmlparser.go:102: Creating MenuButton
-SDL >> 17:30:22 go_xmlparser.go:106: Created MenuButton
-SDL >> 17:30:53 go_xmlparser.go:119: Added params for MenuButton
+SDL >> 23:54:58 singleton_go_factory.go:29: Init Game Object Factory Singleton
+SDL >> 23:54:58 singleton_input.go:183: No joysticks were activated
+SDL >> 23:54:58 singleton_go_factory.go:52: Added To Factory Obj Of Type MenuButton
+SDL >> 23:54:58 singleton_go_factory.go:52: Added To Factory Obj Of Type Player
+SDL >> 23:54:58 singleton_go_factory.go:52: Added To Factory Obj Of Type Enemy
+SDL >> 23:54:58 xmlparser.go:53: Init State Parser
+SDL >> 23:54:58 xmlparser.go:85: Parsing Menu State
+SDL >> 23:54:58 xmlparser.go:104: Pushed onto textureID slice playbutton
+SDL >> 23:54:58 xmlparser.go:104: Pushed onto textureID slice exitbutton
+SDL >> 23:54:58 singleton_go_factory.go:68: Factory Created Obj Of Type MenuButton
+SDL >> 23:54:58 xmlparser.go:120: Created MenuButton
+SDL >> 23:54:58 singleton_go_factory.go:68: Factory Created Obj Of Type MenuButton
+SDL >> 23:54:58 xmlparser.go:120: Created MenuButton
+SDL >> 23:54:59 xmlparser.go:53: Init State Parser
+SDL >> 23:54:59 xmlparser.go:91: Parsing Play State
+SDL >> 23:54:59 xmlparser.go:104: Pushed onto textureID slice helicopter1
+SDL >> 23:54:59 xmlparser.go:104: Pushed onto textureID slice helicopter2
+SDL >> 23:54:59 singleton_go_factory.go:68: Factory Created Obj Of Type Player
+SDL >> 23:54:59 xmlparser.go:120: Created Player
+SDL >> 23:54:59 singleton_go_factory.go:68: Factory Created Obj Of Type Enemy
+SDL >> 23:54:59 xmlparser.go:120: Created Enemy
+SDL >> 23:55:04 singleton_game.go:160: Quit App

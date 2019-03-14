@@ -1,11 +1,13 @@
 package game
 
 /*
-Implements IGameObject interface
+IGameObject interface
+---
 
 - Draw()
 - Update()
 - Clean()
+- Load(*params)
 */
 
 import (
@@ -49,6 +51,7 @@ func (p *Player) Update() {
 
 // Clean ...
 func (p *Player) Clean() {
+	p.obj.Clean()
 }
 
 // HandleInput ...

@@ -60,7 +60,7 @@ func (gf *GOFactory) Create(typeID string) (IGameObject, error) {
 
 	// not found
 	if !ok {
-		return nil, errors.New("factory object not found")
+		return nil, errors.New("factory object not found " + typeID)
 	}
 
 	bc := v.(ICreator)

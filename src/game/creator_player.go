@@ -1,7 +1,8 @@
 package game
 
 /*
-Implements ICreator interface
+ICreator interface
+---
 
 - CreateObj() IGameObject
 */
@@ -14,8 +15,7 @@ func NewPlayerCreator() *PlayerCreator {
 	return &PlayerCreator{}
 }
 
-// CreateObject ...
-func (pc *PlayerCreator) CreateObject() IGameObject {
-	player := Player{}
-	return &player
+// CreateObj ...
+func (pc *PlayerCreator) CreateObj() IGameObject {
+	return NewPlayer()
 }

@@ -113,10 +113,12 @@ func (g *Game) Init(title string, xPos, yPos, width, height int32, fullscreen bo
 	// input singleton
 	SInputHandler.InitialiseJoySticks()
 
-	// TODO :: init game factory
+	// init game factory objects
 	STheGameObjFactory.Register("MenuButton", NewMenuButtonCreator())
+	STheGameObjFactory.Register("Player", NewPlayerCreator())
+	STheGameObjFactory.Register("Enemy", NewEnemyCreator())
 
-	// statemachine / set to menu state
+	// state machine / set to menu state
 	g.StateMachine = NewStateMachine()
 	g.GetStateMachine().ChangeState(NewMenuState())
 

@@ -1,12 +1,13 @@
 package game
 
 /*
-Implements IGameObject interface
+IGameObject interface
+---
 
 - Draw()
 - Update()
 - Clean()
-- Load()
+- Load(*params)
 */
 
 // Enemy ...
@@ -38,6 +39,7 @@ func (e *Enemy) Update() {
 
 // Clean ...
 func (e *Enemy) Clean() {
+	e.obj.Clean()
 }
 
 // HandleInput ...

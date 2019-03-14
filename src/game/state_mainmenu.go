@@ -19,7 +19,7 @@ import (
 	"fmt"
 )
 
-// MenuID ... string if for object
+// MenuID ... id for this object
 const MenuID string = "menu"
 
 // MainMenuState ...
@@ -61,12 +61,11 @@ func (ms *MainMenuState) OnEnter() bool {
 	sp := NewStateParser()
 	sp.ParseState("data/tmp.xml", MenuID, &ms.objects, &ms.textureIDs)
 
-	// button callback function
+	// button callback functions
 	// starts from 1 so 0 is nil
 	ms.callbacks = append(ms.callbacks, nil)
 	ms.callbacks = append(ms.callbacks, menuToPlay)
 	ms.callbacks = append(ms.callbacks, exitToMenu)
-
 	ms.SetCallBacks(ms.callbacks)
 
 	return true
@@ -74,8 +73,6 @@ func (ms *MainMenuState) OnEnter() bool {
 
 // OnExit ...
 func (ms *MainMenuState) OnExit() bool {
-	// var err error
-
 	fmt.Println("exit menu state")
 
 	for _, v := range ms.textureIDs {
@@ -86,7 +83,7 @@ func (ms *MainMenuState) OnExit() bool {
 }
 
 // GetStateID ...
-func (ms MainMenuState) GetStateID() string {
+func (ms *MainMenuState) GetStateID() string {
 	return MenuID
 }
 

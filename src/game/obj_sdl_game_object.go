@@ -1,7 +1,8 @@
 package game
 
 /*
-Implements IGameObject interface
+IGameObject interface
+---
 
 - Draw()
 - Update()

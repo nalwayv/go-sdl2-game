@@ -1,46 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <states>
-    <!-- MENU STATE -->
-    <menu>
-        <!-- array textures -->
-        <textures>
-          <texture>
-            <filename>assets/button.png</filename>
-            <id>playbutton</id>
-          </texture>
-          <texture>
-            <filename>assets/exit.png</filename>
-            <id>exitbutton</id>
-          </texture>
-        </textures>
-        <!-- array objects -->
-        <objects>
-            <object type="MenuButton">
-                <x>100</x>
-                <y>100</y>
-                <width>400</width>
-                <height>100</height>
-                <id>playbutton</id>
-                <numframes>0</numframes>
-                <callbackid>1</callbackid>
-                <animspeed>0</animspeed>
-            </object>
-            <object type="MenuButton">
-                <x>100</x>
-                <y>300</y>
-                <width>400</width>
-                <height>100</height>
-                <id>exitbutton</id>
-                <numframes>0</numframes>
-                <callbackid>2</callbackid>
-                <animspeed>0</animspeed>
-            </object>
-        </objects>
-    </menu>
+  <!-- MENU STATE -->
+  <menu>
+    <!-- array textures -->
+    <textures>
+      <texture filename="assets/button.png" id="playbutton"/>
+      <texture filename="assets/exit.png" id="exitbutton"/>
+    </textures>
+    <!-- array objects -->
+    <objects>
+      <object type="MenuButton" x="100" y="100" width="400" height="100" id="playbutton" numframes="0" callbackid="1" animspeed="0"/>
+      <object type="MenuButton" x="100" y="300" width="400" height="100" id="exitbutton" numframes="0" callbackid="2" animspeed="0"/>
+    </objects>
+  </menu>
 
-    <!-- PLAY STATE -->
-    <play></play>
+  <!-- PLAY STATE -->
+  <play>
+    <!-- array textures -->
+    <textures>
+      <texture filename="assets/helicopter1.png" id="helicopter1"/>
+      <texture filename="assets/helicopter2.png" id="helicopter2"/>
+    </textures>
+    <!-- array objects -->
+    <objects>
+      <object type="Player" x="500" y="100" width="128" height="55" id="helicopter1" numframes="4" callbackid="0" animspeed="0"/>
+      <object type="Enemy" x="100" y="100" width="128" height="55" id="helicopter2" numframes="4" callbackid="0" animspeed="0"/>
+    </objects>
+  </play>
 
-    <!-- GAMEOVER STATE -->
-    <gameover></gameover>
+  <!-- GAMEOVER STATE -->
+  <gameover></gameover>
 </states>
