@@ -7,13 +7,12 @@ import (
 
 //------------------------------------
 
-// Information ...
+// Settings ...
 const (
 	WindowWidth  int32  = 640
 	WindowHeight int32  = 480
 	Fps          uint32 = 60
 	DelayTime    uint32 = 1000.0 / Fps
-	AccTime      uint32 = 0.0
 )
 
 //------------------------------------
@@ -21,13 +20,12 @@ const (
 func run() {
 	// singleton init game obj
 	game.STheGame.Init(
-		"sdl",                   // name
-		sdl.WINDOWPOS_UNDEFINED, // window position
-		sdl.WINDOWPOS_UNDEFINED, // window position
-		WindowWidth,             // width
-		WindowHeight,            // height
-		false,                   // full screen
-	)
+		"sdl",
+		sdl.WINDOWPOS_UNDEFINED,
+		sdl.WINDOWPOS_UNDEFINED,
+		WindowWidth,
+		WindowHeight,
+		false)
 
 	// main loop
 	for game.STheGame.Running {
