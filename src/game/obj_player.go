@@ -55,32 +55,29 @@ func (p *Player) Clean() {
 // HandleInput ...
 func (p *Player) HandleInput() {
 
-	// if joystick was found
-	// else use keyboard
+	// Joystick
 	if SInputHandler.JoySticksInitialised() {
-		// xValue(0,1) -> 0 = main joystick, 1 = left analog stick
-		// yValue(0,2) -> 0 = main joystick, 2 = right analog stick
 		// left stick left / right
-		if SInputHandler.Xvalue(0, 1) > 0 || SInputHandler.Xvalue(0, 1) < 0 {
-			vel := float64(1 * SInputHandler.Xvalue(0, 1))
+		if SInputHandler.GetXvalue(0, 1) > 0 || SInputHandler.GetXvalue(0, 1) < 0 {
+			vel := float64(1 * SInputHandler.GetXvalue(0, 1))
 			p.obj.Velocity.SetX(vel)
 		}
 
 		// left stick up / down
-		if SInputHandler.Yvalue(0, 1) > 0 || SInputHandler.Yvalue(0, 1) < 0 {
-			vel := float64(1 * SInputHandler.Yvalue(0, 1))
+		if SInputHandler.GetYvalue(0, 1) > 0 || SInputHandler.GetYvalue(0, 1) < 0 {
+			vel := float64(1 * SInputHandler.GetYvalue(0, 1))
 			p.obj.Velocity.SetY(vel)
 		}
 
 		// right stick left / right
-		if SInputHandler.Xvalue(0, 2) > 0 || SInputHandler.Xvalue(0, 2) < 0 {
-			vel := float64(1 * SInputHandler.Xvalue(0, 2))
+		if SInputHandler.GetXvalue(0, 2) > 0 || SInputHandler.GetXvalue(0, 2) < 0 {
+			vel := float64(1 * SInputHandler.GetXvalue(0, 2))
 			p.obj.Velocity.SetX(vel)
 		}
 
 		// right stick up / down
-		if SInputHandler.Yvalue(0, 2) > 0 || SInputHandler.Yvalue(0, 2) < 0 {
-			vel := float64(1 * SInputHandler.Yvalue(0, 2))
+		if SInputHandler.GetYvalue(0, 2) > 0 || SInputHandler.GetYvalue(0, 2) < 0 {
+			vel := float64(1 * SInputHandler.GetYvalue(0, 2))
 			p.obj.Velocity.SetY(vel)
 		}
 
@@ -90,6 +87,8 @@ func (p *Player) HandleInput() {
 			p.obj.Velocity.SetX(1)
 		}
 	}
+
+	// No joystick
 
 	// mouse left
 	if SInputHandler.GetMouseButtonState(0) {

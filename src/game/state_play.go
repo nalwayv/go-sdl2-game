@@ -72,8 +72,13 @@ func (ps *PlayState) OnEnter() bool {
 func (ps *PlayState) OnExit() bool {
 	fmt.Println("exit play state")
 
+	// for _, v := range ps.textureIDs {
+	//     STextureManager.ClearFromTextureMap(v)
+	// }
+
 	for _, v := range ps.textureIDs {
-		STextureManager.ClearFromTextureMap(v)
+		err := STextureManager.ClearFromTextureMap(v)
+		checkError(err)
 	}
 
 	return true
