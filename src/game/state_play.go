@@ -62,8 +62,8 @@ func (ps *PlayState) Render() {
 func (ps *PlayState) OnEnter() bool {
 	fmt.Println("enter play state")
 
-	sp := NewStateParser()
-	sp.ParseState("data/tmp.xml", PlayID, &ps.objects, &ps.textureIDs)
+	sp := NewJSONStateParser()
+	sp.ParseState("data/data.json", PlayID, &ps.objects, &ps.textureIDs)
 
 	return true
 }

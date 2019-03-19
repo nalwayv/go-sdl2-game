@@ -56,8 +56,8 @@ func (gs *GameOverState) Render() {
 func (gs *GameOverState) OnEnter() bool {
 	fmt.Println("enter gameover state")
 
-	sp := NewStateParser()
-	sp.ParseState("data/tmp.xml", GameOverID, &gs.objects, &gs.textureIDs)
+	sp := NewJSONStateParser()
+	sp.ParseState("data/data.json", PlayID, &gs.objects, &gs.textureIDs)
 
 	gs.callbacks = append(gs.callbacks, nil)
 	gs.callbacks = append(gs.callbacks, gameoverToMenu)

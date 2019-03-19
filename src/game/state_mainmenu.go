@@ -59,8 +59,10 @@ func (ms MainMenuState) Render() {
 func (ms *MainMenuState) OnEnter() bool {
 	fmt.Println("enter main menu state")
 
-	sp := NewStateParser()
-	sp.ParseState("data/tmp.xml", MenuID, &ms.objects, &ms.textureIDs)
+	sp := NewJSONStateParser()
+	sp.ParseState("data/data.json", MenuID, &ms.objects, &ms.textureIDs)
+	//sp := NewStateParser()
+	//sp.ParseState("data/tmp.xml", MenuID, &ms.objects, &ms.textureIDs)
 
 	// button callback functions
 	// starts from 1 so 0 is nil

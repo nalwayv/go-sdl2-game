@@ -41,7 +41,7 @@
       <object type="MenuButton" x="200" y="300" width="200" height="80" id="resumebutton" numframes="0" callbackid="2" animspeed="0"/>
     </objects>
   </pause>
-  
+
   <!-- GAMEOVER STATE -->
   <gameover>
     <!-- array textures -->
@@ -58,3 +58,4 @@
     </objects>
   </gameover>
 </states>
+

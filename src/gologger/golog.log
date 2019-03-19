@@ -1,22 +1,22 @@
-SDL >> 21:27:18 singleton_game.go:31: Init NewGame
-SDL >> 21:27:18 singleton_go_factory.go:28: Init Game Object Factory Singleton
-SDL >> 21:27:18 singleton_input.go:51: Init New Input Handler
-SDL >> 21:27:18 singleton_texture.go:29: Init New Texture Manager
-SDL >> 21:27:19 singleton_input.go:178: No joysticks were activated
-SDL >> 21:27:19 singleton_go_factory.go:39: registering MenuButton
-SDL >> 21:27:19 singleton_go_factory.go:51: Added To Factory Obj Of Type MenuButton
-SDL >> 21:27:19 singleton_go_factory.go:39: registering Player
-SDL >> 21:27:19 singleton_go_factory.go:51: Added To Factory Obj Of Type Player
-SDL >> 21:27:19 singleton_go_factory.go:39: registering Enemy
-SDL >> 21:27:19 singleton_go_factory.go:51: Added To Factory Obj Of Type Enemy
-SDL >> 21:27:19 singleton_go_factory.go:39: registering AnimatedGraphic
-SDL >> 21:27:19 singleton_go_factory.go:51: Added To Factory Obj Of Type AnimatedGraphic
-SDL >> 21:27:19 xmlparser.go:63: Init State Parser
-SDL >> 21:27:19 xmlparser.go:98: Parsing Menu State
-SDL >> 21:27:19 xmlparser.go:130: Pushed onto textureID slice playbutton
-SDL >> 21:27:19 xmlparser.go:130: Pushed onto textureID slice exitbutton
-SDL >> 21:27:19 singleton_go_factory.go:67: Factory Created Obj Of Type MenuButton
-SDL >> 21:27:19 xmlparser.go:147: Created MenuButton
-SDL >> 21:27:19 singleton_go_factory.go:67: Factory Created Obj Of Type MenuButton
-SDL >> 21:27:19 xmlparser.go:147: Created MenuButton
-SDL >> 21:27:23 singleton_game.go:159: Quit App
+SDL >> 13:48:00 singleton_game.go:31: Init NewGame
+SDL >> 13:48:00 singleton_go_factory.go:28: Init Game Object Factory Singleton
+SDL >> 13:48:00 singleton_input.go:51: Init New Input Handler
+SDL >> 13:48:00 singleton_texture.go:29: Init New Texture Manager
+SDL >> 13:48:00 singleton_input.go:178: No joysticks were activated
+SDL >> 13:48:00 singleton_go_factory.go:39: registering MenuButton
+SDL >> 13:48:00 singleton_go_factory.go:51: Added To Factory Obj Of Type MenuButton
+SDL >> 13:48:00 singleton_go_factory.go:39: registering Player
+SDL >> 13:48:00 singleton_go_factory.go:51: Added To Factory Obj Of Type Player
+SDL >> 13:48:00 singleton_go_factory.go:39: registering Enemy
+SDL >> 13:48:00 singleton_go_factory.go:51: Added To Factory Obj Of Type Enemy
+SDL >> 13:48:00 singleton_go_factory.go:39: registering AnimatedGraphic
+SDL >> 13:48:00 singleton_go_factory.go:51: Added To Factory Obj Of Type AnimatedGraphic
+SDL >> 13:48:00 jsonparser.go:64: init json state parser
+SDL >> 13:48:00 jsonparser.go:99: Parsing Menu State
+SDL >> 13:48:00 jsonparser.go:130: Pushed onto textureIDs playbutton
+SDL >> 13:48:00 jsonparser.go:130: Pushed onto textureIDs exitbutton
+SDL >> 13:48:00 singleton_go_factory.go:67: Factory Created Obj Of Type MenuButton
+SDL >> 13:48:00 jsonparser.go:145: Created MenuButton
+SDL >> 13:48:00 singleton_go_factory.go:67: Factory Created Obj Of Type MenuButton
+SDL >> 13:48:00 jsonparser.go:145: Created MenuButton
+SDL >> 13:48:01 singleton_game.go:159: Quit App
