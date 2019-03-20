@@ -2,9 +2,10 @@ package game
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"os"
+
+	"../gologger"
 )
 
 // --- JSON DATA
@@ -22,23 +23,24 @@ type JSONMap struct {
 
 // JSONLayers ...
 type JSONLayers struct {
+	Data   []int  `json:"data"`
 	Name   string `json:"name"`
 	Width  int    `json:"width"`
 	Height int    `json:"height"`
-	Data   []int  `json:"data"`
 }
 
 // JSONTileset ...
 type JSONTileset struct {
 	FirstGID   int    `json:"firstgid"`
 	Name       string `json:"name"`
-	Source     string `json:"source"`
+	Source     string `json:"image"`
 	TileWidth  int    `json:"tilewidth"`
 	TileHeight int    `json:"tileheight"`
-	Width      int    `json:"width"`
-	Height     int    `json:"height"`
+	Width      int    `json:"imagewidth"`
+	Height     int    `json:"imageheight"`
 	Spacing    int    `json:"spacing"`
 	Margin     int    `json:"margin"`
+	Columns    int    `json:"columns"`
 }
 
 // --- JSON PARSER
@@ -75,51 +77,80 @@ func (mp *JSONMapParser) loadData(filename string) JSONMap {
 }
 
 // ParseLevel ...
-func (mp *JSONMapParser) ParseLevel(filename string) {
-	// data:=loadData(filename)
+func (mp *JSONMapParser) ParseLevel(filename string) *Level {
+	data := mp.loadData(filename)
 
+	level := NewLevel()
+
+	// basic map settings
+	mp.tilesize = data.Tilewidth
+	mp.width = data.Width
+	mp.height = data.Height
+
+	// update levels []*Tileset slice
+	for _, v := range data.Set {
+		mp.parseTileSets(v, level)
+	}
+
+	// update levels []ILayer slice
+	for _, v := range data.Layers {
+		mp.parseTileLayers(v, level)
+	}
+
+	return level
 }
 
 // parse tile sets
-func (mp *JSONMapParser) parseTileSets(ts []JSONTileset) {
-	for _, v := range ts {
-		// new tile set from data
-		t := NewTileset()
-		t.Width = v.Width
-		t.Height = v.Height
-		t.GridID = v.FirstGID
-		t.TileWidth = v.TileWidth
-		t.TileHeight = v.TileHeight
-		t.Spacing = v.Spacing
-		t.Margin = v.Margin
-		t.Name = v.Name
-		t.NumColumns = t.Width / (t.TileWidth + t.Spacing)
-		fmt.Println(t)
-		// TODO
-		// append t to tile set slice
-	}
+func (mp *JSONMapParser) parseTileSets(jTileset JSONTileset, level *Level) {
+	// TODO - parse tile set json
+	// parse tilesets from json file and create a new tile set from that data
+	// then push that data to a slice for use
+	// load in texture
+	STextureManager.Load(jTileset.Source, jTileset.Name, STheGame.GetRenderer())
+
+	// new tile set from data
+	tileset := NewTileset(
+		jTileset.FirstGID,   // groidid
+		jTileset.Width,      // image width
+		jTileset.Height,     // image height
+		jTileset.TileWidth,  // tile width
+		jTileset.TileHeight, // tile height
+		jTileset.Spacing,    // spacing between tiles
+		jTileset.Margin,     // margin between tiles
+		jTileset.Columns,    // number of columns
+		jTileset.Name)       // name of the tile set
+
+	gologger.SLogger.Println("DATA FROM PARSE TILE LAYER::", tileset)
+
+	level.AppendToTileSet(tileset)
 }
 
 // parse tile layers
-func (mp *JSONMapParser) parseTileLayers(tl []JSONLayers) {
-	for _, v := range tl {
-		// TODO
-		// new tile layer
-		//p := NewTileLayer(mp.tilesize, nil)
-		// tile data
-		// empty matrix
-		data := make([][]int, mp.height)
-		for d := 0; d < mp.width; d++ {
-			data[d] = make([]int, mp.width)
-		}
-		// add data
-		for row := 0; row < mp.height; row++ {
-			for col := 0; col < mp.width; col++ {
-				data[row][col] = v.Data[row*mp.width+col]
-			}
-		}
-		fmt.Println(data)
-		// TODO
-		// append data to slice
+func (mp *JSONMapParser) parseTileLayers(jLayer JSONLayers, level *Level) {
+	// TODO - parse tile layer json
+	// in the book the xml data is compressed via zlib base64
+	// so needs to uncompressed
+	// but im using json were its not compressed so skipping the
+	// uncompress part!
+
+	tilelayer := NewTileLayer(mp.tilesize, level.GetTileSet())
+
+	// make empty tile data 2d slice
+	data := make([][]int, mp.height)
+	for d := 0; d < mp.width; d++ {
+		data[d] = make([]int, mp.width)
 	}
+
+	// add data
+	for rows := 0; rows < mp.height; rows++ {
+		for cols := 0; cols < mp.width; cols++ {
+			data[rows][cols] = jLayer.Data[rows*mp.width+cols]
+		}
+	}
+
+	gologger.SLogger.Println("DATA FROM PARSE TILE LAYER::", data)
+
+	tilelayer.SetTileIDs(data)
+
+	level.AppendToTileLayer(tilelayer)
 }

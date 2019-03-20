@@ -14,6 +14,16 @@ type Tileset struct {
 }
 
 // NewTileset ...
-func NewTileset() *Tileset {
-	return &Tileset{}
+func NewTileset(gid, width, height, tilewidth, tileheight, spacing, margin, numcolumns int, name string) *Tileset {
+	return &Tileset{
+		GridID:     gid,
+		TileWidth:  tilewidth,
+		TileHeight: tileheight,
+		Width:      width,
+		Height:     height,
+		Spacing:    spacing,
+		Margin:     margin,
+		NumColumns: numcolumns,
+		Name:       name,
+	}
 }

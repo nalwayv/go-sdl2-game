@@ -26,7 +26,7 @@ func run() {
 		WindowWidth,
 		WindowHeight,
 		false)
-	
+
 	// main loop
 	for game.STheGame.Running {
 
@@ -43,7 +43,7 @@ func run() {
 		}
 	}
 
-	// lean up
+	// clean up
 	game.STheGame.Clean()
 }
 
