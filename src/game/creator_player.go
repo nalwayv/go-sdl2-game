@@ -1,9 +1,14 @@
 package game
 
 /*
-ICreator interface
+Info
 ---
+Used to create an blank base object that will be placed into the
+game object factory
 
+
+Implements ICreator interface
+---
 - CreateObj() IGameObject
 */
 

@@ -24,6 +24,7 @@ const PlayID string = "play"
 type PlayState struct {
 	objects    []IGameObject
 	textureIDs []string
+	pLevel     *Level
 }
 
 // NewPlayState ...
@@ -56,14 +57,21 @@ func (ps *PlayState) Render() {
 	for _, v := range ps.objects {
 		v.Draw()
 	}
+
+	ps.pLevel.Render()
 }
 
 // OnEnter ...
 func (ps *PlayState) OnEnter() bool {
 	fmt.Println("enter play state")
 
+	// obj
 	sp := NewJSONStateParser()
 	sp.ParseState("data/data.json", PlayID, &ps.objects, &ps.textureIDs)
+
+	// level
+	lp := NewJSONMapParser()
+	ps.pLevel = lp.ParseLevel("data/map.json")
 
 	return true
 }

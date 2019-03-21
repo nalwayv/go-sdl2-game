@@ -1,5 +1,12 @@
 package game
 
+/*
+* Info
+* ---
+* Data parsed from the json file generated from 'Tiled'
+* then passed onto the current level
+**/
+
 import (
 	"encoding/json"
 	"io/ioutil"
@@ -101,6 +108,8 @@ func (mp *JSONMapParser) ParseLevel(filename string) *Level {
 }
 
 // parse tile sets
+// jTileset - slice of parsed data
+// level * - pointer to level data
 func (mp *JSONMapParser) parseTileSets(jTileset JSONTileset, level *Level) {
 	// TODO - parse tile set json
 	// parse tilesets from json file and create a new tile set from that data
@@ -122,16 +131,22 @@ func (mp *JSONMapParser) parseTileSets(jTileset JSONTileset, level *Level) {
 
 	gologger.SLogger.Println("DATA FROM PARSE TILE LAYER::", tileset)
 
+	// push to levels tile set slice
 	level.AppendToTileSet(tileset)
 }
 
 // parse tile layers
+// jlayers - slice of parsed data
+// level * - pointer to level data
 func (mp *JSONMapParser) parseTileLayers(jLayer JSONLayers, level *Level) {
 	// TODO - parse tile layer json
 	// in the book the xml data is compressed via zlib base64
 	// so needs to uncompressed
 	// but im using json were its not compressed so skipping the
 	// uncompress part!
+	// ---
+	// also in the book a pointer to a vector pointer is used to add to
+	// levels tile layers and also get tile set
 
 	tilelayer := NewTileLayer(mp.tilesize, level.GetTileSet())
 
@@ -152,5 +167,6 @@ func (mp *JSONMapParser) parseTileLayers(jLayer JSONLayers, level *Level) {
 
 	tilelayer.SetTileIDs(data)
 
+	// push to levels tile layer slice
 	level.AppendToTileLayer(tilelayer)
 }

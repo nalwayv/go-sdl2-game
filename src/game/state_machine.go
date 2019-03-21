@@ -1,5 +1,14 @@
 package game
 
+/*
+Info
+---
+used for switching between different states with the game
+done by using a slice of IGameState objects and just pushing and
+popping them on and off.
+
+**/
+
 // StateMachine ... game state machine
 type StateMachine struct {
 	gameState []IGameState // implement IGameState interface
@@ -49,13 +58,13 @@ func (sm *StateMachine) ChangeState(state IGameState) {
 		}
 	}
 
-	// add new
+	// add new to the end and call its OnEnter
 	sm.gameState = append(sm.gameState, state)
 	n := len(sm.gameState) - 1
 	sm.gameState[n].OnEnter()
 }
 
-// Update ...
+// Update ... call that states update
 func (sm *StateMachine) Update() {
 	if len(sm.gameState) != 0 {
 		n := len(sm.gameState) - 1
@@ -63,7 +72,7 @@ func (sm *StateMachine) Update() {
 	}
 }
 
-// Render ...
+// Render ... call that states render
 func (sm *StateMachine) Render() {
 	if len(sm.gameState) != 0 {
 		n := len(sm.gameState) - 1

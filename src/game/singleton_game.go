@@ -16,6 +16,8 @@ type Game struct {
 	Renderer     *sdl.Renderer
 	GameObject   []IGameObject
 	StateMachine *StateMachine
+	Width int32
+	Height int32
 }
 
 var (
@@ -43,6 +45,16 @@ func (g *Game) GetRenderer() *sdl.Renderer {
 // GetStateMachine ...
 func (g *Game) GetStateMachine() *StateMachine {
 	return g.StateMachine
+}
+
+// GetWidth ...
+func (g *Game)GetWidth()int32{
+	return g.Width
+}
+
+// GetHeight ...
+func (g *Game)GetHeight()int32{
+	return g.Height
 }
 
 // Init ...
@@ -95,7 +107,9 @@ func (g *Game) Init(title string, xPos, yPos, width, height int32, fullscreen bo
 	checkError(err)
 
 	// create window
-	g.Window, err = sdl.CreateWindow(title, xPos, yPos, width, height, flag)
+	g.Width = width
+	g.Height = height
+	g.Window, err = sdl.CreateWindow(title, xPos, yPos, g.Width, g.Height, flag)
 	checkError(err)
 
 	// create renderer

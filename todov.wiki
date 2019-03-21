@@ -1,0 +1,106 @@
+#+TITLE: Sdl2 Book
+#+AUTHOR: NA
+---
+
+== CURRENT PAGE 194 ==
+
+= Vim =
+	* Window
+		- :source %
+		:: reload window
+    - <F1>
+    :: quick open vim help
+
+	* Buffers
+		- :bd
+		:: close current buffer
+
+		- <LShift-left/right>
+		:: move between next and previous buffers
+
+	* NERDTree - file navagetor
+		- <F2>
+		:: toggle tree
+
+		- <m>
+		:: create file or folder
+
+  * NERDComment - comment
+    - <Space-c-c>
+    :: comment out a line
+
+	* Fugitive - vim git
+		- :GStatus
+		:: show git status
+
+		- <->
+		:: stage a selection
+
+		- :Gcommit -m "message"
+		:: commit selected to git with a message
+
+  * Goyo - distraction free mode
+    - <Space-g>
+    :: toggle goyo mode
+
+= Todo =
+	- [X] vec2D class
+	- [.] input handler
+		- [X] sticks
+		- [X] buttons
+		- [X] mouse
+		- [X] keybaord
+	- [X] buttons
+	- [X] state machine
+	- [.] xml data
+		- [X] menu
+		- [X] play
+		- [X] pause
+		- [X] gameover
+	- [X] implement xml data
+  - [X] change from xml to json
+  - [.] tile map
+    - [ ] create map
+    - [ ] parse
+    - [ ] load
+
+= Errors =
+	- [X] texture manager not loading images
+	:: could not locate file with .png
+
+	- [X] input keyboard not working
+	:: code was inside joystick init
+	:: so no joystick ment no keyboard ooops!
+
+	- [X] state machine index out of range
+	:: was getting size at wrong time before it was ajusted
+
+	- [ ] zero error with animated graphics
+
+	- [X] not working as xml data has not been implemented
+	:: xml data has yet to be made
+
+	- [X] main menu callback on button not working
+	:: was using the wrong method
+	:: used setCallBackID insted of setCallBack
+
+	- [X] main menu button leads to nil pointer
+	:: needed to be registred within game init before changeing states
+
+  - [X] switched from xml to json but data was not loading in properly
+  :: had to tweek the parse file and wrap structs within another struct to find
+  :: the parent node as encode/json does not have a xml.Name equivelent
+
+  - [.] tile map not full implemented yet.
+  :: in the book pointers to vector pointers are used to get lists and append
+  :: to them.
+  :: crashes on loading playstate
+
+= Links =
+  [[https://vim.rtorr.com|Vim Cheat Sheet]]
+  [["https://gist.github.com/robphoenix/9e4db767ab5c912fb558"|Spacemacs Cheat Sheet]]
+  [[http://lazyfoo.net/tutorials/SDL/index.php|Lazy foo sdl2 tutorials]]
+  [[http://lazyfoo.net/tutorials/SDL/index.php|Games with golang tutorials]]
+  [[https://github.com/Shashank9830/SDL-Game-Project|Sdl2 code of this book in ccp format]]
+  [[http://ergoemacs.org/emacs/emacs_magit-mode_tutorial.html|Emacs magit cheat sheet]]
+  [[http://vimcasts.org/episodes/fugitive-vim---a-complement-to-command-line-git/|Vim fugitive]]

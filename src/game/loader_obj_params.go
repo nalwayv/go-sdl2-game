@@ -1,5 +1,17 @@
 package game
 
+/*
+Info
+---
+Used to set an objects paramiters values by first being set with the
+parsed data from json file then being added to an objects objects constructor
+
+Example
+___
+pl := Player()  <- empty base object
+pl.Load(params) <- set here when calling IGameObj.Draw()
+**/
+
 // LoadParams ...
 type LoadParams struct {
 	x              int32
