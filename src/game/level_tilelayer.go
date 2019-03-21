@@ -93,7 +93,7 @@ func (tl *TileLayer) SetTileSize(value int) {
 	tl.tileSize = value
 }
 
-// GetTilesetByID ... return tileset ffrom list of tilesets by id
+// GetTilesetByID ... return tileset from list of tilesets by id
 func (tl *TileLayer) GetTilesetByID(tileID int) *Tileset {
 	n := len(tl.tileSets)
 
@@ -102,7 +102,7 @@ func (tl *TileLayer) GetTilesetByID(tileID int) *Tileset {
 
 		if i+1 <= n-1 {
 			// if tileID is the same as current gridID,
-			// andis also a lower value then the next gridID
+			// and is also a lower value then the next gridID
 
 			current := tl.tileSets[i].GridID
 			next := tl.tileSets[i+1].GridID
@@ -110,14 +110,14 @@ func (tl *TileLayer) GetTilesetByID(tileID int) *Tileset {
 			if tileID >= current && tileID < next {
 				return tl.tileSets[i]
 			}
+
 		} else {
 			return tl.tileSets[i]
 		}
 
 	}
 
-	// empty
-	gologger.SLogger.Println("did not find tileset retruning empty tileset.")
-	t := &Tileset{}
-	return t
+	gologger.SLogger.Println("created blank tileset")
+	t := Tileset{}
+	return &t
 }
