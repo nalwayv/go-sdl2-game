@@ -22,16 +22,12 @@ const PlayID string = "play"
 
 // PlayState ...
 type PlayState struct {
-	objects    []IGameObject
-	textureIDs []string
-	pLevel     *Level
+	pLevel *Level
 }
 
 // NewPlayState ...
 func NewPlayState() *PlayState {
 	ps := &PlayState{}
-	ps.objects = make([]IGameObject, 0)
-	ps.textureIDs = make([]string, 0)
 	return ps
 }
 
@@ -43,21 +39,11 @@ func (ps *PlayState) Update() {
 		STheGame.GetStateMachine().PushState(NewPauseState())
 	}
 
-	if SInputHandler.IsKeyDown(sdl.SCANCODE_Q) {
-		STheGame.GetStateMachine().PushState(NewGameOverState())
-	}
-
-	for _, v := range ps.objects {
-		v.Update()
-	}
+	ps.pLevel.Update()
 }
 
 // Render ...
 func (ps *PlayState) Render() {
-	for _, v := range ps.objects {
-		v.Draw()
-	}
-
 	ps.pLevel.Render()
 }
 
@@ -65,11 +51,7 @@ func (ps *PlayState) Render() {
 func (ps *PlayState) OnEnter() bool {
 	fmt.Println("enter play state")
 
-	// obj
-	sp := NewJSONStateParser()
-	sp.ParseState("data/data.json", PlayID, &ps.objects, &ps.textureIDs)
-
-	// level
+	// level's info
 	lp := NewJSONMapParser()
 	ps.pLevel = lp.ParseLevel("data/map.json")
 
@@ -79,15 +61,6 @@ func (ps *PlayState) OnEnter() bool {
 // OnExit ...
 func (ps *PlayState) OnExit() bool {
 	fmt.Println("exit play state")
-
-	// for _, v := range ps.textureIDs {
-	//     STextureManager.ClearFromTextureMap(v)
-	// }
-
-	for _, v := range ps.textureIDs {
-		err := STextureManager.ClearFromTextureMap(v)
-		checkError(err)
-	}
 
 	return true
 }

@@ -1,6 +1,10 @@
 package game
 
-// SINGLETON
+/*
+* Singleton
+* ---
+* Main game initialization  
+**/
 
 import (
 	"sync"

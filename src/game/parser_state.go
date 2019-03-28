@@ -1,5 +1,13 @@
 package game
 
+/*
+* Info
+* ---
+* Parse json data for game objects data such as its width, height ,position,
+* texture info and so on.
+*
+* */
+
 import (
 	"encoding/json"
 	"io/ioutil"
@@ -87,10 +95,10 @@ func (jsp *JSONStateParser) loadData(filename string) JSONStates {
 }
 
 // ParseState ...
-// filename	:: file with data
-// stateID	:: id for parsing
-// o		:: pointer to slice where data will be stored
-// t		:: pointer to slice were data will be stored
+// filename	- file with data
+// stateID	- id for parsing
+// o		- pointer to slice where data will be stored
+// t		- pointer to slice were data will be stored
 func (jsp *JSONStateParser) ParseState(filename, stateID string, o *[]IGameObject, t *[]string) {
 	data := jsp.loadData(filename)
 
@@ -120,18 +128,19 @@ func (jsp *JSONStateParser) ParseState(filename, stateID string, o *[]IGameObjec
 	}
 }
 
-// parse textures
+// parse textures ...
 func (jsp *JSONStateParser) parseTextures(textures []JSONTextures, t *[]string) {
 	for _, v := range textures {
 		STextureManager.Load(v.FileName, v.ID, STheGame.GetRenderer())
 
+		// pointer to outside data slice to append to
 		*t = append(*t, v.ID)
 
 		gologger.SLogger.Println("Pushed onto textureIDs", v.ID)
 	}
 }
 
-// parse objects
+// parse objects ...
 func (jsp *JSONStateParser) parseObjects(objects []JSONObjects, o *[]IGameObject) {
 	for _, v := range objects {
 		obj, err := STheGameObjFactory.Create(v.Type)
@@ -148,6 +157,7 @@ func (jsp *JSONStateParser) parseObjects(objects []JSONObjects, o *[]IGameObject
 			v.CallBackID,
 			v.AnimSpeed))
 
+		// pointer to outside data slice to append to
 		*o = append(*o, obj)
 
 		gologger.SLogger.Println("Created", v.Type)

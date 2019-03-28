@@ -15,8 +15,7 @@
 
 *.log
 *.org
-
+*.gitignore
+*.wiki
 .idea
 .vscode
-
-

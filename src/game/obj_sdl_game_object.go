@@ -11,7 +11,7 @@ IGameObject interface
 */
 
 import (
-	"./vec2d"
+	"../vec2d"
 	"github.com/veandco/go-sdl2/sdl"
 )
 

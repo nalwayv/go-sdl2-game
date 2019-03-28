@@ -3,7 +3,7 @@ package vec2d
 import (
 	"math"
 
-	"../../gologger"
+	"../gologger"
 )
 
 // Vector2D ...

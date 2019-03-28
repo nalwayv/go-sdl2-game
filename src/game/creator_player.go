@@ -1,16 +1,15 @@
 package game
 
 /*
-Info
----
-Used to create an blank base object that will be placed into the
-game object factory
-
-
-Implements ICreator interface
----
-- CreateObj() IGameObject
-*/
+* Info
+* ---
+* Used to create blank object of Player
+*
+* ICreator interface
+* ---
+*
+* - CreateObj() IGameObject
+**/
 
 // PlayerCreator ...
 type PlayerCreator struct{}

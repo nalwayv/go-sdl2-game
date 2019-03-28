@@ -1,7 +1,12 @@
 package game
 
-// GAME OBJECT FACTORY
-// SINGLETON
+
+/*
+* Singleton / Object Factory
+* ---
+* Object factory that crates blank objects that get filled out
+* then a stats onEnter is called passing in info parsed from data file
+**/
 
 import (
 	"errors"
@@ -34,7 +39,7 @@ func newGoFactory() *GOFactory {
 	return gofactory
 }
 
-// Register ...
+// Register ... add a new blank object to the map that implements ICreator interface
 func (gf *GOFactory) Register(typeID string, creator ICreator) bool {
 	gologger.SLogger.Println("registering", typeID)
 
@@ -53,7 +58,7 @@ func (gf *GOFactory) Register(typeID string, creator ICreator) bool {
 	return true
 }
 
-// Create ...
+// Create ... find object within map and call its createOBJ else raise error
 func (gf *GOFactory) Create(typeID string) (IGameObject, error) {
 	v, ok := gf.GoCreator[typeID]
 

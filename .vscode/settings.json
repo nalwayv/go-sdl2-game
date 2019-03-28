@@ -32,6 +32,8 @@
         "Spacemacs",
         "Xbox",
         "ctrl",
-        "magit"
+        "magit",
+        "struct",
+        "structs"
     ]
 }

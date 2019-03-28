@@ -1,9 +1,9 @@
 package game
 
 /*
-Info
----
-Interface for a game object
+* Info
+* ---
+* Interface for game object classes
 **/
 
 // IGameObject ...

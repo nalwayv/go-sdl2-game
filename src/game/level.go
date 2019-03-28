@@ -1,8 +1,19 @@
 package game
 
+/*
+* Info
+* ---
+* Used to store data on current level
+*
+* Interface ILayer
+* ---
+* - Update()
+* - Render()
+* */
+
 // Level ...
 type Level struct {
-	tileSets []*Tileset
+	tileSets []*Tileset // tilesets for this level
 	layers   []ILayer
 }
 
@@ -39,6 +50,8 @@ func (l *Level) SetTileSet(ts []*Tileset) {
 func (l *Level) GetTileSet() []*Tileset {
 	return l.tileSets
 }
+
+// --- get/set
 
 // AppendToTileSet ... added so i dont have to use a pointer to this slice
 func (l *Level) AppendToTileSet(ts *Tileset) {

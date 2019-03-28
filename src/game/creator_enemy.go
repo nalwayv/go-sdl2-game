@@ -1,12 +1,15 @@
 package game
 
-
 /*
-ICreator interface
----
-
-- CreateObj() IGameObject
-*/
+* Info
+* ---
+* Used to create blank object of Enemy
+*
+* ICreator interface
+* ---
+*
+* - CreateObj() IGameObject
+**/
 
 // EnemyCreator ...
 type EnemyCreator struct{}

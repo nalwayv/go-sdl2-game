@@ -61,8 +61,6 @@ func (ms *MainMenuState) OnEnter() bool {
 
 	sp := NewJSONStateParser()
 	sp.ParseState("data/data.json", MenuID, &ms.objects, &ms.textureIDs)
-	//sp := NewStateParser()
-	//sp.ParseState("data/tmp.xml", MenuID, &ms.objects, &ms.textureIDs)
 
 	// button callback functions
 	// starts from 1 so 0 is nil

@@ -4,7 +4,8 @@ package game
 * Info
 * ---
 * Data parsed from the json file generated from 'Tiled'
-* then passed onto the current level
+* then passed onto the current level Level
+* to be stored within ever its 'tilesets' or 'layers' slice
 **/
 
 import (
@@ -19,13 +20,15 @@ import (
 
 // JSONMap ...
 type JSONMap struct {
-	Tileheight int           `json:"tileheight"`
-	Tilewidth  int           `json:"tilewidth"`
-	Width      int           `json:"width"`
-	Height     int           `json:"height"`
-	Type       string        `json:"type"`
-	Layers     []JSONLayers  `json:"layers"`
-	Set        []JSONTileset `json:"tilesets"`
+	Tileheight int `json:"tileheight"`
+	Tilewidth  int `json:"tilewidth"`
+	Width      int `json:"width"`
+	Height     int `json:"height"`
+
+	TileSets   []JSONTileset   `json:"tilesets"`
+	Layers     []JSONLayers    `json:"layers"`
+	Properties []JSONProp      `json:"properties"`
+	ObjGroups  []JSONObjGroups `json:"objectgroups"`
 }
 
 // JSONLayers ...
@@ -34,20 +37,51 @@ type JSONLayers struct {
 	Name   string `json:"name"`
 	Width  int    `json:"width"`
 	Height int    `json:"height"`
+	X      int    `json:"x"`
+	Y      int    `json:"y"`
 }
 
 // JSONTileset ...
 type JSONTileset struct {
 	FirstGID   int    `json:"firstgid"`
 	Name       string `json:"name"`
-	Source     string `json:"image"`
+	Source     string `json:"source"`
 	TileWidth  int    `json:"tilewidth"`
 	TileHeight int    `json:"tileheight"`
-	Width      int    `json:"imagewidth"`
-	Height     int    `json:"imageheight"`
+	Width      int    `json:"width"`
+	Height     int    `json:"height"`
 	Spacing    int    `json:"spacing"`
 	Margin     int    `json:"margin"`
 	Columns    int    `json:"columns"`
+}
+
+// JSONProp ...
+type JSONProp struct {
+	Name   string `json:"name"`
+	Source string `json:"source"`
+}
+
+// JSONObjGroups ...
+type JSONObjGroups struct {
+	ID      int       `json:"id"`
+	Name    string    `json:"name"`
+	X       int       `json:"x"`
+	Y       int       `json:"y"`
+	Objects []JSONObj `json:"objects"`
+}
+
+// JSONObj ...
+type JSONObj struct {
+	Name           string `json:"name"`
+	Type           string `json:"type"`
+	TexID          string `json:"id"`
+	X              int32  `json:"x"`
+	Y              int32  `json:"y"`
+	Width          int32  `json:"width"`
+	Height         int32  `json:"height"`
+	NumberOfFrames int    `json:"numframes"`
+	AnimSpeed      int    `json"animspeed"`
+	CallBackID     int    `json:"callbackid"`
 }
 
 // --- JSON PARSER
@@ -95,13 +129,21 @@ func (mp *JSONMapParser) ParseLevel(filename string) *Level {
 	mp.height = data.Height
 
 	// update levels []*Tileset slice
-	for _, v := range data.Set {
+	for _, v := range data.TileSets {
 		mp.parseTileSets(v, level)
 	}
 
 	// update levels []ILayer slice
 	for _, v := range data.Layers {
 		mp.parseTileLayers(v, level)
+	}
+
+	for _, v := range data.Properties {
+		mp.parseTextures(v)
+	}
+
+	for _, v := range data.ObjGroups {
+		mp.parseObjLayers(v, level)
 	}
 
 	return level
@@ -111,15 +153,12 @@ func (mp *JSONMapParser) ParseLevel(filename string) *Level {
 // jTileset - slice of parsed data
 // level * - pointer to level data
 func (mp *JSONMapParser) parseTileSets(jTileset JSONTileset, level *Level) {
-	// TODO - parse tile set json
-	// parse tilesets from json file and create a new tile set from that data
-	// then push that data to a slice for use
-	// load in texture
+	// load map texture from parse data
 	STextureManager.Load(jTileset.Source, jTileset.Name, STheGame.GetRenderer())
 
 	// new tile set from data
 	tileset := NewTileset(
-		jTileset.FirstGID,   // groidid
+		jTileset.FirstGID,   // gridID
 		jTileset.Width,      // image width
 		jTileset.Height,     // image height
 		jTileset.TileWidth,  // tile width
@@ -129,44 +168,76 @@ func (mp *JSONMapParser) parseTileSets(jTileset JSONTileset, level *Level) {
 		jTileset.Columns,    // number of columns
 		jTileset.Name)       // name of the tile set
 
-	gologger.SLogger.Println("DATA FROM PARSE TILE LAYER::", tileset)
+	gologger.SLogger.Println("Data from parse tile set::", tileset)
 
 	// push to levels tile set slice
 	level.AppendToTileSet(tileset)
 }
 
 // parse tile layers
-// jlayers - slice of parsed data
-// level * - pointer to level data
+// jLayers - slice of parsed data
+// level   - pointer to level data
 func (mp *JSONMapParser) parseTileLayers(jLayer JSONLayers, level *Level) {
-	// TODO - parse tile layer json
-	// in the book the xml data is compressed via zlib base64
-	// so needs to uncompressed
-	// but im using json were its not compressed so skipping the
-	// uncompress part!
-	// ---
-	// also in the book a pointer to a vector pointer is used to add to
-	// levels tile layers and also get tile set
-
+	// new texture layer to store info
 	tilelayer := NewTileLayer(mp.tilesize, level.GetTileSet())
 
-	// make empty tile data 2d slice
-	data := make([][]int, mp.height)
-	for d := 0; d < mp.width; d++ {
-		data[d] = make([]int, mp.width)
+	// empty 2d slice to hold tile map info
+	data := make([][]int, 0)
+	for i := 0; i < mp.height; i++ {
+		data = append(data, make([]int, mp.width))
 	}
 
 	// add data
 	for rows := 0; rows < mp.height; rows++ {
 		for cols := 0; cols < mp.width; cols++ {
-			data[rows][cols] = jLayer.Data[rows*mp.width+cols]
+			// convert 1d to 2d map coords
+			tileid := (rows * mp.width) + cols
+
+			data[rows][cols] = jLayer.Data[tileid]
 		}
 	}
 
-	gologger.SLogger.Println("DATA FROM PARSE TILE LAYER::", data)
+	gologger.SLogger.Println("Data from parse tile layer::", data)
 
 	tilelayer.SetTileIDs(data)
 
 	// push to levels tile layer slice
 	level.AppendToTileLayer(tilelayer)
+}
+
+// parse tile texture
+// jProp - parsed data from JsonProperty
+func (mp *JSONMapParser) parseTextures(jProp JSONProp) {
+	// get textures for objects in current level
+	STextureManager.Load(jProp.Source, jProp.Name, STheGame.GetRenderer())
+
+	gologger.SLogger.Println("Pushed onto textureIDs", jProp.Source)
+}
+
+// parse object layers
+func (mp *JSONMapParser) parseObjLayers(jGroups JSONObjGroups, level *Level) {
+	ol := NewObjectLayer()
+
+	for _, v := range jGroups.Objects {
+		// create obj based on type
+		obj, err := STheGameObjFactory.Create(v.Type)
+
+		checkError(err)
+
+		obj.Load(NewParams(
+			v.X,
+			v.Y,
+			v.Width,
+			v.Height,
+			v.TexID,
+			v.NumberOfFrames,
+			v.CallBackID,
+			v.AnimSpeed))
+
+		gologger.SLogger.Println("Created", v.Type)
+
+		ol.PushOntoGameObj(obj)
+
+		level.AppendToTileLayer(ol)
+	}
 }

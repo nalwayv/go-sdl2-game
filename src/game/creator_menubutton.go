@@ -1,10 +1,15 @@
 package game
 
 /*
-Implements ICreator interface
-
-- CreateObj() IGameObject
-*/
+* Info
+* ---
+* Used to create blank object of Menu Button
+*
+* ICreator interface
+* ---
+*
+* - CreateObj() IGameObject
+**/
 
 // MenuButtonCreator ...
 type MenuButtonCreator struct{}

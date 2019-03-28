@@ -119,8 +119,8 @@ func (t *TextureManager) DrawTile(id string, margin, spacing, x, y, width, heigh
 	}
 
 	srcRect := sdl.Rect{
-		X: margin + (spacing+width)*currentFrame, // include margin and spacing
-		Y: margin + (spacing+height)*currentRow,  // include margin and spacing
+		X: margin + (spacing+width)*currentFrame,
+		Y: margin + (spacing+height)*currentRow,
 		W: desRect.W,
 		H: desRect.H,
 	}
