@@ -20,9 +20,9 @@ const (
 // MenuButton ...
 type MenuButton struct {
 	obj            *SdlGameObject
-	buttonReleased bool
-	callback       func()
-	callbackID     int
+	buttonReleased bool   // pressed or not
+	callback       func() // function execusted when button is clicked
+	callbackID     int    // num indicating what function to call within data slice
 }
 
 // NewMenuButton ...

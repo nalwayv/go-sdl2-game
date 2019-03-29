@@ -60,6 +60,7 @@ func (ms *MainMenuState) OnEnter() bool {
 	fmt.Println("enter main menu state")
 
 	sp := NewJSONStateParser()
+	// call parser and populate states objects and texture slices via pointer
 	sp.ParseState("data/data.json", MenuID, &ms.objects, &ms.textureIDs)
 
 	// button callback functions

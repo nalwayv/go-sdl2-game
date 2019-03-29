@@ -26,11 +26,6 @@ type JSONStates struct {
 			JSONObjects  []JSONObjects  `json:"objects"`
 		} `json:"menu"`
 
-		Play struct {
-			JSONTextures []JSONTextures `json:"textures"`
-			JSONObjects  []JSONObjects  `json:"objects"`
-		} `json:"play"`
-
 		Pause struct {
 			JSONTextures []JSONTextures `json:"textures"`
 			JSONObjects  []JSONObjects  `json:"objects"`
@@ -102,29 +97,31 @@ func (jsp *JSONStateParser) loadData(filename string) JSONStates {
 func (jsp *JSONStateParser) ParseState(filename, stateID string, o *[]IGameObject, t *[]string) {
 	data := jsp.loadData(filename)
 
-	switch stateID {
-	case "menu":
+	if stateID == "menu" {
+
 		gologger.SLogger.Println("Parsing Menu State")
+
 		jsp.parseTextures(data.State.Menu.JSONTextures, t)
 		jsp.parseObjects(data.State.Menu.JSONObjects, o)
 
-	case "play":
-		gologger.SLogger.Println("Parsing Play State")
-		jsp.parseTextures(data.State.Play.JSONTextures, t)
-		jsp.parseObjects(data.State.Play.JSONObjects, o)
+	} else if stateID == "pause" {
 
-	case "pause":
 		gologger.SLogger.Println("Parsing Pause State")
+
 		jsp.parseTextures(data.State.Pause.JSONTextures, t)
 		jsp.parseObjects(data.State.Pause.JSONObjects, o)
 
-	case "gameover":
+	} else if stateID == "gameover" {
+
 		gologger.SLogger.Println("Parsing GameOver State")
+		
 		jsp.parseTextures(data.State.GameOver.JSONTextures, t)
 		jsp.parseObjects(data.State.GameOver.JSONObjects, o)
 
-	default:
+	} else {
+
 		gologger.SLogger.Println("StateID not found")
+
 	}
 }
 

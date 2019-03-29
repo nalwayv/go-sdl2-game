@@ -36,42 +36,6 @@
                 }
             ]
         },
-        "play": {
-            "textures": [
-                {
-                    "filename": "assets/helicopter1.png",
-                    "id": "helicopter1"
-                },
-                {
-                    "filename": "assets/helicopter2.png",
-                    "id": "helicopter2"
-                }
-            ],
-            "objects": [
-                {
-                    "type": "Player",
-                    "x": 500,
-                    "y": 100,
-                    "width": 128,
-                    "height": 55,
-                    "id": "helicopter1",
-                    "numframes": 4,
-                    "callbackid": 0,
-                    "animspeed": 0
-                },
-                {
-                    "type": "Enemy",
-                    "x": 100,
-                    "y": 100,
-                    "width": 128,
-                    "height": 55,
-                    "id": "helicopter2",
-                    "numframes": 4,
-                    "callbackid": 0,
-                    "animspeed": 0
-                }
-            ]
-        },
         "pause": {
             "textures": [
                 {

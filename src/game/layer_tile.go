@@ -1,6 +1,10 @@
 package game
 
 /*
+* Info
+* ---
+* store tile sets that will be displayed within current state
+*
 * ILayer interface
 * ---
 * - Render()

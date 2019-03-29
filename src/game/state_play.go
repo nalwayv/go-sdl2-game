@@ -1,9 +1,12 @@
 package game
 
 /*
-*IGameState
+into
 ---
+main game state
 
+implements IGameState
+---
 - Update()
 - Render()
 - OnEnter() bool
@@ -17,7 +20,7 @@ import (
 	"github.com/veandco/go-sdl2/sdl"
 )
 
-// PlayID ...  id for this object used for parsing state info
+// PlayID ...  id for parsing state info
 const PlayID string = "play"
 
 // PlayState ...
@@ -34,10 +37,15 @@ func NewPlayState() *PlayState {
 // Update ...
 func (ps *PlayState) Update() {
 
-	// push temp pause state onto fsm stack
+	// TMP: switch to pause state
 	if SInputHandler.IsKeyDown(sdl.SCANCODE_ESCAPE) {
 		STheGame.GetStateMachine().PushState(NewPauseState())
 	}
+
+	// TMP switch to GameOver Menu
+	// if SInputHandler.IsKeyDown(sdl.SCANCODE_Q) {
+	//     STheGame.GetStateMachine().PushState(NewGameOverState())
+	// }
 
 	ps.pLevel.Update()
 }

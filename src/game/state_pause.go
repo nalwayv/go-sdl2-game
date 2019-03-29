@@ -57,7 +57,7 @@ func (ps *PauseState) OnEnter() bool {
 	fmt.Println("enter pause state")
 
 	sp := NewJSONStateParser()
-	sp.ParseState("data/data.json", GameOverID, &ps.objects, &ps.textureIDs)
+	sp.ParseState("data/data.json", PauseID, &ps.objects, &ps.textureIDs)
 
 	// button callback functions
 	// starts from 1 so 0 is nil

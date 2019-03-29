@@ -202,7 +202,7 @@ func (mp *JSONMapParser) parseTileLayers(jLayer JSONLayers, level *Level) {
 	tilelayer.SetTileIDs(data)
 
 	// push to levels tile layer slice
-	level.AppendToTileLayer(tilelayer)
+	level.AppendToLayer(tilelayer)
 }
 
 // parse tile texture
@@ -238,6 +238,6 @@ func (mp *JSONMapParser) parseObjLayers(jGroups JSONObjGroups, level *Level) {
 
 		ol.PushOntoGameObj(obj)
 
-		level.AppendToTileLayer(ol)
+		level.AppendToLayer(ol)
 	}
 }

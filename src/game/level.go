@@ -5,6 +5,9 @@ package game
 * ---
 * Used to store data on current level
 *
+* layers[] :: store current levels game objects and tile layers
+* from objLayer and tilelayer that store info on current levels game objects and tiles
+*
 * Interface ILayer
 * ---
 * - Update()
@@ -14,7 +17,7 @@ package game
 // Level ...
 type Level struct {
 	tileSets []*Tileset // tilesets for this level
-	layers   []ILayer
+	layers   []ILayer   // objects that implement ILayer interface
 }
 
 // NewLevel ...
@@ -27,14 +30,14 @@ func NewLevel() *Level {
 	return &l
 }
 
-// Update ...
+// Update ... call any object within layers Update
 func (l *Level) Update() {
 	for _, v := range l.layers {
 		v.Update()
 	}
 }
 
-// Render ...
+// Render ... call any object within layers Render
 func (l *Level) Render() {
 	for _, v := range l.layers {
 		v.Render()
@@ -68,7 +71,7 @@ func (l *Level) GetLayers() []ILayer {
 	return l.layers
 }
 
-// AppendToTileLayer ... added so i dont have to use a pointer to this slice
-func (l *Level) AppendToTileLayer(tl ILayer) {
+// AppendToLayer ... added so i dont have to use a pointer to this slice
+func (l *Level) AppendToLayer(tl ILayer) {
 	l.layers = append(l.layers, tl)
 }

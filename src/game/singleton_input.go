@@ -39,8 +39,8 @@ type InHandler struct {
 
 // Singelton ... turn inputHandler into a singleton
 var (
-	ih    *InHandler
-	iOnce sync.Once
+	ih     *InHandler
+	ihOnce sync.Once
 )
 
 // SInputHandler ... singleton
@@ -50,7 +50,7 @@ var SInputHandler = newInputHandler()
 func newInputHandler() *InHandler {
 	gologger.SLogger.Println("Init New Input Handler")
 
-	iOnce.Do(func() {
+	ihOnce.Do(func() {
 		ih = &InHandler{}
 		ih.inSticks = make([]*sdl.Joystick, 0)
 

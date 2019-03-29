@@ -1,6 +1,11 @@
 package game
 
 /*
+* Info
+* ---
+* store game objects used by the current state and
+* calls their Update and Draw functions from its Render and Update
+*
 * ILayer interface
 * ---
 * - Render()
@@ -21,14 +26,14 @@ func NewObjectLayer() *ObjectLayer {
 	return &ol
 }
 
-// Render ...
+// Render ... call each obj's Draw
 func (ol *ObjectLayer) Render() {
 	for _, v := range ol.gameObjects {
 		v.Draw()
 	}
 }
 
-// Update ...
+// Update ... call each obj's Update
 func (ol *ObjectLayer) Update() {
 	for _, v := range ol.gameObjects {
 		v.Update()
