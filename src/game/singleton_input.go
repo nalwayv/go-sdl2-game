@@ -1,6 +1,10 @@
 package game
 
-// --- SINGLETON
+/*
+info
+---
+Singleton input handler
+**/
 
 import (
 	"sync"
@@ -26,6 +30,15 @@ type sticks struct {
 	second *vec2d.Vector2D
 }
 
+// Singelton ... turn inputHandler into a singleton
+var (
+	ih     *InHandler
+	ihOnce sync.Once
+)
+
+// SInputHandler ... singleton
+var SInputHandler = newInputHandler()
+
 // InHandler ... input handler
 type InHandler struct {
 	isJSInitialised bool
@@ -36,15 +49,6 @@ type InHandler struct {
 	inMousePos      *vec2d.Vector2D
 	inKeyState      []uint8
 }
-
-// Singelton ... turn inputHandler into a singleton
-var (
-	ih     *InHandler
-	ihOnce sync.Once
-)
-
-// SInputHandler ... singleton
-var SInputHandler = newInputHandler()
 
 // create new InputHandler ...
 func newInputHandler() *InHandler {

@@ -1,11 +1,10 @@
 package game
 
-
 /*
-* Singleton / Object Factory
-* ---
-* Object factory that crates blank objects that get filled out
-* then a stats onEnter is called passing in info parsed from data file
+info
+ ---
+Singleton Object factory that crates blank objects that get fleshed out
+when the created objects onEnter is called
 **/
 
 import (
@@ -15,11 +14,6 @@ import (
 	"../gologger"
 )
 
-// GOFactory ...
-type GOFactory struct {
-	GoCreator map[string]ICreator
-}
-
 var (
 	gofactory *GOFactory
 	fOnce     sync.Once
@@ -27,6 +21,11 @@ var (
 
 // STheGameObjFactory ...
 var STheGameObjFactory = newGoFactory()
+
+// GOFactory ...
+type GOFactory struct {
+	GoCreator map[string]ICreator
+}
 
 // NewGoFactory ... convert into a singleton
 func newGoFactory() *GOFactory {

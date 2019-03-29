@@ -1,12 +1,12 @@
 package game
 
 /*
-* info
-* ---
-* Singleton texture manager that uses a map to store
-* sld.Texture values
-*
-* */
+info
+---
+Singleton texture manager that uses a map to store
+sld.Texture values
+
+**/
 
 import (
 	"errors"
@@ -17,24 +17,24 @@ import (
 	"github.com/veandco/go-sdl2/sdl"
 )
 
-// TextureManager ...
-type TextureManager struct {
-	textureMap map[string]*sdl.Texture
-}
-
 var (
-	tm    *TextureManager
-	tOnce sync.Once
+	tm     *TextureManager
+	tmOnce sync.Once
 )
 
 // STextureManager ...
 var STextureManager = newTManager()
 
+// TextureManager ...
+type TextureManager struct {
+	textureMap map[string]*sdl.Texture
+}
+
 // newTManager ... convert into a singleton
 func newTManager() *TextureManager {
 	gologger.SLogger.Println("Init New Texture Manager")
 
-	tOnce.Do(func() {
+	tmOnce.Do(func() {
 		tm = &TextureManager{
 			textureMap: make(map[string]*sdl.Texture),
 		}

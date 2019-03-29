@@ -1,325 +1,44 @@
-SDL >> 00:08:11 singleton_game.go:37: Init NewGame
-SDL >> 00:08:11 singleton_go_factory.go:33: Init Game Object Factory Singleton
-SDL >> 00:08:11 singleton_input.go:51: Init New Input Handler
-SDL >> 00:08:11 singleton_texture.go:35: Init New Texture Manager
-SDL >> 00:08:11 singleton_input.go:178: No joysticks were activated
-SDL >> 00:08:11 singleton_go_factory.go:44: registering MenuButton
-SDL >> 00:08:11 singleton_go_factory.go:56: Added To Factory Obj Of Type MenuButton
-SDL >> 00:08:11 singleton_go_factory.go:44: registering Player
-SDL >> 00:08:11 singleton_go_factory.go:56: Added To Factory Obj Of Type Player
-SDL >> 00:08:11 singleton_go_factory.go:44: registering Enemy
-SDL >> 00:08:11 singleton_go_factory.go:56: Added To Factory Obj Of Type Enemy
-SDL >> 00:08:11 singleton_go_factory.go:44: registering AnimatedGraphic
-SDL >> 00:08:11 singleton_go_factory.go:56: Added To Factory Obj Of Type AnimatedGraphic
-SDL >> 00:08:11 parser_state.go:72: init json state parser
-SDL >> 00:08:11 parser_state.go:107: Parsing Menu State
-SDL >> 00:08:11 parser_state.go:139: Pushed onto textureIDs playbutton
-SDL >> 00:08:11 parser_state.go:139: Pushed onto textureIDs exitbutton
-SDL >> 00:08:11 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:11 parser_state.go:163: Created MenuButton
-SDL >> 00:08:11 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:11 parser_state.go:163: Created MenuButton
-SDL >> 00:08:13 parser_level.go:171: Data from parse tile set:: &{1 32 32 2 2 614 376 18 blocks1}
-SDL >> 00:08:13 parser_level.go:200: Data from parse tile layer:: [[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0]]
-SDL >> 00:08:13 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
-SDL >> 00:08:13 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:08:13 parser_level.go:237: Created Player
-SDL >> 00:08:13 parser_state.go:72: init json state parser
-SDL >> 00:08:13 parser_state.go:112: Parsing Play State
-SDL >> 00:08:14 parser_state.go:139: Pushed onto textureIDs helicopter1
-SDL >> 00:08:14 parser_state.go:139: Pushed onto textureIDs helicopter2
-SDL >> 00:08:14 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:08:14 parser_state.go:163: Created Player
-SDL >> 00:08:14 singleton_go_factory.go:72: Factory Created Obj Of Type Enemy
-SDL >> 00:08:14 parser_state.go:163: Created Enemy
-SDL >> 00:08:20 parser_level.go:171: Data from parse tile set:: &{1 32 32 2 2 614 376 18 blocks1}
-SDL >> 00:08:20 parser_level.go:200: Data from parse tile layer:: [[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0]]
-SDL >> 00:08:20 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
-SDL >> 00:08:20 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:08:20 parser_level.go:237: Created Player
-SDL >> 00:08:21 parser_state.go:72: init json state parser
-SDL >> 00:08:21 parser_state.go:112: Parsing Play State
-SDL >> 00:08:21 parser_state.go:139: Pushed onto textureIDs helicopter1
-SDL >> 00:08:21 parser_state.go:139: Pushed onto textureIDs helicopter2
-SDL >> 00:08:21 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:08:21 parser_state.go:163: Created Player
-SDL >> 00:08:21 singleton_go_factory.go:72: Factory Created Obj Of Type Enemy
-SDL >> 00:08:21 parser_state.go:163: Created Enemy
-SDL >> 00:08:21 parser_level.go:171: Data from parse tile set:: &{1 32 32 2 2 614 376 18 blocks1}
-SDL >> 00:08:21 parser_level.go:200: Data from parse tile layer:: [[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0]]
-SDL >> 00:08:21 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
-SDL >> 00:08:21 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:08:21 parser_level.go:237: Created Player
-SDL >> 00:08:21 parser_state.go:72: init json state parser
-SDL >> 00:08:21 parser_state.go:112: Parsing Play State
-SDL >> 00:08:21 parser_state.go:139: Pushed onto textureIDs helicopter1
-SDL >> 00:08:21 parser_state.go:139: Pushed onto textureIDs helicopter2
-SDL >> 00:08:21 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:08:21 parser_state.go:163: Created Player
-SDL >> 00:08:21 singleton_go_factory.go:72: Factory Created Obj Of Type Enemy
-SDL >> 00:08:21 parser_state.go:163: Created Enemy
-SDL >> 00:08:25 parser_level.go:171: Data from parse tile set:: &{1 32 32 2 2 614 376 18 blocks1}
-SDL >> 00:08:25 parser_level.go:200: Data from parse tile layer:: [[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0]]
-SDL >> 00:08:25 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
-SDL >> 00:08:25 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:08:25 parser_level.go:237: Created Player
-SDL >> 00:08:25 parser_state.go:72: init json state parser
-SDL >> 00:08:25 parser_state.go:112: Parsing Play State
-SDL >> 00:08:25 parser_state.go:139: Pushed onto textureIDs helicopter1
-SDL >> 00:08:25 parser_state.go:139: Pushed onto textureIDs helicopter2
-SDL >> 00:08:25 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:08:25 parser_state.go:163: Created Player
-SDL >> 00:08:25 singleton_go_factory.go:72: Factory Created Obj Of Type Enemy
-SDL >> 00:08:25 parser_state.go:163: Created Enemy
-SDL >> 00:08:26 parser_level.go:171: Data from parse tile set:: &{1 32 32 2 2 614 376 18 blocks1}
-SDL >> 00:08:26 parser_level.go:200: Data from parse tile layer:: [[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0]]
-SDL >> 00:08:26 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
-SDL >> 00:08:26 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:08:26 parser_level.go:237: Created Player
-SDL >> 00:08:26 parser_state.go:72: init json state parser
-SDL >> 00:08:26 parser_state.go:112: Parsing Play State
-SDL >> 00:08:26 parser_state.go:139: Pushed onto textureIDs helicopter1
-SDL >> 00:08:26 parser_state.go:139: Pushed onto textureIDs helicopter2
-SDL >> 00:08:26 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:08:26 parser_state.go:163: Created Player
-SDL >> 00:08:26 singleton_go_factory.go:72: Factory Created Obj Of Type Enemy
-SDL >> 00:08:26 parser_state.go:163: Created Enemy
-SDL >> 00:08:27 parser_level.go:171: Data from parse tile set:: &{1 32 32 2 2 614 376 18 blocks1}
-SDL >> 00:08:27 parser_level.go:200: Data from parse tile layer:: [[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0]]
-SDL >> 00:08:27 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
-SDL >> 00:08:27 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:08:27 parser_level.go:237: Created Player
-SDL >> 00:08:27 parser_state.go:72: init json state parser
-SDL >> 00:08:27 parser_state.go:112: Parsing Play State
-SDL >> 00:08:27 parser_state.go:139: Pushed onto textureIDs helicopter1
-SDL >> 00:08:27 parser_state.go:139: Pushed onto textureIDs helicopter2
-SDL >> 00:08:27 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:08:27 parser_state.go:163: Created Player
-SDL >> 00:08:27 singleton_go_factory.go:72: Factory Created Obj Of Type Enemy
-SDL >> 00:08:27 parser_state.go:163: Created Enemy
-SDL >> 00:08:28 parser_level.go:171: Data from parse tile set:: &{1 32 32 2 2 614 376 18 blocks1}
-SDL >> 00:08:28 parser_level.go:200: Data from parse tile layer:: [[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0]]
-SDL >> 00:08:28 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
-SDL >> 00:08:28 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:08:28 parser_level.go:237: Created Player
-SDL >> 00:08:29 parser_state.go:72: init json state parser
-SDL >> 00:08:29 parser_state.go:112: Parsing Play State
-SDL >> 00:08:29 parser_state.go:139: Pushed onto textureIDs helicopter1
-SDL >> 00:08:29 parser_state.go:139: Pushed onto textureIDs helicopter2
-SDL >> 00:08:29 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:08:29 parser_state.go:163: Created Player
-SDL >> 00:08:29 singleton_go_factory.go:72: Factory Created Obj Of Type Enemy
-SDL >> 00:08:29 parser_state.go:163: Created Enemy
-SDL >> 00:08:32 parser_level.go:171: Data from parse tile set:: &{1 32 32 2 2 614 376 18 blocks1}
-SDL >> 00:08:32 parser_level.go:200: Data from parse tile layer:: [[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0]]
-SDL >> 00:08:32 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
-SDL >> 00:08:32 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:08:32 parser_level.go:237: Created Player
-SDL >> 00:08:32 parser_state.go:72: init json state parser
-SDL >> 00:08:32 parser_state.go:122: Parsing GameOver State
-SDL >> 00:08:32 parser_state.go:139: Pushed onto textureIDs gameovertext
-SDL >> 00:08:32 parser_state.go:139: Pushed onto textureIDs mainbutton
-SDL >> 00:08:32 parser_state.go:139: Pushed onto textureIDs resumebutton
-SDL >> 00:08:32 singleton_go_factory.go:72: Factory Created Obj Of Type AnimatedGraphic
-SDL >> 00:08:32 parser_state.go:163: Created AnimatedGraphic
-SDL >> 00:08:32 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:32 parser_state.go:163: Created MenuButton
-SDL >> 00:08:32 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:32 parser_state.go:163: Created MenuButton
-SDL >> 00:08:41 parser_state.go:72: init json state parser
-SDL >> 00:08:41 parser_state.go:122: Parsing GameOver State
-SDL >> 00:08:41 parser_state.go:139: Pushed onto textureIDs gameovertext
-SDL >> 00:08:41 parser_state.go:139: Pushed onto textureIDs mainbutton
-SDL >> 00:08:41 parser_state.go:139: Pushed onto textureIDs resumebutton
-SDL >> 00:08:41 singleton_go_factory.go:72: Factory Created Obj Of Type AnimatedGraphic
-SDL >> 00:08:41 parser_state.go:163: Created AnimatedGraphic
-SDL >> 00:08:41 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:41 parser_state.go:163: Created MenuButton
-SDL >> 00:08:41 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:41 parser_state.go:163: Created MenuButton
-SDL >> 00:08:43 parser_state.go:72: init json state parser
-SDL >> 00:08:43 parser_state.go:122: Parsing GameOver State
-SDL >> 00:08:43 parser_state.go:139: Pushed onto textureIDs gameovertext
-SDL >> 00:08:43 parser_state.go:139: Pushed onto textureIDs mainbutton
-SDL >> 00:08:43 parser_state.go:139: Pushed onto textureIDs resumebutton
-SDL >> 00:08:43 singleton_go_factory.go:72: Factory Created Obj Of Type AnimatedGraphic
-SDL >> 00:08:43 parser_state.go:163: Created AnimatedGraphic
-SDL >> 00:08:43 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:43 parser_state.go:163: Created MenuButton
-SDL >> 00:08:43 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:43 parser_state.go:163: Created MenuButton
-SDL >> 00:08:44 parser_state.go:72: init json state parser
-SDL >> 00:08:44 parser_state.go:122: Parsing GameOver State
-SDL >> 00:08:44 parser_state.go:139: Pushed onto textureIDs gameovertext
-SDL >> 00:08:44 parser_state.go:139: Pushed onto textureIDs mainbutton
-SDL >> 00:08:44 parser_state.go:139: Pushed onto textureIDs resumebutton
-SDL >> 00:08:44 singleton_go_factory.go:72: Factory Created Obj Of Type AnimatedGraphic
-SDL >> 00:08:44 parser_state.go:163: Created AnimatedGraphic
-SDL >> 00:08:44 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:44 parser_state.go:163: Created MenuButton
-SDL >> 00:08:44 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:44 parser_state.go:163: Created MenuButton
-SDL >> 00:08:44 parser_state.go:72: init json state parser
-SDL >> 00:08:44 parser_state.go:122: Parsing GameOver State
-SDL >> 00:08:44 parser_state.go:139: Pushed onto textureIDs gameovertext
-SDL >> 00:08:44 parser_state.go:139: Pushed onto textureIDs mainbutton
-SDL >> 00:08:44 parser_state.go:139: Pushed onto textureIDs resumebutton
-SDL >> 00:08:44 singleton_go_factory.go:72: Factory Created Obj Of Type AnimatedGraphic
-SDL >> 00:08:44 parser_state.go:163: Created AnimatedGraphic
-SDL >> 00:08:44 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:44 parser_state.go:163: Created MenuButton
-SDL >> 00:08:44 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:44 parser_state.go:163: Created MenuButton
-SDL >> 00:08:44 parser_state.go:72: init json state parser
-SDL >> 00:08:44 parser_state.go:122: Parsing GameOver State
-SDL >> 00:08:44 parser_state.go:139: Pushed onto textureIDs gameovertext
-SDL >> 00:08:44 parser_state.go:139: Pushed onto textureIDs mainbutton
-SDL >> 00:08:45 parser_state.go:139: Pushed onto textureIDs resumebutton
-SDL >> 00:08:45 singleton_go_factory.go:72: Factory Created Obj Of Type AnimatedGraphic
-SDL >> 00:08:45 parser_state.go:163: Created AnimatedGraphic
-SDL >> 00:08:45 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:45 parser_state.go:163: Created MenuButton
-SDL >> 00:08:45 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:45 parser_state.go:163: Created MenuButton
-SDL >> 00:08:46 parser_state.go:72: init json state parser
-SDL >> 00:08:46 parser_state.go:122: Parsing GameOver State
-SDL >> 00:08:46 parser_state.go:139: Pushed onto textureIDs gameovertext
-SDL >> 00:08:46 parser_state.go:139: Pushed onto textureIDs mainbutton
-SDL >> 00:08:46 parser_state.go:139: Pushed onto textureIDs resumebutton
-SDL >> 00:08:46 singleton_go_factory.go:72: Factory Created Obj Of Type AnimatedGraphic
-SDL >> 00:08:46 parser_state.go:163: Created AnimatedGraphic
-SDL >> 00:08:46 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:46 parser_state.go:163: Created MenuButton
-SDL >> 00:08:46 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:46 parser_state.go:163: Created MenuButton
-SDL >> 00:08:47 parser_state.go:72: init json state parser
-SDL >> 00:08:47 parser_state.go:122: Parsing GameOver State
-SDL >> 00:08:47 parser_state.go:139: Pushed onto textureIDs gameovertext
-SDL >> 00:08:47 parser_state.go:139: Pushed onto textureIDs mainbutton
-SDL >> 00:08:47 parser_state.go:139: Pushed onto textureIDs resumebutton
-SDL >> 00:08:47 singleton_go_factory.go:72: Factory Created Obj Of Type AnimatedGraphic
-SDL >> 00:08:47 parser_state.go:163: Created AnimatedGraphic
-SDL >> 00:08:47 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:47 parser_state.go:163: Created MenuButton
-SDL >> 00:08:47 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:47 parser_state.go:163: Created MenuButton
-SDL >> 00:08:48 parser_state.go:72: init json state parser
-SDL >> 00:08:48 parser_state.go:122: Parsing GameOver State
-SDL >> 00:08:48 parser_state.go:139: Pushed onto textureIDs gameovertext
-SDL >> 00:08:48 parser_state.go:139: Pushed onto textureIDs mainbutton
-SDL >> 00:08:48 parser_state.go:139: Pushed onto textureIDs resumebutton
-SDL >> 00:08:48 singleton_go_factory.go:72: Factory Created Obj Of Type AnimatedGraphic
-SDL >> 00:08:48 parser_state.go:163: Created AnimatedGraphic
-SDL >> 00:08:48 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:48 parser_state.go:163: Created MenuButton
-SDL >> 00:08:48 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:48 parser_state.go:163: Created MenuButton
-SDL >> 00:08:50 parser_state.go:72: init json state parser
-SDL >> 00:08:50 parser_state.go:122: Parsing GameOver State
-SDL >> 00:08:50 parser_state.go:139: Pushed onto textureIDs gameovertext
-SDL >> 00:08:50 parser_state.go:139: Pushed onto textureIDs mainbutton
-SDL >> 00:08:50 parser_state.go:139: Pushed onto textureIDs resumebutton
-SDL >> 00:08:50 singleton_go_factory.go:72: Factory Created Obj Of Type AnimatedGraphic
-SDL >> 00:08:50 parser_state.go:163: Created AnimatedGraphic
-SDL >> 00:08:50 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:50 parser_state.go:163: Created MenuButton
-SDL >> 00:08:50 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:50 parser_state.go:163: Created MenuButton
-SDL >> 00:08:53 parser_state.go:72: init json state parser
-SDL >> 00:08:53 parser_state.go:122: Parsing GameOver State
-SDL >> 00:08:53 parser_state.go:139: Pushed onto textureIDs gameovertext
-SDL >> 00:08:53 parser_state.go:139: Pushed onto textureIDs mainbutton
-SDL >> 00:08:53 parser_state.go:139: Pushed onto textureIDs resumebutton
-SDL >> 00:08:53 singleton_go_factory.go:72: Factory Created Obj Of Type AnimatedGraphic
-SDL >> 00:08:53 parser_state.go:163: Created AnimatedGraphic
-SDL >> 00:08:53 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:53 parser_state.go:163: Created MenuButton
-SDL >> 00:08:53 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:53 parser_state.go:163: Created MenuButton
-SDL >> 00:08:54 parser_state.go:72: init json state parser
-SDL >> 00:08:54 parser_state.go:107: Parsing Menu State
-SDL >> 00:08:54 parser_state.go:139: Pushed onto textureIDs playbutton
-SDL >> 00:08:54 parser_state.go:139: Pushed onto textureIDs exitbutton
-SDL >> 00:08:54 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:54 parser_state.go:163: Created MenuButton
-SDL >> 00:08:54 singleton_go_factory.go:72: Factory Created Obj Of Type MenuButton
-SDL >> 00:08:54 parser_state.go:163: Created MenuButton
-SDL >> 00:08:55 parser_level.go:171: Data from parse tile set:: &{1 32 32 2 2 614 376 18 blocks1}
-SDL >> 00:08:55 parser_level.go:200: Data from parse tile layer:: [[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0]]
-SDL >> 00:08:55 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
-SDL >> 00:08:55 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:08:55 parser_level.go:237: Created Player
-SDL >> 00:08:56 parser_state.go:72: init json state parser
-SDL >> 00:08:56 parser_state.go:112: Parsing Play State
-SDL >> 00:08:56 parser_state.go:139: Pushed onto textureIDs helicopter1
-SDL >> 00:08:56 parser_state.go:139: Pushed onto textureIDs helicopter2
-SDL >> 00:08:56 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:08:56 parser_state.go:163: Created Player
-SDL >> 00:08:56 singleton_go_factory.go:72: Factory Created Obj Of Type Enemy
-SDL >> 00:08:56 parser_state.go:163: Created Enemy
-SDL >> 00:09:06 parser_level.go:171: Data from parse tile set:: &{1 32 32 2 2 614 376 18 blocks1}
-SDL >> 00:09:06 parser_level.go:200: Data from parse tile layer:: [[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0]]
-SDL >> 00:09:06 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
-SDL >> 00:09:06 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:09:06 parser_level.go:237: Created Player
-SDL >> 00:09:08 parser_state.go:72: init json state parser
-SDL >> 00:09:08 parser_state.go:112: Parsing Play State
-SDL >> 00:09:08 parser_state.go:139: Pushed onto textureIDs helicopter1
-SDL >> 00:09:08 parser_state.go:139: Pushed onto textureIDs helicopter2
-SDL >> 00:09:08 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:09:08 parser_state.go:163: Created Player
-SDL >> 00:09:08 singleton_go_factory.go:72: Factory Created Obj Of Type Enemy
-SDL >> 00:09:08 parser_state.go:163: Created Enemy
-SDL >> 00:09:09 parser_level.go:171: Data from parse tile set:: &{1 32 32 2 2 614 376 18 blocks1}
-SDL >> 00:09:09 parser_level.go:200: Data from parse tile layer:: [[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0]]
-SDL >> 00:09:09 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
-SDL >> 00:09:09 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:09:09 parser_level.go:237: Created Player
-SDL >> 00:09:10 parser_state.go:72: init json state parser
-SDL >> 00:09:10 parser_state.go:112: Parsing Play State
-SDL >> 00:09:10 parser_state.go:139: Pushed onto textureIDs helicopter1
-SDL >> 00:09:10 parser_state.go:139: Pushed onto textureIDs helicopter2
-SDL >> 00:09:10 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:09:10 parser_state.go:163: Created Player
-SDL >> 00:09:10 singleton_go_factory.go:72: Factory Created Obj Of Type Enemy
-SDL >> 00:09:10 parser_state.go:163: Created Enemy
-SDL >> 00:09:11 parser_level.go:171: Data from parse tile set:: &{1 32 32 2 2 614 376 18 blocks1}
-SDL >> 00:09:11 parser_level.go:200: Data from parse tile layer:: [[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0]]
-SDL >> 00:09:11 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
-SDL >> 00:09:11 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:09:11 parser_level.go:237: Created Player
-SDL >> 00:09:11 parser_state.go:72: init json state parser
-SDL >> 00:09:11 parser_state.go:112: Parsing Play State
-SDL >> 00:09:11 parser_state.go:139: Pushed onto textureIDs helicopter1
-SDL >> 00:09:11 parser_state.go:139: Pushed onto textureIDs helicopter2
-SDL >> 00:09:11 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:09:11 parser_state.go:163: Created Player
-SDL >> 00:09:11 singleton_go_factory.go:72: Factory Created Obj Of Type Enemy
-SDL >> 00:09:11 parser_state.go:163: Created Enemy
-SDL >> 00:09:12 parser_level.go:171: Data from parse tile set:: &{1 32 32 2 2 614 376 18 blocks1}
-SDL >> 00:09:12 parser_level.go:200: Data from parse tile layer:: [[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0]]
-SDL >> 00:09:12 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
-SDL >> 00:09:12 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:09:12 parser_level.go:237: Created Player
-SDL >> 00:09:12 parser_state.go:72: init json state parser
-SDL >> 00:09:12 parser_state.go:112: Parsing Play State
-SDL >> 00:09:12 parser_state.go:139: Pushed onto textureIDs helicopter1
-SDL >> 00:09:12 parser_state.go:139: Pushed onto textureIDs helicopter2
-SDL >> 00:09:12 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:09:12 parser_state.go:163: Created Player
-SDL >> 00:09:12 singleton_go_factory.go:72: Factory Created Obj Of Type Enemy
-SDL >> 00:09:12 parser_state.go:163: Created Enemy
-SDL >> 00:09:12 parser_level.go:171: Data from parse tile set:: &{1 32 32 2 2 614 376 18 blocks1}
-SDL >> 00:09:12 parser_level.go:200: Data from parse tile layer:: [[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0]]
-SDL >> 00:09:12 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
-SDL >> 00:09:12 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:09:12 parser_level.go:237: Created Player
-SDL >> 00:09:13 parser_state.go:72: init json state parser
-SDL >> 00:09:13 parser_state.go:112: Parsing Play State
-SDL >> 00:09:13 parser_state.go:139: Pushed onto textureIDs helicopter1
-SDL >> 00:09:13 parser_state.go:139: Pushed onto textureIDs helicopter2
-SDL >> 00:09:13 singleton_go_factory.go:72: Factory Created Obj Of Type Player
-SDL >> 00:09:13 parser_state.go:163: Created Player
-SDL >> 00:09:13 singleton_go_factory.go:72: Factory Created Obj Of Type Enemy
-SDL >> 00:09:13 parser_state.go:163: Created Enemy
-SDL >> 00:09:19 singleton_game.go:177: Quit App
+SDL >> 23:22:49 singleton_game.go:38: Init NewGame
+SDL >> 23:22:49 singleton_go_factory.go:32: Init Game Object Factory Singleton
+SDL >> 23:22:49 singleton_input.go:55: Init New Input Handler
+SDL >> 23:22:49 singleton_sound.go:39: Init New Sound Manager
+SDL >> 23:22:49 singleton_texture.go:35: Init New Texture Manager
+SDL >> 23:22:50 singleton_input.go:182: No joysticks were activated
+SDL >> 23:22:50 singleton_go_factory.go:43: registering MenuButton
+SDL >> 23:22:50 singleton_go_factory.go:55: Added To Factory Obj Of Type MenuButton
+SDL >> 23:22:50 singleton_go_factory.go:43: registering Player
+SDL >> 23:22:50 singleton_go_factory.go:55: Added To Factory Obj Of Type Player
+SDL >> 23:22:50 singleton_go_factory.go:43: registering Enemy
+SDL >> 23:22:50 singleton_go_factory.go:55: Added To Factory Obj Of Type Enemy
+SDL >> 23:22:50 singleton_go_factory.go:43: registering AnimatedGraphic
+SDL >> 23:22:50 singleton_go_factory.go:55: Added To Factory Obj Of Type AnimatedGraphic
+SDL >> 23:22:50 parser_state.go:67: init json state parser
+SDL >> 23:22:50 parser_state.go:102: Parsing Menu State
+SDL >> 23:22:50 parser_state.go:136: Pushed onto textureIDs playbutton
+SDL >> 23:22:50 parser_state.go:136: Pushed onto textureIDs exitbutton
+SDL >> 23:22:50 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
+SDL >> 23:22:50 parser_state.go:160: Created MenuButton
+SDL >> 23:22:50 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
+SDL >> 23:22:50 parser_state.go:160: Created MenuButton
+SDL >> 23:22:53 parser_level.go:171: Data from parse tile set:: &{1 32 32 2 2 614 376 18 blocks1}
+SDL >> 23:22:53 parser_level.go:200: Data from parse tile layer:: [[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0]]
+SDL >> 23:22:53 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
+SDL >> 23:22:53 singleton_go_factory.go:71: Factory Created Obj Of Type Player
+SDL >> 23:22:53 parser_level.go:237: Created Player
+SDL >> 23:23:41 parser_state.go:67: init json state parser
+SDL >> 23:23:41 parser_state.go:109: Parsing Pause State
+SDL >> 23:23:41 parser_state.go:136: Pushed onto textureIDs mainbutton
+SDL >> 23:23:41 parser_state.go:136: Pushed onto textureIDs resumebutton
+SDL >> 23:23:41 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
+SDL >> 23:23:41 parser_state.go:160: Created MenuButton
+SDL >> 23:23:41 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
+SDL >> 23:23:41 parser_state.go:160: Created MenuButton
+SDL >> 23:23:43 parser_state.go:67: init json state parser
+SDL >> 23:23:43 parser_state.go:102: Parsing Menu State
+SDL >> 23:23:43 parser_state.go:136: Pushed onto textureIDs playbutton
+SDL >> 23:23:43 parser_state.go:136: Pushed onto textureIDs exitbutton
+SDL >> 23:23:43 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
+SDL >> 23:23:43 parser_state.go:160: Created MenuButton
+SDL >> 23:23:43 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
+SDL >> 23:23:43 parser_state.go:160: Created MenuButton
+SDL >> 23:23:44 singleton_game.go:144: Quit App

@@ -1,5 +1,12 @@
 package game
 
+/*
+info
+---
+Singleton sound manager that uses two maps one for soun and another for music
+
+**/
+
 import (
 	"sync"
 
@@ -19,8 +26,14 @@ var (
 	smOnce sync.Once
 )
 
-// SSoundManager .. singleton
+// SSoundManager ...
 var SSoundManager = newSoundManager()
+
+// SoundManager ...
+type SoundManager struct {
+	sfxs  map[string]*mix.Chunk // sounds
+	music map[string]*mix.Music // music
+}
 
 func newSoundManager() *SoundManager {
 	gologger.SLogger.Println("Init New Sound Manager")
@@ -35,16 +48,10 @@ func newSoundManager() *SoundManager {
 	return sm
 }
 
-// SoundManager ...
-type SoundManager struct {
-	sfxs  map[string]*mix.Chunk
-	music map[string]*mix.Music
-}
-
 // Load ...
 // filename - name of the file to load
 // id - id for map to find
-// soundType - int to enum
+// soundType - to load music or sound
 func (sm *SoundManager) Load(filename, id string, soundType int) bool {
 	if soundType == SoundMusic {
 
@@ -64,18 +71,22 @@ func (sm *SoundManager) Load(filename, id string, soundType int) bool {
 }
 
 // PlaySound ...
+// id - string name for getting sound from data map
+// loop - number of times to play sound
 func (sm *SoundManager) PlaySound(id string, loop int) {
 	_, err := sm.sfxs[id].Play(-1, loop)
 	checkError(err)
 }
 
 // PlayMusic ...
+// id - string name for getting music clip from data map
+// loop - number of times to play music
 func (sm *SoundManager) PlayMusic(id string, loop int) {
 	err := sm.music[id].Play(loop)
 	checkError(err)
 }
 
-// Close ...
+// Close ... clean up
 func (sm *SoundManager) Close() {
 	mix.CloseAudio()
 }
