@@ -1,16 +1,16 @@
 package game
 
 /*
-* Info
-* ---
-* store game objects used by the current state and
-* calls their Update and Draw functions from its Render and Update
-*
-* ILayer interface
-* ---
-* - Render()
-* - Update()
-* */
+Info
+---
+store game objects used by the current state and
+calls their Update and Draw functions from its Render and Update
+
+ILayer interface
+---
+- Render()
+- Update()
+**/
 
 // ObjectLayer ...
 type ObjectLayer struct {

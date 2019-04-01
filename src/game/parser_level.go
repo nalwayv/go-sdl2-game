@@ -80,7 +80,7 @@ type JSONObj struct {
 	Width          int32  `json:"width"`
 	Height         int32  `json:"height"`
 	NumberOfFrames int    `json:"numframes"`
-	AnimSpeed      int    `json"animspeed"`
+	AnimSpeed      int    `json:"animspeed"`
 	CallBackID     int    `json:"callbackid"`
 }
 
@@ -168,7 +168,7 @@ func (mp *JSONMapParser) parseTileSets(jTileset JSONTileset, level *Level) {
 		jTileset.Columns,    // number of columns
 		jTileset.Name)       // name of the tile set
 
-	gologger.SLogger.Println("Data from parse tile set::", tileset)
+	gologger.SLogger.Println("Created new Tileset")
 
 	// push to levels tile set slice
 	level.AppendToTileSet(tileset)
@@ -197,7 +197,7 @@ func (mp *JSONMapParser) parseTileLayers(jLayer JSONLayers, level *Level) {
 		}
 	}
 
-	gologger.SLogger.Println("Data from parse tile layer::", data)
+	gologger.SLogger.Println("Created new Tilelayer")
 
 	tilelayer.SetTileIDs(data)
 
@@ -234,7 +234,7 @@ func (mp *JSONMapParser) parseObjLayers(jGroups JSONObjGroups, level *Level) {
 			v.CallBackID,
 			v.AnimSpeed))
 
-		gologger.SLogger.Println("Created", v.Type)
+		gologger.SLogger.Println("Created obj from pared data of type", v.Type)
 
 		ol.PushOntoGameObj(obj)
 

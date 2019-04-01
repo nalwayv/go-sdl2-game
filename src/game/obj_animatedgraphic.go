@@ -34,12 +34,7 @@ func (ag *AnimatedGraphic) Draw() {
 
 // Update ...
 func (ag *AnimatedGraphic) Update() {
-	// TODO :: zero error
 
-	// ticks := sdl.GetTicks()
-	// val := (1000 / ag.obj.animSpeed) % ag.obj.NumFrames
-
-	// ag.obj.CurrentFrame = int32(ticks / val)
 }
 
 // Clean ...

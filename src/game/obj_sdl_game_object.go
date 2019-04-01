@@ -25,6 +25,7 @@ type SdlGameObject struct {
 	CurrentFrame int32
 	CurrentRow   int32
 	NumFrames    int
+	AnimSpeed    int
 
 	Position     *vec2d.Vector2D
 	Velocity     *vec2d.Vector2D
@@ -52,6 +53,7 @@ func (g *SdlGameObject) Load(params *LoadParams) {
 	g.CurrentRow = 1
 	g.CurrentFrame = 1
 	g.NumFrames = params.GetNumFrames()
+	g.AnimSpeed = params.GetAnimationSpeed()
 }
 
 // Draw ...

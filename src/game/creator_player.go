@@ -1,14 +1,13 @@
 package game
 
 /*
-* Info
-* ---
-* Used to create blank object of Player
-*
-* ICreator interface
-* ---
-*
-* - CreateObj() IGameObject
+Info
+---
+Used to create blank object of Player
+
+ICreator interface
+---
+- CreateObj() IGameObject
 **/
 
 // PlayerCreator ...

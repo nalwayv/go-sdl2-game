@@ -1,7 +1,13 @@
 package game
 
-// ILayer ... layer interface
-type ILayer interface{
+/*
+info
+---
+interface for tile layers
+*/
+
+// ILayer ...
+type ILayer interface {
 	Render()
 	Update()
 }

@@ -1,8 +1,8 @@
 package game
 
 /*
-* Used on classes that create a blank game object
-* for the game object factory
+Used on classes that create a blank game object
+for the game object factory
 **/
 
 // ICreator ...

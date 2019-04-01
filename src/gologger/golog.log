@@ -1,44 +1,71 @@
-SDL >> 23:22:49 singleton_game.go:38: Init NewGame
-SDL >> 23:22:49 singleton_go_factory.go:32: Init Game Object Factory Singleton
-SDL >> 23:22:49 singleton_input.go:55: Init New Input Handler
-SDL >> 23:22:49 singleton_sound.go:39: Init New Sound Manager
-SDL >> 23:22:49 singleton_texture.go:35: Init New Texture Manager
-SDL >> 23:22:50 singleton_input.go:182: No joysticks were activated
-SDL >> 23:22:50 singleton_go_factory.go:43: registering MenuButton
-SDL >> 23:22:50 singleton_go_factory.go:55: Added To Factory Obj Of Type MenuButton
-SDL >> 23:22:50 singleton_go_factory.go:43: registering Player
-SDL >> 23:22:50 singleton_go_factory.go:55: Added To Factory Obj Of Type Player
-SDL >> 23:22:50 singleton_go_factory.go:43: registering Enemy
-SDL >> 23:22:50 singleton_go_factory.go:55: Added To Factory Obj Of Type Enemy
-SDL >> 23:22:50 singleton_go_factory.go:43: registering AnimatedGraphic
-SDL >> 23:22:50 singleton_go_factory.go:55: Added To Factory Obj Of Type AnimatedGraphic
-SDL >> 23:22:50 parser_state.go:67: init json state parser
-SDL >> 23:22:50 parser_state.go:102: Parsing Menu State
-SDL >> 23:22:50 parser_state.go:136: Pushed onto textureIDs playbutton
-SDL >> 23:22:50 parser_state.go:136: Pushed onto textureIDs exitbutton
-SDL >> 23:22:50 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
-SDL >> 23:22:50 parser_state.go:160: Created MenuButton
-SDL >> 23:22:50 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
-SDL >> 23:22:50 parser_state.go:160: Created MenuButton
-SDL >> 23:22:53 parser_level.go:171: Data from parse tile set:: &{1 32 32 2 2 614 376 18 blocks1}
-SDL >> 23:22:53 parser_level.go:200: Data from parse tile layer:: [[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 94 95 96 0 0 0 0 0 0 0 0 0 0 0 99 100 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 97 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 24 25 26 27 28 29 0 0 0 0 24 25 26 27 28 29 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0] [0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 73 78 78 78 78 74 0 0 0 0 73 78 78 78 78 74 0 0 0 0]]
-SDL >> 23:22:53 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
-SDL >> 23:22:53 singleton_go_factory.go:71: Factory Created Obj Of Type Player
-SDL >> 23:22:53 parser_level.go:237: Created Player
-SDL >> 23:23:41 parser_state.go:67: init json state parser
-SDL >> 23:23:41 parser_state.go:109: Parsing Pause State
-SDL >> 23:23:41 parser_state.go:136: Pushed onto textureIDs mainbutton
-SDL >> 23:23:41 parser_state.go:136: Pushed onto textureIDs resumebutton
-SDL >> 23:23:41 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
-SDL >> 23:23:41 parser_state.go:160: Created MenuButton
-SDL >> 23:23:41 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
-SDL >> 23:23:41 parser_state.go:160: Created MenuButton
-SDL >> 23:23:43 parser_state.go:67: init json state parser
-SDL >> 23:23:43 parser_state.go:102: Parsing Menu State
-SDL >> 23:23:43 parser_state.go:136: Pushed onto textureIDs playbutton
-SDL >> 23:23:43 parser_state.go:136: Pushed onto textureIDs exitbutton
-SDL >> 23:23:43 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
-SDL >> 23:23:43 parser_state.go:160: Created MenuButton
-SDL >> 23:23:43 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
-SDL >> 23:23:43 parser_state.go:160: Created MenuButton
-SDL >> 23:23:44 singleton_game.go:144: Quit App
+SDL >> 23:46:01 singleton_game.go:38: Init NewGame
+SDL >> 23:46:01 singleton_go_factory.go:32: Init Game Object Factory Singleton
+SDL >> 23:46:01 singleton_input.go:55: Init New Input Handler
+SDL >> 23:46:01 singleton_sound.go:39: Init New Sound Manager
+SDL >> 23:46:01 singleton_texture.go:35: Init New Texture Manager
+SDL >> 23:46:01 singleton_input.go:182: No joysticks were activated
+SDL >> 23:46:01 singleton_go_factory.go:43: registering MenuButton
+SDL >> 23:46:01 singleton_go_factory.go:55: Added To Factory Obj Of Type MenuButton
+SDL >> 23:46:01 singleton_go_factory.go:43: registering Player
+SDL >> 23:46:01 singleton_go_factory.go:55: Added To Factory Obj Of Type Player
+SDL >> 23:46:01 singleton_go_factory.go:43: registering Enemy
+SDL >> 23:46:01 singleton_go_factory.go:55: Added To Factory Obj Of Type Enemy
+SDL >> 23:46:01 singleton_go_factory.go:43: registering AnimatedGraphic
+SDL >> 23:46:01 singleton_go_factory.go:55: Added To Factory Obj Of Type AnimatedGraphic
+SDL >> 23:46:01 parser_state.go:67: init json state parser
+SDL >> 23:46:01 parser_state.go:102: Parsing Menu State
+SDL >> 23:46:01 parser_state.go:136: Pushed onto textureIDs playbutton
+SDL >> 23:46:01 parser_state.go:136: Pushed onto textureIDs exitbutton
+SDL >> 23:46:01 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
+SDL >> 23:46:01 parser_state.go:160: Created MenuButton
+SDL >> 23:46:01 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
+SDL >> 23:46:01 parser_state.go:160: Created MenuButton
+SDL >> 23:46:01 parser_level.go:171: Created new Tileset
+SDL >> 23:46:01 parser_level.go:200: Created new Tilelayer
+SDL >> 23:46:01 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
+SDL >> 23:46:01 singleton_go_factory.go:71: Factory Created Obj Of Type Player
+SDL >> 23:46:01 parser_level.go:237: Created obj from pared data of type Player
+SDL >> 23:46:02 parser_state.go:67: init json state parser
+SDL >> 23:46:02 parser_state.go:116: Parsing GameOver State
+SDL >> 23:46:02 parser_state.go:136: Pushed onto textureIDs gameovertext
+SDL >> 23:46:02 parser_state.go:136: Pushed onto textureIDs mainbutton
+SDL >> 23:46:02 parser_state.go:136: Pushed onto textureIDs resumebutton
+SDL >> 23:46:02 singleton_go_factory.go:71: Factory Created Obj Of Type AnimatedGraphic
+SDL >> 23:46:02 parser_state.go:160: Created AnimatedGraphic
+SDL >> 23:46:02 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
+SDL >> 23:46:02 parser_state.go:160: Created MenuButton
+SDL >> 23:46:02 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
+SDL >> 23:46:02 parser_state.go:160: Created MenuButton
+SDL >> 23:46:03 parser_state.go:67: init json state parser
+SDL >> 23:46:03 parser_state.go:102: Parsing Menu State
+SDL >> 23:46:03 parser_state.go:136: Pushed onto textureIDs playbutton
+SDL >> 23:46:03 parser_state.go:136: Pushed onto textureIDs exitbutton
+SDL >> 23:46:03 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
+SDL >> 23:46:03 parser_state.go:160: Created MenuButton
+SDL >> 23:46:03 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
+SDL >> 23:46:03 parser_state.go:160: Created MenuButton
+SDL >> 23:46:04 parser_level.go:171: Created new Tileset
+SDL >> 23:46:04 parser_level.go:200: Created new Tilelayer
+SDL >> 23:46:04 parser_level.go:214: Pushed onto textureIDs assets/helicopter1.png
+SDL >> 23:46:04 singleton_go_factory.go:71: Factory Created Obj Of Type Player
+SDL >> 23:46:04 parser_level.go:237: Created obj from pared data of type Player
+SDL >> 23:46:05 parser_state.go:67: init json state parser
+SDL >> 23:46:05 parser_state.go:116: Parsing GameOver State
+SDL >> 23:46:05 parser_state.go:136: Pushed onto textureIDs gameovertext
+SDL >> 23:46:05 parser_state.go:136: Pushed onto textureIDs mainbutton
+SDL >> 23:46:05 parser_state.go:136: Pushed onto textureIDs resumebutton
+SDL >> 23:46:05 singleton_go_factory.go:71: Factory Created Obj Of Type AnimatedGraphic
+SDL >> 23:46:05 parser_state.go:160: Created AnimatedGraphic
+SDL >> 23:46:05 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
+SDL >> 23:46:05 parser_state.go:160: Created MenuButton
+SDL >> 23:46:05 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
+SDL >> 23:46:05 parser_state.go:160: Created MenuButton
+SDL >> 23:46:05 parser_state.go:67: init json state parser
+SDL >> 23:46:05 parser_state.go:102: Parsing Menu State
+SDL >> 23:46:05 parser_state.go:136: Pushed onto textureIDs playbutton
+SDL >> 23:46:05 parser_state.go:136: Pushed onto textureIDs exitbutton
+SDL >> 23:46:05 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
+SDL >> 23:46:05 parser_state.go:160: Created MenuButton
+SDL >> 23:46:05 singleton_go_factory.go:71: Factory Created Obj Of Type MenuButton
+SDL >> 23:46:05 parser_state.go:160: Created MenuButton
+SDL >> 23:46:06 singleton_game.go:144: Quit App

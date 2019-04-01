@@ -1,20 +1,17 @@
 package game
 
 /*
-*IGameState
+IMenuState
 ---
-
-	- Update()
-	- Render()
-	- OnEnter() bool
-	- OnExit() bool
-	- GetStateID() string
-
-*IMenuState
----
-
-	- SetCallBacks([]Callback)
-*/
+ - SetCallBacks([]Callback)
+ - IGameState
+   ---
+   - Update()
+   - Render()
+   - OnEnter() bool
+   - OnExit() bool
+   - GetStateID() string
+**/
 
 import (
 	"fmt"

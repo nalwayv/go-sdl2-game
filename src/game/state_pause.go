@@ -3,19 +3,17 @@ package game
 import "fmt"
 
 /*
-Implements IMenuState interface.
+IMenuState
 ---
-
-*IGameState
-	- Update()
-	- Render()
-	- OnEnter() bool
-	- OnExit() bool
-	- GetStateID() string
-
-*IMenuState
-	- SetCallBacks([]Callback)
-*/
+ - SetCallBacks([]Callback)
+ - IGameState
+   ---
+   - Update()
+   - Render()
+   - OnEnter() bool
+   - OnExit() bool
+   - GetStateID() string
+**/
 
 // PauseID ... id for this object used for parsing state info
 const PauseID string = "pause"

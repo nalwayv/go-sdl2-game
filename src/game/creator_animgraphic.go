@@ -1,14 +1,14 @@
 package game
 
 /*
-* Info
-* ---
-* Used to create blank object of Animated Graphic
-*
-* ICreator interface
-* ---
-*
-* - CreateObj() IGameObject
+Info
+---
+Used to create blank object of Animated Graphic
+
+
+ICreator interface
+---
+- CreateObj() IGameObject
 **/
 
 // AnimGraphicCreator ...

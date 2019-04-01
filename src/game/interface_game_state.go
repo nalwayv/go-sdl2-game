@@ -1,10 +1,9 @@
 package game
 
-
 /*
-* Info
-* ---
-* interface for game state classes
+Info
+---
+interface for game state classes
 **/
 
 // IGameState ... game state interface

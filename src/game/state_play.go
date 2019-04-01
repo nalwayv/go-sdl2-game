@@ -5,13 +5,13 @@ into
 ---
 main game state
 
-implements IGameState
+IGameState
 ---
-- Update()
-- Render()
-- OnEnter() bool
-- OnExit() bool
-- GetStateID() string
+ - Update()
+ - Render()
+ - OnEnter() bool
+ - OnExit() bool
+ - GetStateID() string
 */
 
 import (
@@ -43,9 +43,9 @@ func (ps *PlayState) Update() {
 	}
 
 	// TMP switch to GameOver Menu
-	// if SInputHandler.IsKeyDown(sdl.SCANCODE_Q) {
-	//     STheGame.GetStateMachine().PushState(NewGameOverState())
-	// }
+	if SInputHandler.IsKeyDown(sdl.SCANCODE_Q) {
+		STheGame.GetStateMachine().PushState(NewGameOverState())
+	}
 
 	ps.pLevel.Update()
 }

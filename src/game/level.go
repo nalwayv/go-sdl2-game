@@ -1,18 +1,18 @@
 package game
 
 /*
-* Info
-* ---
-* Used to store data on current level
-*
-* layers[] :: store current levels game objects and tile layers
-* from objLayer and tilelayer that store info on current levels game objects and tiles
-*
-* Interface ILayer
-* ---
-* - Update()
-* - Render()
-* */
+Info
+---
+Used to store data on current level
+
+layers[] :: store current levels game objects and tile layers
+from objLayer and tilelayer that store info on current levels game objects and tiles
+
+Interface ILayer
+---
+- Update()
+- Render()
+**/
 
 // Level ...
 type Level struct {

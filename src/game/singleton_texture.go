@@ -63,19 +63,12 @@ func (t *TextureManager) Draw(id string, x, y, width, height int32, render *sdl.
 
 	var err error
 
-	desRect := sdl.Rect{
-		X: x,
-		Y: y,
-		W: width,
-		H: height}
+	desRect := sdl.Rect{x, y, width, height}
 
-	srcRect := sdl.Rect{
-		X: 0,
-		Y: 0,
-		W: desRect.W,
-		H: desRect.H}
+	srcRect := sdl.Rect{0, 0, desRect.W, desRect.H}
 
 	err = render.CopyEx(t.textureMap[id], &srcRect, &desRect, 0, nil, flip)
+
 	checkError(err)
 }
 
@@ -86,12 +79,7 @@ func (t *TextureManager) DrawFrame(id string, x, y, width, height, currentRow, c
 
 	var err error
 
-	desRect := sdl.Rect{
-		X: x,
-		Y: y,
-		W: width,
-		H: height,
-	}
+	desRect := sdl.Rect{x, y, width, height}
 
 	srcRect := sdl.Rect{
 		X: width * currentFrame,
@@ -101,6 +89,7 @@ func (t *TextureManager) DrawFrame(id string, x, y, width, height, currentRow, c
 	}
 
 	err = render.CopyEx(t.textureMap[id], &srcRect, &desRect, 0, nil, flip)
+
 	checkError(err)
 }
 
@@ -111,12 +100,7 @@ func (t *TextureManager) DrawTile(id string, margin, spacing, x, y, width, heigh
 
 	var err error
 
-	desRect := sdl.Rect{
-		X: x,
-		Y: y,
-		W: width,
-		H: height,
-	}
+	desRect := sdl.Rect{x, y, width, height}
 
 	srcRect := sdl.Rect{
 		X: margin + (spacing+width)*currentFrame,
@@ -126,6 +110,7 @@ func (t *TextureManager) DrawTile(id string, margin, spacing, x, y, width, heigh
 	}
 
 	err = render.CopyEx(t.textureMap[id], &srcRect, &desRect, 0, nil, sdl.FLIP_NONE)
+
 	checkError(err)
 }
 
