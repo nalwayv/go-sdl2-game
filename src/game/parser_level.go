@@ -1,11 +1,11 @@
 package game
 
 /*
-* Info
-* ---
-* Data parsed from the json file generated from 'Tiled'
-* then passed onto the current level Level
-* to be stored within ever its 'tilesets' or 'layers' slice
+Info
+---
+Data parsed from the json file generated from 'Tiled'
+then passed onto the current level Level
+to be stored within ever its 'tilesets' or 'layers' slice
 **/
 
 import (

@@ -3,8 +3,7 @@ package game
 /*
 info
 ---
-Singleton texture manager that uses a map to store
-sld.Texture values
+Singleton texture manager that uses a map to store sld.Texture values
 
 **/
 

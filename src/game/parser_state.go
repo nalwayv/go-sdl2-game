@@ -1,12 +1,11 @@
 package game
 
 /*
-* Info
-* ---
-* Parse json data for game objects data such as its width, height ,position,
-* texture info and so on.
-*
-* */
+Info
+---
+Parse json data for game objects data such as its width, height ,position,
+texture info and so on.
+**/
 
 import (
 	"encoding/json"
@@ -89,11 +88,14 @@ func (jsp *JSONStateParser) loadData(filename string) JSONStates {
 	return data
 }
 
-// ParseState ...
-// filename	- file with data
-// stateID	- id for parsing
-// o		- pointer to slice where data will be stored
-// t		- pointer to slice were data will be stored
+/*
+ParseState ...
+
+o :: pointer to slice where data will be stored
+
+t :: pointer to slice were data will be stored
+
+*/
 func (jsp *JSONStateParser) ParseState(filename, stateID string, o *[]IGameObject, t *[]string) {
 	data := jsp.loadData(filename)
 
@@ -114,7 +116,7 @@ func (jsp *JSONStateParser) ParseState(filename, stateID string, o *[]IGameObjec
 	} else if stateID == "gameover" {
 
 		gologger.SLogger.Println("Parsing GameOver State")
-		
+
 		jsp.parseTextures(data.State.GameOver.JSONTextures, t)
 		jsp.parseObjects(data.State.GameOver.JSONObjects, o)
 

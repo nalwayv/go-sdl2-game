@@ -3,7 +3,7 @@ package game
 /*
 info
  ---
-Singleton Object factory that crates blank objects that get fleshed out
+Singleton Object factory that uses a map crates blank objects that get fleshed out
 when the created objects onEnter is called
 **/
 

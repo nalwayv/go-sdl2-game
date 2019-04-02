@@ -145,7 +145,7 @@ func (input *InHandler) InitialiseJoySticks() {
 		checkError(err)
 	}
 
-	// if any  joysticks attached to system
+	// if any joysticks attached to system
 	if sdl.NumJoysticks() > 0 {
 
 		// add found to inSticks
@@ -160,11 +160,10 @@ func (input *InHandler) InitialiseJoySticks() {
 
 				// add number of button found on joypad
 				tmpButton := make([]bool, 0)
-
 				for j := 0; j < joy.NumButtons(); j++ {
 					tmpButton = append(tmpButton, false)
 				}
-
+				// push that then to input
 				input.inButtons = append(input.inButtons, tmpButton)
 			}
 		}
@@ -191,13 +190,16 @@ func (input *InHandler) JoySticksInitialised() bool {
 	return input.isJSInitialised
 }
 
-// GetXvalue ... get current X value
-// joy :: id of joypad
-// - 0 joy stick 1
-// - 1 joy stick 2
-// stick - sticks on the controller, most have two a left and a right
-// - 0 left
-// - 1 right
+/*
+GetXvalue ... get current X value
+
+joy :: id of joypad
+	- 0 joy stick 1
+	- 1 joy stick 2
+stick - sticks on the controller, most have two a left and a right
+	- 0 left
+	- 1 right
+*/
 func (input *InHandler) GetXvalue(joy, stick int) int {
 	// if any sticks found
 	if len(input.inStickVal) > 0 {
@@ -206,6 +208,7 @@ func (input *InHandler) GetXvalue(joy, stick int) int {
 			// left
 			v := input.inStickVal[joy].first.GetX()
 			return int(v)
+
 		} else if stick == 2 {
 			// right
 			v := input.inStickVal[joy].second.GetX()
@@ -217,13 +220,17 @@ func (input *InHandler) GetXvalue(joy, stick int) int {
 	return 0
 }
 
-// GetYvalue ... get current Y value of stick moved on joypad
-// joy :: id of joypad
-// - 0 joy stick 1
-// - 1 joy stick 2
-// stick - sticks on the controller, most have two a left and a right
-// - 0 left
-// - 1 right
+/*
+GetYvalue ...
+get current Y value of stick moved on joypad
+
+joy :: id of joypad
+	- 0 joy stick 1
+	- 1 joy stick 2
+stick :: sticks on the controller
+	- 0 left
+	- 1 right
+*/
 func (input *InHandler) GetYvalue(joy, stick int) int {
 	// if any sticks found
 	if len(input.inStickVal) > 0 {
@@ -243,35 +250,36 @@ func (input *InHandler) GetYvalue(joy, stick int) int {
 	return 0
 }
 
-// GetButtonState ... return if current button state is active or not
-// joy - joypad to act upon
-// buttonNum - button on joypad to act upon
-//
-//   * Xbox Buttons
-//   -----------------
-//  | Button | Number |
-//  | ------ + ------ |
-//	| A      |      0 |
-//	| B      |      1 |
-//	| X      |      2 |
-//	| Y      |      3 |
-//	| L      |      4 |
-//	| R      |      5 |
-//    -----------------
-func (input *InHandler) GetButtonState(joy, buttonNum int) bool {
+/*
+GetButtonState ... return if current button state is active or not
 
+joy :: joypad to act upon
+buttonNum :: button on joypad to act upon
+
+## Xbox controller info
+	| Button | Number |
+	| :----- | :----: |
+	| A      |      0 |
+	| B      |      1 |
+	| X      |      2 |
+	| Y      |      3 |
+	| L      |      4 |
+	| R      |      5 |
+*/
+func (input *InHandler) GetButtonState(joy, buttonNum int) bool {
 	return input.inButtons[joy][buttonNum]
 }
 
-// GetMouseButtonState ... returns current state of mouse button click
-//   * Mouse Buttons
-//   -----------------
-//  | Button | Number |
-//  | ------ + ------ |
-//	| Left   |      0 |
-//	| Middle |      1 |
-//	| Right  |      3 |
-//   -----------------
+/*
+GetMouseButtonState ... returns current state of mouse button click
+
+## Mouse Buttons
+	| Button | Number |
+	|:------ | :----: |
+	| Left   |      0 |
+	| Middle |      1 |
+	| Right  |      3 |
+*/
 func (input *InHandler) GetMouseButtonState(button int) bool {
 	return input.inMouseButtons[button]
 }

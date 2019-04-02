@@ -1,5 +1,11 @@
 package game
 
+/*
+Info
+---
+data for storing info on tilesets
+**/
+
 // Tileset ...
 type Tileset struct {
 	GridID     int
