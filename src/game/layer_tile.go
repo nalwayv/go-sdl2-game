@@ -65,7 +65,7 @@ func (tl *TileLayer) Render() {
 			}
 
 			tileset := tl.GetTilesetByID(id)
-			id-- // tiled adds one to tile id so negative one to get the correct tile
+			id-- // get propper tile id
 
 			STextureManager.DrawTile(
 				tileset.Name,
