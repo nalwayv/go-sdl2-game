@@ -27,13 +27,5 @@
         "typescript",
         "typescriptreact",
         "yml"
-    ],
-    "cSpell.words": [
-        "Spacemacs",
-        "Xbox",
-        "ctrl",
-        "magit",
-        "struct",
-        "structs"
     ]
 }

@@ -91,9 +91,9 @@ func (jsp *JSONStateParser) loadData(filename string) JSONStates {
 /*
 ParseState ...
 
-o :: pointer to slice where data will be stored
+o :: pointer to slice where parsed data will be stored
 
-t :: pointer to slice were data will be stored
+t :: pointer to slice were parsed data will be stored
 
 */
 func (jsp *JSONStateParser) ParseState(filename, stateID string, o *[]IGameObject, t *[]string) {
@@ -132,7 +132,6 @@ func (jsp *JSONStateParser) parseTextures(textures []JSONTextures, t *[]string) 
 	for _, v := range textures {
 		STextureManager.Load(v.FileName, v.ID, STheGame.GetRenderer())
 
-		// pointer to outside data slice to append to
 		*t = append(*t, v.ID)
 
 		gologger.SLogger.Println("Pushed onto textureIDs", v.ID)
@@ -156,7 +155,6 @@ func (jsp *JSONStateParser) parseObjects(objects []JSONObjects, o *[]IGameObject
 			v.CallBackID,
 			v.AnimSpeed))
 
-		// pointer to outside data slice to append to
 		*o = append(*o, obj)
 
 		gologger.SLogger.Println("Created", v.Type)

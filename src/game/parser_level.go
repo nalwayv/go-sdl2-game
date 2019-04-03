@@ -149,9 +149,7 @@ func (mp *JSONMapParser) ParseLevel(filename string) *Level {
 	return level
 }
 
-// parse tile sets
-// jTileset - slice of parsed data
-// level * - pointer to level data
+// parse tile sets ...
 func (mp *JSONMapParser) parseTileSets(jTileset JSONTileset, level *Level) {
 	// load map texture from parse data
 	STextureManager.Load(jTileset.Source, jTileset.Name, STheGame.GetRenderer())
@@ -174,14 +172,12 @@ func (mp *JSONMapParser) parseTileSets(jTileset JSONTileset, level *Level) {
 	level.AppendToTileSet(tileset)
 }
 
-// parse tile layers
-// jLayers - slice of parsed data
-// level   - pointer to level data
+// parse tile layers ...
 func (mp *JSONMapParser) parseTileLayers(jLayer JSONLayers, level *Level) {
 	// new texture layer to store info
 	tilelayer := NewTileLayer(mp.tilesize, level.GetTileSet())
 
-	// empty 2d slice to hold tile map info
+	// empty 2d slice to hold tile map data
 	data := make([][]int, 0)
 	for i := 0; i < mp.height; i++ {
 		data = append(data, make([]int, mp.width))
@@ -190,7 +186,8 @@ func (mp *JSONMapParser) parseTileLayers(jLayer JSONLayers, level *Level) {
 	// add data
 	for rows := 0; rows < mp.height; rows++ {
 		for cols := 0; cols < mp.width; cols++ {
-			// convert 1d to 2d map coords
+
+			// convert to 2d map coords
 			tileid := (rows * mp.width) + cols
 
 			data[rows][cols] = jLayer.Data[tileid]
@@ -205,8 +202,7 @@ func (mp *JSONMapParser) parseTileLayers(jLayer JSONLayers, level *Level) {
 	level.AppendToLayer(tilelayer)
 }
 
-// parse tile texture
-// jProp - parsed data from JsonProperty
+// parse tile texture ...
 func (mp *JSONMapParser) parseTextures(jProp JSONProp) {
 	// get textures for objects in current level
 	STextureManager.Load(jProp.Source, jProp.Name, STheGame.GetRenderer())
@@ -224,15 +220,7 @@ func (mp *JSONMapParser) parseObjLayers(jGroups JSONObjGroups, level *Level) {
 
 		checkError(err)
 
-		obj.Load(NewParams(
-			v.X,
-			v.Y,
-			v.Width,
-			v.Height,
-			v.TexID,
-			v.NumberOfFrames,
-			v.CallBackID,
-			v.AnimSpeed))
+		obj.Load(NewParams(v.X, v.Y, v.Width, v.Height, v.TexID, v.NumberOfFrames, v.CallBackID, v.AnimSpeed))
 
 		gologger.SLogger.Println("Created obj from pared data of type", v.Type)
 

@@ -7,7 +7,6 @@ IMenuState
 ---
  - SetCallBacks([]Callback)
  - IGameState
-   ---
    - Update()
    - Render()
    - OnEnter() bool
@@ -58,8 +57,8 @@ func (ps *PauseState) OnEnter() bool {
 	sp.ParseState("data/data.json", PauseID, &ps.objects, &ps.textureIDs)
 
 	// button callback functions
-	// starts from 1 so 0 is nil
-	ps.callbacks = append(ps.callbacks, nil)
+	// starts from 1
+	ps.callbacks = append(ps.callbacks, nil) // empty
 	ps.callbacks = append(ps.callbacks, pauseToMain)
 	ps.callbacks = append(ps.callbacks, resume)
 	ps.SetCallBacks(ps.callbacks)

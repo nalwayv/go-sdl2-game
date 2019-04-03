@@ -17,8 +17,6 @@ import (
 
 // SdlGameObject ...
 type SdlGameObject struct {
-	//*GObject
-
 	TextureID    string
 	Width        int32
 	Height       int32

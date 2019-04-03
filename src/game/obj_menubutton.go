@@ -21,8 +21,8 @@ const (
 type MenuButton struct {
 	obj            *SdlGameObject
 	buttonReleased bool   // pressed or not
-	callback       func() // function execusted when button is clicked
-	callbackID     int    // num indicating what function to call within data slice
+	callback       func() // function
+	callbackID     int    // num indicating what function to call
 }
 
 // NewMenuButton ...

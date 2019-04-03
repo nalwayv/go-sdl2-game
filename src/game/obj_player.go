@@ -86,34 +86,31 @@ func (p *Player) HandleInput() {
 		if SInputHandler.GetButtonState(0, 3) {
 			p.obj.Velocity.SetX(1)
 		}
+	} else {
+		// mouse left
+		if SInputHandler.GetMouseButtonState(0) {
+			p.obj.Velocity.SetX(1)
+		}
+
+		// keyboard
+		if SInputHandler.IsKeyDown(sdl.SCANCODE_UP) {
+			p.obj.Velocity.SetY(-2)
+		}
+
+		if SInputHandler.IsKeyDown(sdl.SCANCODE_DOWN) {
+			p.obj.Velocity.SetY(2)
+		}
+
+		if SInputHandler.IsKeyDown(sdl.SCANCODE_LEFT) {
+			p.obj.Velocity.SetX(-2)
+		}
+
+		if SInputHandler.IsKeyDown(sdl.SCANCODE_RIGHT) {
+			p.obj.Velocity.SetX(2)
+		}
+
+		// follow mouse
+		target := SInputHandler.GetMousePosition()
+		p.obj.Velocity = vec2d.Divide(*vec2d.Sub(*target, *p.obj.Position), 100)
 	}
-
-	// No joystick
-
-	// mouse left
-	if SInputHandler.GetMouseButtonState(0) {
-		p.obj.Velocity.SetX(1)
-	}
-
-	// keyboard
-	if SInputHandler.IsKeyDown(sdl.SCANCODE_UP) {
-		p.obj.Velocity.SetY(-2)
-	}
-
-	if SInputHandler.IsKeyDown(sdl.SCANCODE_DOWN) {
-		p.obj.Velocity.SetY(2)
-	}
-
-	if SInputHandler.IsKeyDown(sdl.SCANCODE_LEFT) {
-		p.obj.Velocity.SetX(-2)
-	}
-
-	if SInputHandler.IsKeyDown(sdl.SCANCODE_RIGHT) {
-		p.obj.Velocity.SetX(2)
-	}
-
-	// follow mouse
-	target := SInputHandler.GetMousePosition()
-	p.obj.Velocity = vec2d.Divide(*vec2d.Sub(*target, *p.obj.Position), 100)
-
 }

@@ -34,7 +34,7 @@ func (ag *AnimatedGraphic) Draw() {
 
 // Update ...
 func (ag *AnimatedGraphic) Update() {
-
+	//
 }
 
 // Clean ...
