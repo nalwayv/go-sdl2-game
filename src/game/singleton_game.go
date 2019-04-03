@@ -125,10 +125,6 @@ func (g *Game) Update() {
 // HandleEvents ...
 func (g *Game) HandleEvents() {
 	SInputHandler.Update()
-
-	if SInputHandler.IsKeyDown(sdl.SCANCODE_RETURN) {
-		g.GetStateMachine().ChangeState(NewPlayState())
-	}
 }
 
 // Clean ...
