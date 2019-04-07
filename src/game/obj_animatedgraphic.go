@@ -12,13 +12,13 @@ IGameObject interface
 
 // AnimatedGraphic ...
 type AnimatedGraphic struct {
-	obj *SdlGameObject
+	obj *GameObject
 }
 
 // NewAnimatedGraphic ...
 func NewAnimatedGraphic() *AnimatedGraphic {
 	ag := &AnimatedGraphic{}
-	ag.obj = NewSdlGObj()
+	ag.obj = NewGameObject()
 	return ag
 }
 

@@ -17,13 +17,13 @@ import (
 
 // Player ...
 type Player struct {
-	obj *SdlGameObject // inherit game object
+	obj *AnimObject // inherit game object
 }
 
 // NewPlayer .. constructor initialise a new player object
 func NewPlayer() *Player {
 	player := &Player{}
-	player.obj = NewSdlGObj()
+	player.obj = NewAnimObject()
 	return player
 }
 
@@ -41,7 +41,6 @@ func (p *Player) Draw() {
 func (p *Player) Update() {
 	p.obj.Velocity.SetX(0)
 	p.obj.Velocity.SetY(0)
-
 	p.HandleInput()
 
 	p.obj.Update()
@@ -112,5 +111,12 @@ func (p *Player) HandleInput() {
 		// follow mouse
 		target := SInputHandler.GetMousePosition()
 		p.obj.Velocity = vec2d.Divide(*vec2d.Sub(*target, *p.obj.Position), 100)
+
+		if SInputHandler.IsKeyDown(sdl.SCANCODE_1) {
+			p.obj.frames.IncrementSpeed(1)
+		}
+		if SInputHandler.IsKeyDown(sdl.SCANCODE_2) {
+			p.obj.frames.IncrementSpeed(-1)
+		}
 	}
 }

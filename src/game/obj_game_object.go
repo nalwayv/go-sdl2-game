@@ -15,8 +15,8 @@ import (
 	"github.com/veandco/go-sdl2/sdl"
 )
 
-// SdlGameObject ...
-type SdlGameObject struct {
+// GameObject ...
+type GameObject struct {
 	TextureID    string
 	Width        int32
 	Height       int32
@@ -30,14 +30,14 @@ type SdlGameObject struct {
 	Acceleration *vec2d.Vector2D
 }
 
-// NewSdlGObj ...
-func NewSdlGObj() *SdlGameObject {
-	obj := &SdlGameObject{}
+// NewGameObject ...
+func NewGameObject() *GameObject {
+	obj := &GameObject{}
 	return obj
 }
 
 // Load ... set up variables
-func (g *SdlGameObject) Load(params *LoadParams) {
+func (g *GameObject) Load(params *LoadParams) {
 
 	g.Position = vec2d.NewVector2d(float64(params.GetX()), float64(params.GetY()))
 	g.Velocity = vec2d.NewVector2d(0.0, 0.0)
@@ -55,7 +55,7 @@ func (g *SdlGameObject) Load(params *LoadParams) {
 }
 
 // Draw ...
-func (g *SdlGameObject) Draw() {
+func (g *GameObject) Draw() {
 	// flipped or not based on velocity
 	if g.Velocity.GetX() > 0 {
 		STextureManager.DrawFrame(
@@ -85,11 +85,11 @@ func (g *SdlGameObject) Draw() {
 }
 
 // Update ...
-func (g *SdlGameObject) Update() {
+func (g *GameObject) Update() {
 	g.Velocity = vec2d.Add(*g.Velocity, *g.Acceleration)
 	g.Position = vec2d.Add(*g.Position, *g.Velocity)
 }
 
 // Clean ...
-func (g *SdlGameObject) Clean() {
+func (g *GameObject) Clean() {
 }

@@ -12,13 +12,13 @@ IGameObject interface
 
 // Enemy ...
 type Enemy struct {
-	obj *SdlGameObject // inherit game object
+	obj *GameObject // inherit game object
 }
 
 // NewEnemy .. constructor
 func NewEnemy() *Enemy {
 	enemy := &Enemy{}
-	enemy.obj = NewSdlGObj()
+	enemy.obj = NewGameObject()
 	return enemy
 }
 

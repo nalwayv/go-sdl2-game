@@ -123,3 +123,25 @@ func (t *TextureManager) ClearFromTextureMap(id string) error {
 	}
 	return nil
 }
+
+// GetWidth ...
+func (t *TextureManager) GetWidth(id string) (int32, error) {
+	tex, ok := t.textureMap[id]
+	if !ok {
+		return -1, errors.New("texture id not found in texture map")
+	}
+	_, _, w, _, err := tex.Query()
+	checkError(err)
+	return w, nil
+}
+
+// GetHeight ...
+func (t *TextureManager) GetHeight(id string) (int32, error) {
+	tex, ok := t.textureMap[id]
+	if !ok {
+		return -1, errors.New("texture id not found in texture map")
+	}
+	_, _, _, h, err := tex.Query()
+	checkError(err)
+	return h, nil
+}

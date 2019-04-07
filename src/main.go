@@ -15,6 +15,14 @@ const (
 	DelayTime    uint32 = 1000.0 / Fps
 )
 
+// game loop update
+var (
+	previousTime uint32
+	lagTime      uint32
+	currentTime  uint32
+	elapsedTime  uint32
+)
+
 //------------------------------------
 
 func run() {
@@ -30,17 +38,22 @@ func run() {
 	// main loop
 	for game.STheGame.Running {
 
-		framesStart := sdl.GetTicks()
+		currentTime = sdl.GetTicks()
+		elapsedTime = currentTime - previousTime
+		previousTime = currentTime
+		lagTime += elapsedTime
 
-		game.STheGame.HandleEvents()
-		game.STheGame.Update()
-		game.STheGame.Render()
+		// Update only every Milliseconds per frame.
+		// If lag larger then update frames, update until caught up.
+		for (lagTime >= DelayTime) && game.STheGame.Running {
 
-		framesEnd := sdl.GetTicks() - framesStart
+			game.STheGame.HandleEvents()
+			game.STheGame.Update()
 
-		if framesEnd < DelayTime {
-			sdl.Delay(DelayTime - framesEnd)
+			lagTime -= DelayTime
 		}
+
+		game.STheGame.Render()
 	}
 
 	// clean up

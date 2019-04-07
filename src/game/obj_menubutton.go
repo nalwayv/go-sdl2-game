@@ -19,7 +19,7 @@ const (
 
 // MenuButton ...
 type MenuButton struct {
-	obj            *SdlGameObject
+	obj            *GameObject
 	buttonReleased bool   // pressed or not
 	callback       func() // function
 	callbackID     int    // num indicating what function to call
@@ -28,7 +28,7 @@ type MenuButton struct {
 // NewMenuButton ...
 func NewMenuButton() *MenuButton {
 	mb := &MenuButton{}
-	mb.obj = NewSdlGObj()
+	mb.obj = NewGameObject()
 	return mb
 }
 

@@ -11,6 +11,8 @@ import (
 	"sync"
 
 	"../gologger"
+
+	"../vec2d"
 	"github.com/veandco/go-sdl2/sdl"
 )
 
@@ -46,6 +48,11 @@ func newGame() *Game {
 func (g *Game) GetRenderer() *sdl.Renderer {
 	return g.Renderer
 }
+
+// GetWindow ...
+// func (g *Game) GetWindow() *sdl.Window {
+// 	return g.Window
+// }
 
 // GetStateMachine ...
 func (g *Game) GetStateMachine() *StateMachine {

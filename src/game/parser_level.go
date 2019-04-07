@@ -80,6 +80,7 @@ type JSONObj struct {
 	Width          int32  `json:"width"`
 	Height         int32  `json:"height"`
 	NumberOfFrames int    `json:"numframes"`
+	NumberOfRows   int    `json:"numrows"`
 	AnimSpeed      int    `json:"animspeed"`
 	CallBackID     int    `json:"callbackid"`
 }
