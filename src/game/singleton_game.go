@@ -11,8 +11,6 @@ import (
 	"sync"
 
 	"../gologger"
-
-	"../vec2d"
 	"github.com/veandco/go-sdl2/sdl"
 )
 
